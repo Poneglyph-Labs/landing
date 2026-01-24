@@ -1,5 +1,12 @@
-export type ArchiveItemType = 'Paper' | 'Audit' | 'Repository' | 'Proof of Concept'
-export type ArchiveDomain = 'Cryptography' | 'Decentralized System' | 'Artificial Intelligence'
+export type ArchiveItemType =
+    | 'Paper'
+    | 'Audit'
+    | 'Repository'
+    | 'Proof of Concept'
+export type ArchiveDomain =
+    | 'Cryptography'
+    | 'Decentralized System'
+    | 'Artificial Intelligence'
 
 export interface ArchiveItem {
     id: string
@@ -30,120 +37,133 @@ export const archiveItems: ArchiveItem[] = [
         id: '1',
         slug: 'zero-knowledge-rollup-efficiency',
         title: 'Zero-Knowledge Rollup Efficiency in Low-Bandwidth Environments',
-        description: 'Optimizing zk-SNARK proof generation and transmission for constrained IoT networks using recursive composition.',
+        description:
+            'Optimizing zk-SNARK proof generation and transmission for constrained IoT networks using recursive composition.',
         date: '15-10-2025',
         type: 'Paper',
         domain: 'Cryptography',
-        abstract: 'This paper presents a novel approach to optimizing zk-SNARK proof generation and transmission specifically tailored for constrained IoT networks. By utilizing recursive proof composition and a custom transport layer, we demonstrate a 40% reduction in latency compared to standard Groth16 implementations. The research focuses on minimizing the on-wire footprint of validity proofs without compromising cryptographic security guarantees.',
-        technicalFocus: ['zk-SNARKs', 'Recursive Composition', 'IoT Networking'],
+        abstract:
+            'This paper presents a novel approach to optimizing zk-SNARK proof generation and transmission specifically tailored for constrained IoT networks. By utilizing recursive proof composition and a custom transport layer, we demonstrate a 40% reduction in latency compared to standard Groth16 implementations. The research focuses on minimizing the on-wire footprint of validity proofs without compromising cryptographic security guarantees.',
+        technicalFocus: [
+            'zk-SNARKs',
+            'Recursive Composition',
+            'IoT Networking',
+        ],
         primaryOutput: 'PDF',
         relatedResearch: [
             {
                 title: 'Layer-3 Privacy Scaling Solutions',
                 type: 'Repository',
                 date: '15-10-2025',
-                slug: 'layer-3-privacy-scaling'
+                slug: 'layer-3-privacy-scaling',
             },
             {
                 title: 'Verifiable Inference for Edge Computer',
                 type: 'Proof of Concept',
                 date: '15-10-2025',
-                slug: 'verifiable-inference-edge'
-            }
+                slug: 'verifiable-inference-edge',
+            },
         ],
         links: {
             code: '#',
-            pdf: '#'
-        }
+            pdf: '#',
+        },
     },
     {
         id: '2',
         slug: 'helios-protocol-audit',
         title: 'Helios Protocol: Smart Contract Security Audit',
-        description: 'Comprehensive security analysis of the Helios Protocol smart contract system.',
+        description:
+            'Comprehensive security analysis of the Helios Protocol smart contract system.',
         date: '15-10-2025',
         type: 'Audit',
         domain: 'Decentralized System',
         links: {
-            pdf: '#'
-        }
+            pdf: '#',
+        },
     },
     {
         id: '3',
         slug: 'deterministic-randomness-beacon',
         title: 'Deterministic Randomness Beacon (Drand) Integration',
-        description: 'Implementation details for verifying distributed randomness beacons within EVM-compatible execution layers.',
+        description:
+            'Implementation details for verifying distributed randomness beacons within EVM-compatible execution layers.',
         date: '15-10-2025',
         type: 'Repository',
         domain: 'Decentralized System',
         links: {
             code: '#',
-            demo: '#'
-        }
+            demo: '#',
+        },
     },
     {
         id: '4',
         slug: 'byzantine-fault-tolerance',
         title: 'Byzantine Fault Tolerance in Asynchronous Networks',
-        description: 'Establishing theoretical upper bounds for consensus finality in partially synchronous mesh networks.',
+        description:
+            'Establishing theoretical upper bounds for consensus finality in partially synchronous mesh networks.',
         date: '15-10-2025',
         type: 'Paper',
         domain: 'Decentralized System',
         links: {
             code: '#',
             demo: '#',
-            pdf: '#'
-        }
+            pdf: '#',
+        },
     },
     {
         id: '5',
         slug: 'layer-3-privacy-scaling',
         title: 'Layer-3 Privacy Scaling Solutions',
-        description: 'A modular library for deploying privacy-preserving application chains on top of optimistic rollups.',
+        description:
+            'A modular library for deploying privacy-preserving application chains on top of optimistic rollups.',
         date: '15-10-2025',
         type: 'Repository',
         domain: 'Cryptography',
         links: {
-            pdf: '#'
-        }
+            pdf: '#',
+        },
     },
     {
         id: '6',
         slug: 'post-quantum-cryptography-review',
         title: 'Post-Quantum Cryptography Standards Review',
-        description: 'Benchmarking lattice-based signature schemes against current NIST finalists for mobile hardware.',
+        description:
+            'Benchmarking lattice-based signature schemes against current NIST finalists for mobile hardware.',
         date: '15-10-2025',
         type: 'Paper',
         domain: 'Cryptography',
         links: {
-            code: '#'
-        }
+            code: '#',
+        },
     },
     {
         id: '7',
         slug: 'adversarial-robustness-llm',
         title: 'Adversarial Robustness in LLM Agents',
-        description: 'Developing formal verification methods to detect and prevent prompt injection attacks in autonomous agents.',
+        description:
+            'Developing formal verification methods to detect and prevent prompt injection attacks in autonomous agents.',
         date: '15-10-2025',
         type: 'Paper',
         domain: 'Artificial Intelligence',
         links: {
-            pdf: '#'
-        }
+            pdf: '#',
+        },
     },
     {
         id: '8',
         slug: 'verifiable-inference-edge',
         title: 'Verifiable Inference for Edge Compute',
-        description: 'Lightweight cryptographic proofs for ensuring integrity of ML model inference on untrusted edge nodes.',
+        description:
+            'Lightweight cryptographic proofs for ensuring integrity of ML model inference on untrusted edge nodes.',
         date: '15-10-2025',
         type: 'Paper',
         domain: 'Artificial Intelligence',
         links: {
             code: '#',
-            demo: '#'
-        }
-    }
+            demo: '#',
+        },
+    },
 ]
 
 export function getArchiveItems(): ArchiveItem[] {
@@ -151,7 +171,7 @@ export function getArchiveItems(): ArchiveItem[] {
 }
 
 export function getArchiveItem(slug: string): ArchiveItem | undefined {
-    return archiveItems.find(item => item.slug === slug)
+    return archiveItems.find((item) => item.slug === slug)
 }
 
 export function filterArchiveItems(
@@ -162,15 +182,23 @@ export function filterArchiveItems(
         search?: string
     }
 ): ArchiveItem[] {
-    return items.filter(item => {
-        if (filters.domain && filters.domain !== 'All' && item.domain !== filters.domain) {
+    return items.filter((item) => {
+        if (
+            filters.domain &&
+            filters.domain !== 'All' &&
+            item.domain !== filters.domain
+        ) {
             return false
         }
-        
-        if (filters.type && filters.type !== 'All' && item.type !== filters.type) {
+
+        if (
+            filters.type &&
+            filters.type !== 'All' &&
+            item.type !== filters.type
+        ) {
             return false
         }
-        
+
         if (filters.search) {
             const searchLower = filters.search.toLowerCase()
             return (
@@ -178,7 +206,7 @@ export function filterArchiveItems(
                 item.description.toLowerCase().includes(searchLower)
             )
         }
-        
+
         return true
     })
 }
@@ -190,8 +218,8 @@ export function sortArchiveItems(
     return [...items].sort((a, b) => {
         const dateA = new Date(a.date.split('-').reverse().join('-'))
         const dateB = new Date(b.date.split('-').reverse().join('-'))
-        
-        return sortBy === 'Most Recent' 
+
+        return sortBy === 'Most Recent'
             ? dateB.getTime() - dateA.getTime()
             : dateA.getTime() - dateB.getTime()
     })

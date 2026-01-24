@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ]
 
-    const archivePages = archiveItems.map(item => ({
+    const archivePages = archiveItems.map((item) => ({
         url: `${baseUrl}/archive/${item.slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,

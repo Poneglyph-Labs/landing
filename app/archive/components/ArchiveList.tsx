@@ -9,8 +9,8 @@ interface ArchiveListProps {
 export function ArchiveList({ items }: ArchiveListProps) {
     if (items.length === 0) {
         return (
-            <div className="border border-tertiary-400 flex flex-col items-center justify-center py-20 w-full">
-                <p className="text-h4 font-medium text-secondary-600">
+            <div className="border-tertiary-400 flex w-full flex-col items-center justify-center border py-20">
+                <p className="text-h4 text-secondary-600 font-medium">
                     No research artifacts found
                 </p>
                 <p className="text-body1 font-regular text-secondary-600 mt-4">
@@ -21,15 +21,18 @@ export function ArchiveList({ items }: ArchiveListProps) {
     }
 
     return (
-        <div className="border border-tertiary-400 flex flex-col items-start w-full">
-            {items.map((item, index) => (
-                <div key={item.id}>
-                    <Link href={`/archive/${item.slug}`} className="block w-full">
+        <div className="border-tertiary-400 flex w-full flex-col items-start border">
+            {items.map((item) => (
+                <div
+                    key={item.id}
+                    className="border-tertiary-400 w-full border-b last:border-b-0"
+                >
+                    <Link
+                        href={`/archive/${item.slug}`}
+                        className="block w-full"
+                    >
                         <ArchiveItemCard item={item} />
                     </Link>
-                    {index < items.length - 1 && (
-                        <div className="h-px bg-tertiary-400 w-full" />
-                    )}
                 </div>
             ))}
         </div>

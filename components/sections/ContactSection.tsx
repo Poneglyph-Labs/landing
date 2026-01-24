@@ -11,7 +11,10 @@ const subjectOptions = [
 
 export function ContactSection() {
     return (
-        <section className="bg-primary-900 border-tertiary-400 border-t py-20">
+        <section
+            id="contact"
+            className="bg-primary-900 border-tertiary-400 border-t py-20"
+        >
             <div className="mx-auto max-w-4xl px-4 md:px-8">
                 <div className="space-y-10">
                     {/* Section Header */}

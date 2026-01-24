@@ -13,6 +13,7 @@ interface ArchiveFiltersProps {
     onTypeChange: (type: ArchiveItemType | 'All') => void
     sortBy: 'Most Recent' | 'Oldest'
     onSortChange: (sort: 'Most Recent' | 'Oldest') => void
+    isMobile?: boolean
 }
 
 export function ArchiveFilters({
@@ -23,65 +24,107 @@ export function ArchiveFilters({
     selectedType,
     onTypeChange,
     sortBy,
-    onSortChange
+    onSortChange,
+    isMobile = false,
 }: ArchiveFiltersProps) {
     const [showDomainDropdown, setShowDomainDropdown] = useState(false)
     const [showTypeDropdown, setShowTypeDropdown] = useState(false)
     const [showSortDropdown, setShowSortDropdown] = useState(false)
 
-    const domains: (ArchiveDomain | 'All')[] = ['All', 'Cryptography', 'Decentralized System', 'Artificial Intelligence']
-    const types: (ArchiveItemType | 'All')[] = ['All', 'Paper', 'Audit', 'Repository', 'Proof of Concept']
+    const domains: (ArchiveDomain | 'All')[] = [
+        'All',
+        'Cryptography',
+        'Decentralized System',
+        'Artificial Intelligence',
+    ]
+    const types: (ArchiveItemType | 'All')[] = [
+        'All',
+        'Paper',
+        'Audit',
+        'Repository',
+        'Proof of Concept',
+    ]
     const sortOptions: ('Most Recent' | 'Oldest')[] = ['Most Recent', 'Oldest']
 
     return (
-        <div className="flex flex-col gap-6 items-start w-full">
-            {/* Search Bar */}
-            <div className="border border-tertiary-600 flex gap-2 h-16 items-center p-4 w-full">
-                <div className="w-6 h-6 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+        <div
+            className={`flex w-full items-start ${isMobile ? 'flex-col gap-0' : 'flex-col gap-6'}`}
+        >
+            {/* Search Bar - Only show on desktop, mobile has its own */}
+            {!isMobile && (
+                <div className="border-tertiary-600 flex h-16 w-full items-center gap-2 border p-4">
+                    <div className="flex h-6 w-6 items-center justify-center">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="h-6 w-6"
+                        >
+                            <path
+                                d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Search research artifacts"
+                        value={searchQuery}
+                        onChange={(e) => onSearchChange(e.target.value)}
+                        className="text-body1 font-regular text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent tracking-tight outline-none"
+                    />
                 </div>
-                <input
-                    type="text"
-                    placeholder="Search research artifacts"
-                    value={searchQuery}
-                    onChange={(e) => onSearchChange(e.target.value)}
-                    className="flex-1 bg-transparent text-body1 font-regular text-secondary-600 placeholder-secondary-600 outline-none tracking-tight"
-                />
-            </div>
+            )}
 
             {/* Filter Buttons */}
-            <div className="flex gap-10 md:gap-20 items-start">
+            <div
+                className={`flex items-start ${isMobile ? 'w-full flex-col' : 'gap-10 md:gap-20'}`}
+            >
                 {/* Domain Filter */}
-                <div className="relative">
+                <div className={`relative ${isMobile ? 'w-full' : ''}`}>
                     <button
-                        onClick={() => setShowDomainDropdown(!showDomainDropdown)}
-                        className="border border-tertiary-400 flex gap-2 items-center justify-center px-4 py-3 hover:border-secondary-200 transition-colors"
+                        onClick={() => {
+                            setShowDomainDropdown(!showDomainDropdown)
+                            setShowTypeDropdown(false)
+                            setShowSortDropdown(false)
+                        }}
+                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading font-medium text-secondary-200">
+                        <span className="text-subheading text-secondary-200 font-medium">
                             Domains: {selectedDomain}
                         </span>
-                        <Icon name="strategy" size={24} className="text-secondary-200" />
+                        <Icon
+                            name="arrow-down"
+                            size={24}
+                            className="text-secondary-200"
+                        />
                     </button>
-                    
+
                     {showDomainDropdown && (
-                        <div className="absolute top-full left-0 mt-1 bg-primary-800 border border-tertiary-600 w-52 z-10">
+                        <div
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                        >
                             {domains.map((domain, index) => (
                                 <div key={domain}>
-                                    <button
-                                        onClick={() => {
-                                            onDomainChange(domain)
-                                            setShowDomainDropdown(false)
-                                        }}
-                                        className={`w-full text-left px-4 py-3 text-body1 font-regular hover:bg-primary-500 transition-colors ${
-                                            domain === selectedDomain ? 'text-secondary-200' : 'text-secondary-600'
-                                        }`}
-                                    >
-                                        {domain}
-                                    </button>
+                                    <div className="flex flex-col items-start justify-center px-4 py-3">
+                                        <button
+                                            onClick={() => {
+                                                onDomainChange(domain)
+                                                setShowDomainDropdown(false)
+                                            }}
+                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                                domain === selectedDomain
+                                                    ? 'text-secondary-200'
+                                                    : 'text-secondary-600'
+                                            }`}
+                                        >
+                                            {domain}
+                                        </button>
+                                    </div>
                                     {index < domains.length - 1 && (
-                                        <div className="h-px bg-tertiary-600" />
+                                        <div className="border-tertiary-600 h-0 w-full border-t-[0.5px]" />
                                     )}
                                 </div>
                             ))}
@@ -90,34 +133,48 @@ export function ArchiveFilters({
                 </div>
 
                 {/* Type Filter */}
-                <div className="relative">
+                <div className={`relative ${isMobile ? 'w-full' : ''}`}>
                     <button
-                        onClick={() => setShowTypeDropdown(!showTypeDropdown)}
-                        className="border border-tertiary-400 flex gap-2 items-center justify-center px-4 py-3 hover:border-secondary-200 transition-colors"
+                        onClick={() => {
+                            setShowTypeDropdown(!showTypeDropdown)
+                            setShowDomainDropdown(false)
+                            setShowSortDropdown(false)
+                        }}
+                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading font-medium text-secondary-200">
+                        <span className="text-subheading text-secondary-200 font-medium">
                             Type: {selectedType}
                         </span>
-                        <Icon name="strategy" size={24} className="text-secondary-200" />
+                        <Icon
+                            name="arrow-down"
+                            size={24}
+                            className="text-secondary-200"
+                        />
                     </button>
-                    
+
                     {showTypeDropdown && (
-                        <div className="absolute top-full left-0 mt-1 bg-primary-800 border border-tertiary-600 w-52 z-10">
+                        <div
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                        >
                             {types.map((type, index) => (
                                 <div key={type}>
-                                    <button
-                                        onClick={() => {
-                                            onTypeChange(type)
-                                            setShowTypeDropdown(false)
-                                        }}
-                                        className={`w-full text-left px-4 py-3 text-body1 font-regular hover:bg-primary-500 transition-colors ${
-                                            type === selectedType ? 'text-secondary-200' : 'text-secondary-600'
-                                        }`}
-                                    >
-                                        {type}
-                                    </button>
+                                    <div className="flex flex-col items-start justify-center px-4 py-3">
+                                        <button
+                                            onClick={() => {
+                                                onTypeChange(type)
+                                                setShowTypeDropdown(false)
+                                            }}
+                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                                type === selectedType
+                                                    ? 'text-secondary-200'
+                                                    : 'text-secondary-600'
+                                            }`}
+                                        >
+                                            {type}
+                                        </button>
+                                    </div>
                                     {index < types.length - 1 && (
-                                        <div className="h-px bg-tertiary-600" />
+                                        <div className="border-tertiary-600 h-0 w-full border-t-[0.5px]" />
                                     )}
                                 </div>
                             ))}
@@ -126,34 +183,48 @@ export function ArchiveFilters({
                 </div>
 
                 {/* Sort Filter */}
-                <div className="relative">
+                <div className={`relative ${isMobile ? 'w-full' : ''}`}>
                     <button
-                        onClick={() => setShowSortDropdown(!showSortDropdown)}
-                        className="border border-tertiary-400 flex gap-2 items-center justify-center px-4 py-3 hover:border-secondary-200 transition-colors"
+                        onClick={() => {
+                            setShowSortDropdown(!showSortDropdown)
+                            setShowDomainDropdown(false)
+                            setShowTypeDropdown(false)
+                        }}
+                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading font-medium text-secondary-200">
+                        <span className="text-subheading text-secondary-200 font-medium">
                             Sort: {sortBy}
                         </span>
-                        <Icon name="strategy" size={24} className="text-secondary-200" />
+                        <Icon
+                            name="arrow-down"
+                            size={24}
+                            className="text-secondary-200"
+                        />
                     </button>
-                    
+
                     {showSortDropdown && (
-                        <div className="absolute top-full left-0 mt-1 bg-primary-800 border border-tertiary-600 w-52 z-10">
+                        <div
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                        >
                             {sortOptions.map((option, index) => (
                                 <div key={option}>
-                                    <button
-                                        onClick={() => {
-                                            onSortChange(option)
-                                            setShowSortDropdown(false)
-                                        }}
-                                        className={`w-full text-left px-4 py-3 text-body1 font-regular hover:bg-primary-500 transition-colors ${
-                                            option === sortBy ? 'text-secondary-200' : 'text-secondary-600'
-                                        }`}
-                                    >
-                                        {option}
-                                    </button>
+                                    <div className="flex flex-col items-start justify-center px-4 py-3">
+                                        <button
+                                            onClick={() => {
+                                                onSortChange(option)
+                                                setShowSortDropdown(false)
+                                            }}
+                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                                option === sortBy
+                                                    ? 'text-secondary-200'
+                                                    : 'text-secondary-600'
+                                            }`}
+                                        >
+                                            {option}
+                                        </button>
+                                    </div>
                                     {index < sortOptions.length - 1 && (
-                                        <div className="h-px bg-tertiary-600" />
+                                        <div className="border-tertiary-600 h-0 w-full border-t-[0.5px]" />
                                     )}
                                 </div>
                             ))}

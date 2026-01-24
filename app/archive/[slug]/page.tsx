@@ -9,12 +9,14 @@ interface ArchiveDetailPageProps {
     }
 }
 
-export async function generateMetadata({ params }: ArchiveDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: ArchiveDetailPageProps): Promise<Metadata> {
     const item = getArchiveItem(params.slug)
-    
+
     if (!item) {
         return {
-            title: 'Archive Item Not Found | Poneglyph Labs'
+            title: 'Archive Item Not Found | Poneglyph Labs',
         }
     }
 
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: ArchiveDetailPageProps): Prom
 
 export default function ArchiveDetailPage({ params }: ArchiveDetailPageProps) {
     const item = getArchiveItem(params.slug)
-    
+
     if (!item) {
         notFound()
     }

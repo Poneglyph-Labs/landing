@@ -85,8 +85,11 @@ export function HeroSection() {
                         <div className="relative h-96 w-96">
                             {/* Animated logo or visual element */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="rotate-[-40deg] translate-x-[50%] transform">
-                                    <LogoNoText size="lg" className="scale-[3]" />
+                                <div className="translate-x-[50%] rotate-[-40deg] transform">
+                                    <LogoNoText
+                                        size="lg"
+                                        className="scale-[3]"
+                                    />
                                 </div>
                             </div>
                         </div>
