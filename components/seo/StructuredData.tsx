@@ -5,18 +5,18 @@ export function StructuredData() {
         name: 'Poneglyph Labs',
         description:
             'Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems.',
-        url: 'https://poneglyphlabs.com',
-        logo: 'https://poneglyphlabs.com/logo.png',
+        url: 'https://poneglyph-labs.xyz',
+        logo: 'https://poneglyph-labs.xyz/logo.png',
         foundingDate: '2024',
         sameAs: [
-            'https://twitter.com/poneglyphlabs',
-            'https://github.com/poneglyphlabs',
-            'https://linkedin.com/company/poneglyphlabs',
+            'https://twitter.com/poneglyph_labs',
+            'https://github.com/poneglyph-labs',
+            'https://linkedin.com/company/poneglyph_labs',
         ],
         contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'customer service',
-            email: 'contact@poneglyphlabs.com',
+            email: 'contact@poneglyph-labs.xyz',
         },
         areaServed: 'Worldwide',
         serviceType: [

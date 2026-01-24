@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getArchiveItems } from './archive/data/archiveData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://poneglyphlabs.com'
+    const baseUrl = 'https://poneglyph-labs.xyz'
     const archiveItems = getArchiveItems()
 
     const staticPages = [

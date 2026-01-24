@@ -14,9 +14,9 @@ const siteConfig = {
     name: 'Poneglyph Labs',
     description:
         'Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems.',
-    url: 'https://poneglyphlabs.com',
-    ogImage: 'https://poneglyphlabs.com/logo.png',
-    creator: '@poneglyphlabs',
+    url: 'https://poneglyph-labs.xyz',
+    ogImage: 'https://poneglyph-labs.xyz/logo.png',
+    creator: '@poneglyph-labs',
     keywords: [
         'cryptography',
         'blockchain',
@@ -99,8 +99,19 @@ export default function RootLayout({
     return (
         <html lang="en" className="dark">
             <head>
-                <link rel="icon" href="/favicon.ico" sizes="any" />
-                <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="icon" href="/favicon.ico" sizes="32x32" />
+                <link
+                    rel="icon"
+                    href="/favicon-16x16.png"
+                    sizes="16x16"
+                    type="image/png"
+                />
+                <link
+                    rel="icon"
+                    href="/favicon-32x32.png"
+                    sizes="32x32"
+                    type="image/png"
+                />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="manifest" href="/site.webmanifest" />
                 <meta name="theme-color" content="#0a0a0a" />
