@@ -1,0 +1,118 @@
+import type { Metadata } from 'next'
+import { Space_Grotesk } from 'next/font/google'
+import './globals.css'
+import { NavigationWrapper } from '../components/layout/NavigationWrapper'
+import { Footer } from '../components/layout/Footer'
+
+const spaceGrotesk = Space_Grotesk({
+    variable: '--font-space-grotesk',
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700'],
+})
+
+const siteConfig = {
+    name: 'Poneglyph Labs',
+    description:
+        'Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems.',
+    url: 'https://poneglyphlabs.com',
+    ogImage: 'https://poneglyphlabs.com/logo.png',
+    creator: '@poneglyphlabs',
+    keywords: [
+        'cryptography',
+        'blockchain',
+        'decentralized systems',
+        'artificial intelligence',
+        'security audits',
+        'research',
+        'engineering',
+        'smart contracts',
+        'protocol design',
+        'zero knowledge',
+        'consensus algorithms',
+        'applied cryptography',
+    ],
+}
+
+export const metadata: Metadata = {
+    title: {
+        default: siteConfig.name,
+        template: `%s | ${siteConfig.name}`,
+    },
+    description: siteConfig.description,
+    keywords: siteConfig.keywords,
+    authors: [
+        {
+            name: 'Poneglyph Labs',
+            url: siteConfig.url,
+        },
+    ],
+    creator: siteConfig.creator,
+    metadataBase: new URL(siteConfig.url),
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: siteConfig.url,
+        title: siteConfig.name,
+        description: siteConfig.description,
+        siteName: siteConfig.name,
+        images: [
+            {
+                url: siteConfig.ogImage,
+                width: 1200,
+                height: 630,
+                alt: siteConfig.name,
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: siteConfig.name,
+        description: siteConfig.description,
+        images: [siteConfig.ogImage],
+        creator: siteConfig.creator,
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    verification: {
+        google: 'your-google-verification-code',
+        yandex: 'your-yandex-verification-code',
+    },
+    alternates: {
+        canonical: siteConfig.url,
+    },
+}
+
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode
+}>) {
+    return (
+        <html lang="en" className="dark">
+            <head>
+                <link rel="icon" href="/favicon.ico" sizes="any" />
+                <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+                <link rel="manifest" href="/site.webmanifest" />
+                <meta name="theme-color" content="#0a0a0a" />
+                <meta name="color-scheme" content="dark" />
+            </head>
+            <body
+                className={`${spaceGrotesk.variable} font-space-grotesk bg-primary-900 text-secondary-200 antialiased`}
+            >
+                <NavigationWrapper />
+                {children}
+                <Footer />
+            </body>
+        </html>
+    )
+}
