@@ -21,7 +21,7 @@ export function ProjectRow({
             className={`flex flex-col items-start gap-6 py-10 lg:flex-row lg:gap-16 ${className}`}
         >
             {/* Project Name */}
-            <div className="flex items-center gap-4 lg:flex-1">
+            <div className="flex items-center gap-4 lg:flex-[0.5]">
                 <span className="text-h4 text-secondary-600 font-medium">
                     &gt;_
                 </span>
@@ -31,7 +31,7 @@ export function ProjectRow({
             </div>
 
             {/* Description */}
-            <div className="lg:flex-1">
+            <div className="lg:flex-[0.7]">
                 <p className="text-subheading text-secondary-400 font-medium">
                     {description}
                 </p>

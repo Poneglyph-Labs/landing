@@ -66,23 +66,13 @@ export function ResearchArchive() {
                     <div className="border-tertiary-400 border">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {filteredItems.map((item, index) => (
-                                <div key={index} className="relative">
-                                    <ResearchCard
-                                        type={item.type}
-                                        title={item.title}
-                                        date={item.date}
-                                        className="border-tertiary-400 border-0 border-r border-b last:border-r-0 md:last:border-r lg:last:border-r-0"
-                                    />
-                                    {/* Vertical dividers for desktop */}
-                                    {(index + 1) % 3 !== 0 &&
-                                        index !== filteredItems.length - 1 && (
-                                            <div className="bg-tertiary-400 absolute top-0 right-0 bottom-0 hidden w-px lg:block" />
-                                        )}
-                                    {/* Horizontal dividers */}
-                                    {index < filteredItems.length - 3 && (
-                                        <div className="bg-tertiary-400 absolute right-0 bottom-0 left-0 h-px" />
-                                    )}
-                                </div>
+                                <ResearchCard
+                                    key={index}
+                                    type={item.type}
+                                    title={item.title}
+                                    date={item.date}
+                                    className="border-tertiary-400 border-0 border-r border-b last:border-b-0 md:even:border-r-0 lg:even:border-r lg:[&:nth-child(3n)]:border-r-0"
+                                />
                             ))}
                         </div>
                     </div>

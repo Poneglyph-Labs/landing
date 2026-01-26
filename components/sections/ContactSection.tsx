@@ -2,11 +2,10 @@ import { FormField, Input } from '../ui/FormField'
 import { Button } from '../ui/Button'
 
 const subjectOptions = [
-    'Research Collaboration',
-    'Security Audit Request',
-    'Technical Consultation',
-    'Partnership Inquiry',
-    'Other',
+    'Security Audits',
+    'Custom Research and Development',
+    'Strategy and Advisory',
+    'Collaboration',
 ]
 
 export function ContactSection() {
@@ -57,7 +56,7 @@ export function ContactSection() {
                             </FormField>
                             <FormField label="Subject" required>
                                 <Input
-                                    type="select"
+                                    type="custom-select"
                                     placeholder="Select Subject"
                                     options={subjectOptions}
                                 />

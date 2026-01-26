@@ -1,5 +1,6 @@
 import { Button } from '../ui/Button'
 import { LogoNoText } from '../ui/LogoNoText'
+import { ActivitySignals } from './ActivitySignals'
 
 const quickLinks = [
     { label: 'Github', href: '#' },
@@ -95,6 +96,7 @@ export function HeroSection() {
                         </div>
                     </div>
                 </div>
+                <ActivitySignals />
             </div>
         </section>
     )

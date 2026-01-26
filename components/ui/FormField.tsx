@@ -1,4 +1,6 @@
-import { ReactNode } from 'react'
+'use client'
+
+import { ReactNode, useState } from 'react'
 
 interface FormFieldProps {
     label: string
@@ -28,7 +30,7 @@ export function FormField({
 
 interface InputProps {
     placeholder: string
-    type?: 'text' | 'email' | 'textarea' | 'select'
+    type?: 'text' | 'email' | 'textarea' | 'select' | 'custom-select'
     options?: string[]
     className?: string
 }
@@ -39,6 +41,9 @@ export function Input({
     options,
     className = '',
 }: InputProps) {
+    const [selectedValue, setSelectedValue] = useState('')
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
     const baseClasses =
         'w-full p-4 border border-tertiary-600 bg-transparent text-secondary-200 placeholder-secondary-600 font-space-grotesk font-regular text-body1 focus:border-tertiary-400 focus:outline-none transition-colors'
 
@@ -49,6 +54,59 @@ export function Input({
                 rows={6}
                 className={`${baseClasses} resize-none ${className}`}
             />
+        )
+    }
+
+    if (type === 'custom-select') {
+        return (
+            <div className="relative">
+                <button
+                    type="button"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className={`${baseClasses} flex items-center justify-between ${className}`}
+                >
+                    <span
+                        className={
+                            selectedValue
+                                ? 'text-secondary-200'
+                                : 'text-secondary-600'
+                        }
+                    >
+                        {selectedValue || placeholder}
+                    </span>
+                    <svg
+                        className={`text-secondary-600 h-6 w-6 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                        />
+                    </svg>
+                </button>
+
+                {isDropdownOpen && (
+                    <div className="border-tertiary-600 absolute top-full right-0 left-0 z-10 mt-1 border bg-neutral-900">
+                        {options?.map((option) => (
+                            <button
+                                key={option}
+                                type="button"
+                                onClick={() => {
+                                    setSelectedValue(option)
+                                    setIsDropdownOpen(false)
+                                }}
+                                className="text-body1 border-tertiary-600 text-secondary-200 hover:bg-primary-800 w-full border-b px-4 py-3 text-left transition-colors last:border-b-0"
+                            >
+                                {option}
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
         )
     }
 

@@ -1,13 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Logo } from '../ui/Logo'
+import { X } from 'lucide-react'
 
 export function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const pathname = usePathname()
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isMobileMenuOpen])
 
     const navigationItems = [
         { label: 'Home', href: '/', active: pathname === '/' },
@@ -24,7 +39,7 @@ export function Navigation() {
     ]
 
     return (
-        <nav className="bg-primary-900 flex w-full items-center justify-between px-4 py-6 md:px-12">
+        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-12">
             {/* Logo */}
             <Link href="/" className="shrink-0">
                 <div className="h-9 w-40 md:h-16 md:w-[284px]">
@@ -91,32 +106,64 @@ export function Navigation() {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="bg-primary-900 border-tertiary-400 absolute top-full right-0 left-0 z-50 border-b md:hidden">
-                    <div className="flex flex-col space-y-4 p-4">
+                <div className="absolute top-0 left-0 z-50 flex h-screen w-full flex-col items-start justify-start gap-6 bg-black px-4 py-6 md:hidden">
+                    {/* Header with Logo and Close */}
+                    <div className="flex items-center justify-between self-stretch">
+                        <Link href="/" className="shrink-0">
+                            <div className="h-9 w-40">
+                                <Logo
+                                    size="lg"
+                                    className="h-full w-full object-contain"
+                                />
+                            </div>
+                        </Link>
+                        <X
+                            className="h-8 w-8"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        />
+                    </div>
+
+                    {/* Navigation Items */}
+                    <div className="flex flex-col items-start justify-start gap-4 self-stretch">
                         {navigationItems.map((item) => (
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`font-space-grotesk text-2xl font-medium transition-colors ${
-                                    item.active
-                                        ? 'text-white'
-                                        : 'text-[#7B7A7A] hover:text-white'
-                                }`}
+                                className="flex items-center justify-start gap-1 self-stretch"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                {item.label}
+                                <div
+                                    className={`font-space-grotesk justify-start font-medium ${
+                                        item.active
+                                            ? 'text-secondary-200 text-lg'
+                                            : 'text-secondary-600 text-base leading-7'
+                                    }`}
+                                >
+                                    —
+                                </div>
+                                <div
+                                    className={`font-space-grotesk justify-start ${
+                                        item.active
+                                            ? 'text-secondary-200 text-lg font-medium'
+                                            : 'text-secondary-600 text-base leading-7 font-normal'
+                                    }`}
+                                >
+                                    {item.label}
+                                </div>
                             </Link>
                         ))}
-                        <Link
-                            href="/#contact"
-                            className="border-tertiary-400 flex items-center justify-center gap-2 self-start border px-4 py-3"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            <span className="text-subheading text-secondary-200 font-medium">
-                                CONTACT US
-                            </span>
-                        </Link>
                     </div>
+
+                    {/* Contact Button */}
+                    <Link
+                        href="/#contact"
+                        className="border-secondary-200 flex items-center justify-center gap-2 self-stretch border px-2 py-3"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        <div className="text-secondary-200 font-space-grotesk justify-start text-sm font-medium">
+                            CONTACT US
+                        </div>
+                    </Link>
                 </div>
             )}
         </nav>

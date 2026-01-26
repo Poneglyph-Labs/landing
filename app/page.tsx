@@ -14,7 +14,7 @@ export default function Home() {
             <StructuredData />
             <div className="bg-primary-900 text-secondary-200 min-h-screen">
                 <HeroSection />
-                <ActivitySignals />
+                {/* <ActivitySignals /> */}
                 <EngagementModels />
                 <ResearchArchive />
                 <ProjectsSection />

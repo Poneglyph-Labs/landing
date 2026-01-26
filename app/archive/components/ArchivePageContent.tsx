@@ -5,6 +5,7 @@ import { ArchiveHeader } from './ArchiveHeader'
 import { ArchiveFilters } from './ArchiveFilters'
 import { ArchiveList } from './ArchiveList'
 import { Icon } from '../../../components/ui/Icon'
+import { Github } from 'lucide-react'
 import {
     getArchiveItems,
     filterArchiveItems,
@@ -148,9 +149,9 @@ export function ArchivePageContent() {
                                                     href={item.links.code}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-end gap-2"
+                                                    className="flex items-center gap-2"
                                                 >
-                                                    <Icon
+                                                    <Github
                                                         name="github"
                                                         size={18}
                                                         className="text-secondary-600"
@@ -165,7 +166,7 @@ export function ArchivePageContent() {
                                                     href={item.links.pdf}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-end gap-2"
+                                                    className="flex items-center gap-2"
                                                 >
                                                     <Icon
                                                         name="pdf"
@@ -182,7 +183,7 @@ export function ArchivePageContent() {
                                                     href={item.links.demo}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-end gap-2"
+                                                    className="flex items-center gap-2"
                                                 >
                                                     <span className="text-subheading text-secondary-600 font-medium">
                                                         {'>_'}

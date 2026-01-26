@@ -26,6 +26,9 @@ const config: Config = {
                     400: '#E5E5E5',
                     600: '#B8B8B8',
                 },
+                neutral: {
+                    900: '#171717',
+                },
                 red: {
                     500: '#FF0000',
                 },

@@ -20,7 +20,7 @@ export function ResearchCard({
 }: ResearchCardProps) {
     return (
         <div
-            className={`bg-primary-900 border-tertiary-400 hover:border-secondary-200 group space-y-10 border p-8 transition-colors ${className}`}
+            className={`bg-primary-900 border-tertiary-400 hover:border-secondary-200 group space-y-10 p-8 transition-colors ${className}`}
         >
             {/* Header */}
             <div className="flex items-center justify-between">
