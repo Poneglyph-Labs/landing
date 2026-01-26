@@ -14,7 +14,7 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
 
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="bg-primary-900 flex flex-col items-center gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-24">
+            <div className="bg-primary-900 flex flex-col items-center gap-8 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-24">
                 <Link
                     href="/archive"
                     className="hover:bg-primary-800/20 flex w-full max-w-6xl items-center gap-2 py-3 pr-4 pl-3 transition-colors"
@@ -39,13 +39,13 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                     </span>
                 </Link>
 
-                <div className="flex w-full max-w-6xl flex-col items-start gap-20 px-0 md:px-12">
+                <div className="flex w-full max-w-6xl flex-col items-start gap-6 px-0 md:gap-20 md:px-12">
                     {/* Title Section */}
                     <div className="flex w-full flex-col items-start gap-6">
-                        <h1 className="font-regular font-space-grotesk text-6xl leading-tight tracking-tight text-white">
+                        <h1 className="font-regular font-space-grotesk text-xl leading-tight tracking-tight text-white md:text-6xl">
                             {item.title}
                         </h1>
-                        <div className="flex items-center justify-center gap-10">
+                        <div className="flex items-center justify-center gap-4 md:gap-10">
                             <div
                                 className={`flex flex-col items-center justify-center p-2 ${getTypeColor()}`}
                             >
@@ -53,18 +53,18 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                                     {item.type}
                                 </span>
                             </div>
-                            <div className="bg-tertiary-400 h-12 w-px" />
+                            <div className="bg-tertiary-400 h-12 w-px border" />
                             <span className="text-h4 font-regular text-secondary-200 text-center">
                                 {item.domain}
                             </span>
-                            <div className="bg-tertiary-400 h-12 w-px" />
+                            <div className="bg-tertiary-400 h-12 w-px border" />
                             <span className="text-h4 font-regular text-secondary-400 text-center">
                                 {item.date}
                             </span>
                         </div>
                     </div>
 
-                    <div className="bg-tertiary-400 h-px w-full" />
+                    <div className="border-tertiary-400 h-px w-full border-b" />
 
                     {/* Abstract Section */}
                     {item.abstract && (
@@ -77,55 +77,41 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                                     {item.abstract}
                                 </p>
                             </div>
-                            <div className="bg-tertiary-400 h-px w-full" />
                         </>
                     )}
 
                     {/* Details Section */}
                     <div className="flex w-full flex-col items-start gap-10">
-                        <div className="border-tertiary-400 flex w-full items-center border-t border-b">
-                            <div className="flex flex-1 flex-col items-start gap-2">
-                                <div className="flex h-24 w-full items-center py-6">
-                                    <span className="text-body2 font-regular text-secondary-400 flex-1">
-                                        TECHNICAL FOCUS
-                                    </span>
-                                </div>
-                                <div className="bg-tertiary-400 h-px w-full" />
-                                <div className="flex h-24 w-full items-center py-6">
-                                    <span className="text-body2 font-regular text-secondary-400 flex-1">
-                                        RESEARCH CATEGORY
-                                    </span>
-                                </div>
-                                <div className="bg-tertiary-400 h-px w-full" />
-                                <div className="flex h-24 w-full items-center py-6">
-                                    <span className="text-body2 font-regular text-secondary-400 flex-1">
-                                        PRIMARY OUTPUT
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="bg-tertiary-400 h-80 w-px" />
-
-                            <div className="flex flex-1 flex-col items-start gap-2">
-                                <div className="flex h-24 w-full items-center py-6 pl-6">
-                                    <span className="text-subheading text-secondary-200 flex-1 font-medium">
-                                        {item.technicalFocus?.join(', ') ||
-                                            'Not specified'}
-                                    </span>
-                                </div>
-                                <div className="bg-tertiary-400 h-px w-full" />
-                                <div className="flex h-24 w-full items-center py-6 pl-6">
-                                    <span className="text-subheading text-secondary-200 flex-1 font-medium">
-                                        {item.domain}
-                                    </span>
-                                </div>
-                                <div className="bg-tertiary-400 h-px w-full" />
-                                <div className="flex h-24 w-full items-center py-6 pl-6">
-                                    <span className="text-subheading text-secondary-200 flex-1 font-medium">
-                                        {item.primaryOutput || item.type}
-                                    </span>
-                                </div>
-                            </div>
+                        <div className="border-tertiary-400 w-full overflow-hidden border border-x-0">
+                            <table className="w-full table-fixed">
+                                <tbody>
+                                    <tr className="border-tertiary-400 border-b last:border-b-0">
+                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                            TECHNICAL FOCUS
+                                        </td>
+                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                            {item.technicalFocus?.join(', ') ||
+                                                'Not specified'}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-tertiary-400 border-b last:border-b-0">
+                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                            RESEARCH CATEGORY
+                                        </td>
+                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                            {item.domain}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-tertiary-400 border-b last:border-b-0">
+                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                            PRIMARY OUTPUT
+                                        </td>
+                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                            {item.primaryOutput || item.type}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
                         <div className="flex items-start gap-6">
@@ -142,7 +128,7 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                         </div>
                     </div>
 
-                    <div className="bg-tertiary-400 h-px w-full" />
+                    <div className="border-tertiary-400 h-px w-full border-b" />
 
                     {/* Related Research */}
                     {item.relatedResearch &&
@@ -181,8 +167,6 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                         )}
                 </div>
             </div>
-
-            <Footer />
         </div>
     )
 }

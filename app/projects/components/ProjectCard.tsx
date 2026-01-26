@@ -14,13 +14,20 @@ export function ProjectCard({
     showGoToSite = false,
 }: ProjectCardProps) {
     const [showTechnicalSummary, setShowTechnicalSummary] = useState(true)
+    const [showFullArchitecture, setShowFullArchitecture] = useState(false)
+
+    // Truncate system architecture to approximately 3 lines
+    const truncatedArchitecture =
+        project.systemArchitecture.length > 450
+            ? project.systemArchitecture.substring(0, 450) + '...'
+            : project.systemArchitecture
 
     return (
-        <div className="flex w-[1248px] flex-col items-start gap-10">
+        <div className="flex w-full flex-col items-start gap-10">
             {/* Main Content Row */}
-            <div className="flex w-full items-start gap-10">
-                {/* About Project - 436px */}
-                <div className="flex w-[436px] shrink-0 flex-col items-start gap-4">
+            <div className="flex w-full items-start gap-4 lg:gap-10">
+                {/* About Project - Responsive width */}
+                <div className="flex w-full shrink-0 flex-col items-start gap-4 md:w-[300px] lg:w-[436px]">
                     <h2 className="text-h3 font-space-grotesk font-bold text-white">
                         {project.title}
                     </h2>
@@ -39,59 +46,61 @@ export function ProjectCard({
                 </div>
 
                 {/* System Architecture - flex-1 */}
-                <div className="flex flex-1 flex-col items-start gap-4 overflow-hidden">
+                <div className="flex min-w-0 flex-1 flex-col items-start gap-4 overflow-hidden">
                     <p className="text-body1 font-regular text-secondary-600 w-full truncate leading-7 tracking-[-0.16px] uppercase">
                         SYSTEM ARCHITECTURE
                     </p>
-                    <div className="text-body2 font-regular text-secondary-200 h-[384px] w-full leading-7">
-                        {project.systemArchitecture}
+                    <div className="text-body2 font-regular text-secondary-200 w-full leading-7">
+                        {showFullArchitecture
+                            ? project.systemArchitecture
+                            : truncatedArchitecture}
                     </div>
                     <div className="bg-primary-900 flex w-full items-center gap-2 py-3">
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-subheading text-secondary-200 font-medium underline"
+                        <button
+                            onClick={() =>
+                                setShowFullArchitecture(!showFullArchitecture)
+                            }
+                            className="text-subheading text-secondary-200 font-medium underline transition-opacity hover:opacity-80"
                         >
-                            See more
-                        </a>
+                            {showFullArchitecture ? 'See less' : 'See more'}
+                        </button>
                     </div>
                 </div>
 
-                {/* External Links - 244px */}
-                <div className="flex w-[244px] shrink-0 flex-col items-end gap-20">
+                {/* External Links - Responsive width */}
+                <div className="flex w-full shrink-0 flex-col items-end gap-20 md:w-[180px] lg:w-[244px]">
                     <div className="flex w-full flex-1 flex-col items-start gap-4">
                         {project.links.repository && (
-                            <div className="flex w-full items-center justify-end px-4 py-3">
+                            <div className="flex w-full items-center justify-end px-2 py-3 lg:px-4">
                                 <a
                                     href={project.links.repository}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-subheading text-tertiary-200 font-medium underline"
+                                    className="text-subheading text-tertiary-200 text-right font-medium underline"
                                 >
                                     VIEW REPOSITORY
                                 </a>
                             </div>
                         )}
                         {project.links.documentation && (
-                            <div className="flex w-full items-center justify-end px-4 py-3">
+                            <div className="flex w-full items-center justify-end px-2 py-3 lg:px-4">
                                 <a
                                     href={project.links.documentation}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-subheading text-tertiary-200 font-medium underline"
+                                    className="text-subheading text-tertiary-200 text-right font-medium underline"
                                 >
                                     VIEW DOCUMENTATION
                                 </a>
                             </div>
                         )}
                         {project.links.research && (
-                            <div className="flex w-full items-center justify-end px-4 py-3">
+                            <div className="flex w-full items-center justify-end px-2 py-3 lg:px-4">
                                 <a
                                     href={project.links.research}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-subheading text-tertiary-200 font-medium underline"
+                                    className="text-subheading text-tertiary-200 text-right font-medium underline"
                                 >
                                     VIEW DEPLOYMENT
                                 </a>
@@ -104,7 +113,7 @@ export function ProjectCard({
                             href="#"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border-tertiary-400 flex items-center justify-center gap-2 border px-4 py-3"
+                            className="border-tertiary-400 flex items-center justify-center gap-2 border px-2 py-3 lg:px-4"
                         >
                             <span className="text-subheading text-secondary-200 font-medium">
                                 GO TO SITE

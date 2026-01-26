@@ -4,15 +4,16 @@ import { ArchiveDetailContent } from '../components/ArchiveDetailContent'
 import { getArchiveItem } from '../data/archiveData'
 
 interface ArchiveDetailPageProps {
-    params: {
+    params: Promise<{
         slug: string
-    }
+    }>
 }
 
 export async function generateMetadata({
     params,
 }: ArchiveDetailPageProps): Promise<Metadata> {
-    const item = getArchiveItem(params.slug)
+    const { slug } = await params
+    const item = getArchiveItem(slug)
 
     if (!item) {
         return {
@@ -26,8 +27,11 @@ export async function generateMetadata({
     }
 }
 
-export default function ArchiveDetailPage({ params }: ArchiveDetailPageProps) {
-    const item = getArchiveItem(params.slug)
+export default async function ArchiveDetailPage({
+    params,
+}: ArchiveDetailPageProps) {
+    const { slug } = await params
+    const item = getArchiveItem(slug)
 
     if (!item) {
         notFound()
