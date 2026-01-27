@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getArchiveItems } from './archive/data/archiveData'
+import { getArchiveItems } from '../lib/archive-server'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://poneglyph-labs.xyz'

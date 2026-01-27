@@ -1,7 +1,11 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArchiveDetailContent } from '../components/ArchiveDetailContent'
-import { getArchiveItem } from '../data/archiveData'
+import {
+    getArchiveItem,
+    hasArchiveMDXContent,
+    getArchiveMDXBySlug,
+} from '../../../lib/archive-server'
 
 interface ArchiveDetailPageProps {
     params: Promise<{
@@ -37,5 +41,9 @@ export default async function ArchiveDetailPage({
         notFound()
     }
 
-    return <ArchiveDetailContent item={item} />
+    // Get MDX content if available
+    const hasMDXContent = hasArchiveMDXContent(slug)
+    const mdxItem = hasMDXContent ? getArchiveMDXBySlug(slug) : null
+
+    return <ArchiveDetailContent item={item} mdxItem={mdxItem} />
 }

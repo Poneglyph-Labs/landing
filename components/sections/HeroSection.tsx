@@ -1,7 +1,6 @@
 import { Button } from '../ui/Button'
 import { LogoNoText } from '../ui/LogoNoText'
 import { ActivitySignals } from './ActivitySignals'
-
 const quickLinks = [
     { label: 'Github', href: '#' },
     { label: 'Research', href: '#' },
@@ -46,7 +45,7 @@ export function HeroSection() {
                                         {link.label}
                                     </a>
                                     {index < quickLinks.length - 1 && (
-                                        <div className="bg-secondary-500 h-6 w-px" />
+                                        <div className="border-secondary-500 h-6 border-r" />
                                     )}
                                 </div>
                             ))}
@@ -75,17 +74,17 @@ export function HeroSection() {
                             >
                                 VIEW RESEARCH OUTPUT
                             </Button>
-                            <Button variant="outline" size="lg">
+                            {/* <Button variant="outline" size="lg">
                                 VIEW FULL ARCHIVE
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
 
                     {/* Animation/Visual */}
-                    <div className="hidden items-center justify-center lg:flex">
+                    <div className="justify-left hidden items-center lg:flex">
                         <div className="relative h-96 w-96">
                             {/* Animated logo or visual element */}
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute inset-0 left-0 flex items-center justify-center">
                                 <div className="translate-x-[50%] rotate-[-40deg] transform">
                                     <LogoNoText
                                         size="lg"

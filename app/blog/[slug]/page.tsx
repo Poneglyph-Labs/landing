@@ -1,6 +1,10 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getBlogPost } from '../data/blogData'
+import {
+    getBlogPost,
+    hasBlogMDXContent,
+    getBlogMDXBySlug,
+} from '../../../lib/blog-server'
 import { BlogPostContent } from './components/BlogPostContent'
 
 interface BlogPostPageProps {
@@ -35,5 +39,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         notFound()
     }
 
-    return <BlogPostContent post={post} />
+    // Get MDX content if available
+    const hasMDXContent = hasBlogMDXContent(slug)
+    const mdxPost = hasMDXContent ? getBlogMDXBySlug(slug) : null
+
+    return <BlogPostContent post={post} mdxPost={mdxPost} />
 }

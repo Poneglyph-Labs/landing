@@ -34,8 +34,8 @@ export function ProjectCard({
                     <p className="text-body2 font-regular text-white">
                         {project.description}
                     </p>
-                    <div className="flex items-center gap-4">
-                        <div className="border-tertiary-400 h-0 w-7 origin-left rotate-90 border-t"></div>
+                    <div className="border-tertiary-400 space-x-[]0.5 flex items-center gap-4 border-l">
+                        <p></p>
                         <p className="text-body1 font-regular text-secondary-400 leading-7 tracking-[-0.16px]">
                             <span>Status: </span>
                             <span className="text-secondary-200 font-medium">
@@ -60,7 +60,7 @@ export function ProjectCard({
                             onClick={() =>
                                 setShowFullArchitecture(!showFullArchitecture)
                             }
-                            className="text-subheading text-secondary-200 font-medium underline transition-opacity hover:opacity-80"
+                            className="text-subheading text-secondary-200 cursor-pointer font-medium underline transition-opacity hover:opacity-80"
                         >
                             {showFullArchitecture ? 'See less' : 'See more'}
                         </button>

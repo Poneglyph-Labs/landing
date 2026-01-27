@@ -48,7 +48,7 @@ export function ResearchArchive() {
 
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto max-w-7xl px-4 md:px-8">
+            <div className="mx-auto max-w-6xl px-4 md:px-8">
                 <div className="space-y-20">
                     {/* Section Header */}
                     <div className="space-y-10">

@@ -1,5 +1,4 @@
 import { HeroSection } from '../components/sections/HeroSection'
-import { ActivitySignals } from '../components/sections/ActivitySignals'
 import { EngagementModels } from '../components/sections/EngagementModels'
 import { ResearchArchive } from '../components/sections/ResearchArchive'
 import { ProjectsSection } from '../components/sections/ProjectsSection'

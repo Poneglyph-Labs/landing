@@ -103,8 +103,16 @@ export function sortBlogPosts(
     sortBy: 'Most Recent' | 'Oldest'
 ): BlogPost[] {
     return [...posts].sort((a, b) => {
-        const dateA = new Date(a.date).getTime()
-        const dateB = new Date(b.date).getTime()
-        return sortBy === 'Most Recent' ? dateB - dateA : dateA - dateB
+        // Parse DD-MM-YYYY format more reliably
+        const [dayA, monthA, yearA] = a.date.split('-').map(Number)
+        const [dayB, monthB, yearB] = b.date.split('-').map(Number)
+
+        // Create comparable date values (YYYYMMDD format)
+        const dateValueA = yearA * 10000 + monthA * 100 + dayA
+        const dateValueB = yearB * 10000 + monthB * 100 + dayB
+
+        return sortBy === 'Most Recent'
+            ? dateValueB - dateValueA
+            : dateValueA - dateValueB
     })
 }

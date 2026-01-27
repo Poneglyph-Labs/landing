@@ -39,7 +39,7 @@ export function Navigation() {
     ]
 
     return (
-        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-12">
+        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-12 lg:px-24">
             {/* Logo */}
             <Link href="/" className="shrink-0">
                 <div className="h-9 w-40 md:h-16 md:w-[284px]">

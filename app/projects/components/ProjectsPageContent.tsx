@@ -24,7 +24,7 @@ export function ProjectsPageContent() {
         <>
             {/* Desktop Layout */}
             <div className="hidden flex-col items-start justify-center md:flex">
-                <div className="bg-primary-900 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-10 self-stretch">
                         <div className="border-tertiary-400 flex flex-col items-start justify-center gap-4 self-stretch border-b-[0.50px] py-6">
@@ -41,7 +41,7 @@ export function ProjectsPageContent() {
 
                     {/* Projects List */}
                     <div className="flex flex-col items-start justify-start gap-12 self-stretch">
-                        {projects.map((project, index) => (
+                        {projects.map((project, projectIndex) => (
                             <div key={project.id} className="w-full">
                                 <ProjectCard
                                     project={project}
@@ -50,7 +50,7 @@ export function ProjectsPageContent() {
                                         project.id === 'nexus-grid'
                                     }
                                 />
-                                {index < projects.length - 1 && (
+                                {projectIndex < projects.length - 1 && (
                                     <div className="border-tertiary-600 mt-12 h-0 self-stretch border-t-[0.50px]" />
                                 )}
                             </div>
@@ -76,7 +76,7 @@ export function ProjectsPageContent() {
 
                     {/* Mobile Projects List */}
                     <div className="flex flex-col items-start justify-start gap-6">
-                        {projects.map((project, index) => (
+                        {projects.map((project) => (
                             <div
                                 key={project.id}
                                 className="flex w-full flex-col items-start justify-start gap-6"

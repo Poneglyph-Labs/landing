@@ -6,16 +6,19 @@ import { ArchiveHeader } from './ArchiveHeader'
 import { ArchiveFilters } from './ArchiveFilters'
 import { ArchiveList } from './ArchiveList'
 import { Icon } from '../../../components/ui/Icon'
-import { Github } from 'lucide-react'
 import {
-    getArchiveItems,
     filterArchiveItems,
     sortArchiveItems,
     ArchiveDomain,
     ArchiveItemType,
+    ArchiveItem,
 } from '../data/archiveData'
 
-export function ArchivePageContent() {
+interface ArchivePageContentProps {
+    items: ArchiveItem[]
+}
+
+export function ArchivePageContent({ items }: ArchivePageContentProps) {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedDomain, setSelectedDomain] = useState<ArchiveDomain | 'All'>(
         'All'
@@ -27,7 +30,7 @@ export function ArchivePageContent() {
         'Most Recent'
     )
 
-    const allItems = getArchiveItems()
+    const allItems = items
     const filteredItems = filterArchiveItems(allItems, {
         domain: selectedDomain,
         type: selectedType,
@@ -38,7 +41,7 @@ export function ArchivePageContent() {
     return (
         <>
             {/* Desktop Layout */}
-            <div className="bg-primary-900 text-secondary-200 mx-auto hidden min-h-screen max-w-6xl px-4 md:block md:px-24">
+            <div className="bg-primary-900 text-secondary-200 mx-auto hidden min-h-screen px-4 md:block md:px-24">
                 <div className="bg-primary-900 flex flex-col items-start gap-20 overflow-hidden pt-10 pb-32">
                     <div className="flex w-full flex-col gap-10">
                         <ArchiveHeader />
@@ -159,7 +162,7 @@ export function ArchivePageContent() {
                                                             e.stopPropagation()
                                                         }
                                                     >
-                                                        <Github
+                                                        <Icon
                                                             name="github"
                                                             size={18}
                                                             className="text-secondary-600"

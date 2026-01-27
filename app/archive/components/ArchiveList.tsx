@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { ArchiveItem } from '../data/archiveData'
 import { ArchiveItemCard } from './ArchiveItemCard'
 
@@ -27,12 +26,7 @@ export function ArchiveList({ items }: ArchiveListProps) {
                     key={item.id}
                     className="border-tertiary-400 w-full border-b last:border-b-0"
                 >
-                    <Link
-                        href={`/archive/${item.slug}`}
-                        className="block w-full"
-                    >
-                        <ArchiveItemCard item={item} />
-                    </Link>
+                    <ArchiveItemCard item={item} />
                 </div>
             ))}
         </div>

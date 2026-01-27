@@ -61,7 +61,7 @@ export function FilterTabs({
 
                 {isDropdownOpen && (
                     <div className="border-tertiary-400 rounded-sm border bg-neutral-900">
-                        {filterOptions.map((option, index) => (
+                        {filterOptions.map((option) => (
                             <button
                                 key={option}
                                 onClick={() => handleFilterChange(option)}

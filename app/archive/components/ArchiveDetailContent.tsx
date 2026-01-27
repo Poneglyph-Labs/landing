@@ -1,13 +1,18 @@
 import Link from 'next/link'
-import { Footer } from '../../../components/layout/Footer'
 import { ArchiveItem } from '../data/archiveData'
 import { Button } from '../../../components/ui/Button'
+import { MDXContent } from '../../../components/mdx/MDXContent'
+import { MDXArchiveItem } from '../../../lib/mdx'
 
 interface ArchiveDetailContentProps {
     item: ArchiveItem
+    mdxItem: MDXArchiveItem | null
 }
 
-export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
+export function ArchiveDetailContent({
+    item,
+    mdxItem,
+}: ArchiveDetailContentProps) {
     const getTypeColor = () => {
         return 'bg-primary-800 text-secondary-200'
     }
@@ -17,7 +22,7 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
             <div className="bg-primary-900 flex flex-col items-center gap-8 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-24">
                 <Link
                     href="/archive"
-                    className="hover:bg-primary-800/20 flex w-full max-w-6xl items-center gap-2 py-3 pr-4 pl-3 transition-colors"
+                    className="hover:bg-primary-800/20 flex w-full items-center gap-2 py-3 pr-4 pl-3 transition-colors"
                 >
                     <div className="flex h-6 w-6 items-center justify-center">
                         <svg
@@ -39,7 +44,7 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                     </span>
                 </Link>
 
-                <div className="flex w-full max-w-6xl flex-col items-start gap-6 px-0 md:gap-20 md:px-12">
+                <div className="flex w-full flex-col items-start gap-6 px-0 md:gap-20 md:px-12">
                     {/* Title Section */}
                     <div className="flex w-full flex-col items-start gap-6">
                         <h1 className="font-regular font-space-grotesk text-xl leading-tight tracking-tight text-white md:text-6xl">
@@ -80,6 +85,8 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                         </>
                     )}
 
+                    <div className="border-tertiary-400 h-px w-full border-b" />
+
                     {/* Details Section */}
                     <div className="flex w-full flex-col items-start gap-10">
                         <div className="border-tertiary-400 w-full overflow-hidden border border-x-0">
@@ -115,20 +122,43 @@ export function ArchiveDetailContent({ item }: ArchiveDetailContentProps) {
                         </div>
 
                         <div className="flex items-start gap-6">
-                            {item.links.code && (
-                                <Button variant="outline" size="lg">
-                                    VIEW CODE
-                                </Button>
-                            )}
                             {item.links.pdf && (
-                                <Button variant="outline" size="lg">
-                                    DOWNLOAD PDF
-                                </Button>
+                                <Link
+                                    href={item.links.pdf}
+                                    download={item.title}
+                                >
+                                    <Button variant="outline" size="lg">
+                                        DOWNLOAD PDF
+                                    </Button>
+                                </Link>
+                            )}
+
+                            {item.links.code && (
+                                <Link href={item.links.code}>
+                                    <Button variant="outline" size="lg">
+                                        VIEW REPOSITORY
+                                    </Button>
+                                </Link>
                             )}
                         </div>
                     </div>
 
                     <div className="border-tertiary-400 h-px w-full border-b" />
+
+                    {/* MDX Content Section */}
+                    {mdxItem?.content && (
+                        <>
+                            <div className="flex w-full flex-col items-start gap-6">
+                                <h2 className="text-subheading text-secondary-600 font-medium">
+                                    CONTENT
+                                </h2>
+                                <div className="w-full">
+                                    <MDXContent content={mdxItem.content} />
+                                </div>
+                            </div>
+                            <div className="border-tertiary-400 h-px w-full border-b" />
+                        </>
+                    )}
 
                     {/* Related Research */}
                     {item.relatedResearch &&

@@ -1,3 +1,4 @@
+// Client-side types and interfaces for archive data
 export type ArchiveItemType =
     | 'Paper'
     | 'Audit'
@@ -32,6 +33,7 @@ export interface ArchiveItem {
     }
 }
 
+// Static archive data for client-side filtering and display
 export const archiveItems: ArchiveItem[] = [
     {
         id: '1',
@@ -166,14 +168,6 @@ export const archiveItems: ArchiveItem[] = [
     },
 ]
 
-export function getArchiveItems(): ArchiveItem[] {
-    return archiveItems
-}
-
-export function getArchiveItem(slug: string): ArchiveItem | undefined {
-    return archiveItems.find((item) => item.slug === slug)
-}
-
 export function filterArchiveItems(
     items: ArchiveItem[],
     filters: {
@@ -216,11 +210,16 @@ export function sortArchiveItems(
     sortBy: 'Most Recent' | 'Oldest'
 ): ArchiveItem[] {
     return [...items].sort((a, b) => {
-        const dateA = new Date(a.date.split('-').reverse().join('-'))
-        const dateB = new Date(b.date.split('-').reverse().join('-'))
+        // Parse DD-MM-YYYY format more reliably
+        const [dayA, monthA, yearA] = a.date.split('-').map(Number)
+        const [dayB, monthB, yearB] = b.date.split('-').map(Number)
+
+        // Create comparable date values (YYYYMMDD format)
+        const dateValueA = yearA * 10000 + monthA * 100 + dayA
+        const dateValueB = yearB * 10000 + monthB * 100 + dayB
 
         return sortBy === 'Most Recent'
-            ? dateB.getTime() - dateA.getTime()
-            : dateA.getTime() - dateB.getTime()
+            ? dateValueB - dateValueA
+            : dateValueA - dateValueB
     })
 }

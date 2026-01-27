@@ -2,17 +2,21 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { getBlogPosts, filterBlogPosts, sortBlogPosts } from '../data/blogData'
+import { filterBlogPosts, sortBlogPosts, BlogPost } from '../data/blogData'
 import { Icon } from '../../../components/ui/Icon'
 
-export function BlogPageContent() {
+interface BlogPageContentProps {
+    posts: BlogPost[]
+}
+
+export function BlogPageContent({ posts }: BlogPageContentProps) {
     const [searchQuery, setSearchQuery] = useState('')
     const [sortBy, setSortBy] = useState<'Most Recent' | 'Oldest'>(
         'Most Recent'
     )
     const [showSortDropdown, setShowSortDropdown] = useState(false)
 
-    const allPosts = getBlogPosts()
+    const allPosts = posts
     const filteredPosts = filterBlogPosts(allPosts, searchQuery)
     const sortedPosts = sortBlogPosts(filteredPosts, sortBy)
 
@@ -22,12 +26,12 @@ export function BlogPageContent() {
         <>
             {/* Desktop Layout */}
             <div className="hidden w-full flex-col items-start justify-center md:flex">
-                <div className="bg-primary-900 mx-auto flex w-full max-w-6xl flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
                     {/* Header */}
                     <div className="flex w-full flex-col items-start justify-start gap-10">
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-4 border-b-[0.50px] py-6">
                             <h1 className="text-h3 font-space-grotesk text-secondary-200 font-medium tracking-tight">
-                                Blog
+                                BLOG
                             </h1>
                             <p className="text-subheading font-space-grotesk text-secondary-600 font-medium tracking-tight">
                                 Technical notes, research context, and lab
@@ -260,7 +264,7 @@ export function BlogPageContent() {
                 </div>
 
                 {/* Mobile Blog Posts */}
-                <div className="border-tertiary-400 flex w-full flex-col items-start border-[0.5px]">
+                <div className="border-tertiary-400 flex w-full flex-col items-start">
                     {sortedPosts.map((post, index) => (
                         <div key={post.id} className="w-full">
                             <Link
@@ -276,11 +280,11 @@ export function BlogPageContent() {
                                             <span className="text-caption text-secondary-600 font-medium">
                                                 {post.date}
                                             </span>
-                                            <div className="border-tertiary-400 h-px w-4 border-t" />
+                                            <div className="border-tertiary-400 h-4 border-r" />
                                             <span className="text-caption text-secondary-600 font-medium">
                                                 {post.readTime}
                                             </span>
-                                            <div className="border-tertiary-400 h-px w-4 border-t" />
+                                            <div className="border-tertiary-400 h-4 border-r" />
                                             <span className="text-caption text-secondary-200 font-medium">
                                                 {post.author}
                                             </span>
