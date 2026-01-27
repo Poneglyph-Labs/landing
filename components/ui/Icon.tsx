@@ -9,11 +9,15 @@ export type IconName =
     | 'shield'
     | 'strategy'
     | 'twitter'
+    | 'instagram'
     | 'pdf'
     | 'demo'
     | 'arrow-down'
+    | 'arrow-right'
     | 'arrow-up-right'
     | 'search'
+    | 'calendar'
+    | 'clock'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
     name: IconName
@@ -23,7 +27,7 @@ interface IconProps extends SVGProps<SVGSVGElement> {
 
 // SVG icon components defined inline
 const iconComponents = {
-    chip: (props: SVGProps<SVGSVGElement>) => (
+    chip: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -52,7 +56,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    code: (props: SVGProps<SVGSVGElement>) => (
+    code: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="19"
@@ -113,7 +117,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    mail: (props: SVGProps<SVGSVGElement>) => (
+    mail: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -135,7 +139,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    shield: (props: SVGProps<SVGSVGElement>) => (
+    shield: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -152,7 +156,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    strategy: (props: SVGProps<SVGSVGElement>) => (
+    strategy: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -183,7 +187,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    twitter: (props: SVGProps<SVGSVGElement>) => (
+    twitter: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -200,7 +204,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    pdf: (props: SVGProps<SVGSVGElement>) => (
+    pdf: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -224,7 +228,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    demo: (props: SVGProps<SVGSVGElement>) => (
+    demo: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -248,7 +252,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    'arrow-down': (props: SVGProps<SVGSVGElement>) => (
+    'arrow-down': (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -259,13 +263,30 @@ const iconComponents = {
             <path
                 d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
                 stroke="#FAFAFA"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     ),
-    'arrow-up-right': (props: SVGProps<SVGSVGElement>) => (
+    'arrow-right': (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M5 12H19M19 12L12 5M19 12L12 19"
+                stroke="#FAFAFA"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    'arrow-up-right': (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -289,7 +310,7 @@ const iconComponents = {
             />
         </svg>
     ),
-    search: (props: SVGProps<SVGSVGElement>) => (
+    search: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -300,16 +321,97 @@ const iconComponents = {
             <path
                 d="M12.75 12.75L15.75 15.75"
                 stroke="#FAFAFA"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25Z"
                 stroke="#FAFAFA"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    instagram: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M1.5 12C1.5 6.77208 1.5 4.15812 3.07906 2.57906C4.65812 1 7.27208 1 12.5 1C17.7279 1 20.3419 1 21.9209 2.57906C23.5 4.15812 23.5 6.77208 23.5 12C23.5 17.2279 23.5 19.8419 21.9209 21.4209C20.3419 23 17.7279 23 12.5 23C7.27208 23 4.65812 23 3.07906 21.4209C1.5 19.8419 1.5 17.2279 1.5 12Z"
+                stroke="#FAFAFA"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M17.5 12C17.5 15.0376 15.0376 17.5 12 17.5C8.96243 17.5 6.5 15.0376 6.5 12C6.5 8.96243 8.96243 6.5 12 6.5C15.0376 6.5 17.5 8.96243 17.5 12Z"
+                stroke="#FAFAFA"
+                strokeWidth="1.8"
+            />
+            <path
+                d="M18.5 5.5H18.49"
+                stroke="#FAFAFA"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    clock: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M16 2V6M8 2V6"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M3 10H21"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    calendar: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+            />
+            <path
+                d="M12 8V12L14 14"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     ),
