@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
 interface FormFieldProps {
     label: string
@@ -32,6 +32,8 @@ interface InputProps {
     placeholder: string
     type?: 'text' | 'email' | 'textarea' | 'select' | 'custom-select'
     options?: string[]
+    value?: string
+    onChange?: (value: string) => void
     className?: string
 }
 
@@ -39,10 +41,22 @@ export function Input({
     placeholder,
     type = 'text',
     options,
+    value = '',
+    onChange,
     className = '',
 }: InputProps) {
-    const [selectedValue, setSelectedValue] = useState('')
+    const [selectedValue, setSelectedValue] = useState(value)
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+    // Update internal state when external value changes
+    React.useEffect(() => {
+        setSelectedValue(value)
+    }, [value])
+
+    const handleInputChange = (newValue: string) => {
+        setSelectedValue(newValue)
+        onChange?.(newValue)
+    }
 
     const baseClasses =
         'w-full p-4 border border-tertiary-600 bg-transparent text-secondary-200 placeholder-secondary-600 font-space-grotesk font-regular text-body1 focus:border-tertiary-400 focus:outline-none transition-colors'
@@ -51,6 +65,8 @@ export function Input({
         return (
             <textarea
                 placeholder={placeholder}
+                value={value}
+                onChange={(e) => handleInputChange(e.target.value)}
                 rows={6}
                 className={`${baseClasses} resize-none ${className}`}
             />
@@ -96,7 +112,7 @@ export function Input({
                                 key={option}
                                 type="button"
                                 onClick={() => {
-                                    setSelectedValue(option)
+                                    handleInputChange(option)
                                     setIsDropdownOpen(false)
                                 }}
                                 className="text-body1 border-tertiary-600 text-secondary-200 hover:bg-primary-800 w-full border-b px-4 py-3 text-left transition-colors last:border-b-0"
@@ -114,6 +130,8 @@ export function Input({
         return (
             <div className="relative">
                 <select
+                    value={value}
+                    onChange={(e) => handleInputChange(e.target.value)}
                     className={`${baseClasses} appearance-none pr-12 ${className}`}
                 >
                     <option value="">{placeholder}</option>
@@ -144,6 +162,8 @@ export function Input({
         <input
             type={type}
             placeholder={placeholder}
+            value={value}
+            onChange={(e) => handleInputChange(e.target.value)}
             className={`${baseClasses} ${className}`}
         />
     )

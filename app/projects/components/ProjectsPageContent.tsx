@@ -1,13 +1,39 @@
 'use client'
+/* eslint-disable */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ProjectCard } from './ProjectCard'
 import { getProjects } from '../data/projectsData'
 import { Icon } from '../../../components/ui/Icon'
 
 export function ProjectsPageContent() {
     const projects = getProjects()
+    const searchParams = useSearchParams()
+    const projectParam = searchParams.get('project')
+
     const [expandedProjects, setExpandedProjects] = useState<string[]>([])
+
+    // Auto-expand project from URL parameter
+    useEffect(() => {
+        if (projectParam && projects.find((p) => p.id === projectParam)) {
+            setExpandedProjects([projectParam])
+
+            // Scroll to the project after a short delay to ensure rendering
+            setTimeout(() => {
+                const projectElement = document.getElementById(
+                    `project-${projectParam}`
+                )
+                if (projectElement) {
+                    projectElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest',
+                    })
+                }
+            }, 100)
+        }
+    }, [projectParam, projects])
 
     const toggleExpanded = (projectId: string) => {
         setExpandedProjects((prev) =>
@@ -42,7 +68,11 @@ export function ProjectsPageContent() {
                     {/* Projects List */}
                     <div className="flex flex-col items-start justify-start gap-12 self-stretch">
                         {projects.map((project, projectIndex) => (
-                            <div key={project.id} className="w-full">
+                            <div
+                                key={project.id}
+                                id={`project-${project.id}`}
+                                className="w-full"
+                            >
                                 <ProjectCard
                                     project={project}
                                     showGoToSite={
@@ -79,6 +109,7 @@ export function ProjectsPageContent() {
                         {projects.map((project) => (
                             <div
                                 key={project.id}
+                                id={`project-${project.id}`}
                                 className="flex w-full flex-col items-start justify-start gap-6"
                             >
                                 <div className="flex flex-col items-start justify-start gap-6 self-stretch">

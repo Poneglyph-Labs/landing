@@ -10,6 +10,15 @@ const filterOptions = [
     'Proof of Concept',
 ]
 
+// Mapping from display names to actual data types
+const typeMapping = {
+    All: 'All',
+    Whitepaper: 'Paper',
+    'Open Source': 'Repository',
+    'Security Audit': 'Audit',
+    'Proof of Concept': 'Proof of Concept',
+} as const
+
 interface FilterTabsProps {
     onFilterChange?: (filter: string) => void
     className?: string
@@ -24,7 +33,10 @@ export function FilterTabs({
 
     const handleFilterChange = (filter: string) => {
         setActiveFilter(filter)
-        onFilterChange?.(filter)
+        // Map display name to actual type for filtering
+        const actualType =
+            typeMapping[filter as keyof typeof typeMapping] || filter
+        onFilterChange?.(actualType)
         setIsDropdownOpen(false)
     }
 

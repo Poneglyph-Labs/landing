@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react'
 import { Button } from './Button'
 
 interface ProjectRowProps {
@@ -16,12 +17,23 @@ export function ProjectRow({
     links,
     className = '',
 }: ProjectRowProps) {
+    const handleLinkClick = (
+        e: MouseEvent<HTMLButtonElement>,
+        href: string
+    ) => {
+        e.preventDefault()
+        e.stopPropagation()
+        if (href !== '#') {
+            window.open(href, '_blank', 'noopener,noreferrer')
+        }
+    }
+
     return (
         <div
             className={`flex flex-col items-start gap-6 py-10 lg:flex-row lg:gap-16 ${className}`}
         >
             {/* Project Name */}
-            <div className="flex items-center gap-4 lg:flex-[0.5]">
+            <div className="flex items-center gap-4 lg:flex-[0.4]">
                 <span className="text-h4 text-secondary-600 font-medium">
                     &gt;_
                 </span>
@@ -31,7 +43,7 @@ export function ProjectRow({
             </div>
 
             {/* Description */}
-            <div className="lg:flex-[0.7]">
+            <div className="lg:flex-[0.6]">
                 <p className="text-subheading text-secondary-400 font-medium">
                     {description}
                 </p>
@@ -45,6 +57,7 @@ export function ProjectRow({
                         variant="secondary"
                         size="md"
                         className="text-subheading font-regular hover:text-secondary-200"
+                        onClick={(e) => handleLinkClick(e!, link.href)}
                     >
                         {link.label}
                     </Button>

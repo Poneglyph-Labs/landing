@@ -1,38 +1,15 @@
+'use client'
+
+import Link from 'next/link'
 import { ProjectRow } from '../ui/ProjectRow'
 import { Button } from '../ui/Button'
-
-const projects = [
-    {
-        name: 'VeraVote',
-        description: 'Secure voting for institutions and communities',
-        links: [
-            { label: 'DOCUMENTATION', href: '#' },
-            { label: 'SDK', href: '#' },
-        ],
-    },
-    {
-        name: 'Aegis-7',
-        description:
-            'A formal verification framework for solidity contracts using symbolic execution.',
-        links: [
-            { label: 'ARCHITECTURE', href: '#' },
-            { label: 'REPOSITORY', href: '#' },
-            { label: 'DEMO', href: '#' },
-        ],
-    },
-    {
-        name: 'Nexus Grid',
-        description:
-            'Decentralized compute coordination layer for non-deterministic workloads.',
-        links: [
-            { label: 'SPECS', href: '#' },
-            { label: 'GIT', href: '#' },
-            { label: 'TESTNET', href: '#' },
-        ],
-    },
-]
+import { getProjects } from '../../app/projects/data/projectsData'
 
 export function ProjectsSection() {
+    // Get first 3 projects from the projects data
+    const allProjects = getProjects()
+    const displayProjects = allProjects.slice(0, 3)
+
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
             <div className="mx-auto max-w-6xl px-4 md:px-8">
@@ -46,14 +23,45 @@ export function ProjectsSection() {
 
                     {/* Projects List */}
                     <div className="space-y-0">
-                        {projects.map((project, index) => (
-                            <div key={project.name}>
-                                <ProjectRow
-                                    name={project.name}
-                                    description={project.description}
-                                    links={project.links}
-                                />
-                                {index < projects.length - 1 && (
+                        {displayProjects.map((project, index) => (
+                            <div key={project.id}>
+                                <Link href={`/projects?project=${project.id}`}>
+                                    <ProjectRow
+                                        name={project.title}
+                                        description={project.description}
+                                        links={[
+                                            ...(project.links.repository
+                                                ? [
+                                                      {
+                                                          label: 'REPOSITORY',
+                                                          href: project.links
+                                                              .repository,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.documentation
+                                                ? [
+                                                      {
+                                                          label: 'DOCUMENTATION',
+                                                          href: project.links
+                                                              .documentation,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.research
+                                                ? [
+                                                      {
+                                                          label: 'RESEARCH',
+                                                          href: project.links
+                                                              .research,
+                                                      },
+                                                  ]
+                                                : []),
+                                        ]}
+                                        className="hover:bg-primary-800/20 cursor-pointer transition-colors"
+                                    />
+                                </Link>
+                                {index < displayProjects.length - 1 && (
                                     <div className="border-tertiary-400 border-b" />
                                 )}
                             </div>
@@ -62,9 +70,11 @@ export function ProjectsSection() {
 
                     {/* View More Button */}
                     <div className="flex justify-end pt-10">
-                        <Button variant="outline" size="lg">
-                            VIEW FULL ARCHIVE
-                        </Button>
+                        <Link href="/projects">
+                            <Button variant="outline" size="lg">
+                                VIEW FULL PROJECTS
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>

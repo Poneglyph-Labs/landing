@@ -37,13 +37,35 @@ export function ArchiveFilters({
         'Decentralized System',
         'Artificial Intelligence',
     ]
-    const types: (ArchiveItemType | 'All')[] = [
+    // Type mapping for display vs actual values
+    const typeDisplayMap = {
+        All: 'All',
+        Whitepaper: 'Paper',
+        'Open Source': 'Repository',
+        'Security Audit': 'Audit',
+        'Proof of Concept': 'Proof of Concept',
+    } as const
+
+    const typeDisplayOptions = [
         'All',
-        'Paper',
-        'Audit',
-        'Repository',
+        'Whitepaper',
+        'Open Source',
+        'Security Audit',
         'Proof of Concept',
-    ]
+    ] as const
+
+    const getDisplayType = (actualType: ArchiveItemType | 'All'): string => {
+        const entry = Object.entries(typeDisplayMap).find(
+            ([_, actual]) => actual === actualType
+        )
+        return entry ? entry[0] : actualType
+    }
+
+    const getActualType = (displayType: string): ArchiveItemType | 'All' => {
+        return (
+            typeDisplayMap[displayType as keyof typeof typeDisplayMap] || 'All'
+        )
+    }
     const sortOptions: ('Most Recent' | 'Oldest')[] = ['Most Recent', 'Oldest']
 
     return (
@@ -143,7 +165,7 @@ export function ArchiveFilters({
                         className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
                         <span className="text-subheading text-secondary-200 font-medium">
-                            Type: {selectedType}
+                            Type: {getDisplayType(selectedType)}
                         </span>
                         <Icon
                             name="arrow-down"
@@ -156,24 +178,27 @@ export function ArchiveFilters({
                         <div
                             className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
                         >
-                            {types.map((type, index) => (
-                                <div key={type}>
+                            {typeDisplayOptions.map((displayType, index) => (
+                                <div key={displayType}>
                                     <div className="flex flex-col items-start justify-center px-4 py-3">
                                         <button
                                             onClick={() => {
-                                                onTypeChange(type)
+                                                onTypeChange(
+                                                    getActualType(displayType)
+                                                )
                                                 setShowTypeDropdown(false)
                                             }}
                                             className={`text-body1 font-regular w-full text-left transition-colors ${
-                                                type === selectedType
+                                                getActualType(displayType) ===
+                                                selectedType
                                                     ? 'text-secondary-200'
                                                     : 'text-secondary-600'
                                             }`}
                                         >
-                                            {type}
+                                            {displayType}
                                         </button>
                                     </div>
-                                    {index < types.length - 1 && (
+                                    {index < typeDisplayOptions.length - 1 && (
                                         <div className="border-tertiary-600 h-0 w-full border-t-[0.5px]" />
                                     )}
                                 </div>

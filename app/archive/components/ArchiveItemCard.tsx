@@ -6,6 +6,17 @@ interface ArchiveItemCardProps {
     item: ArchiveItem
 }
 
+// Map actual types to display names
+const getDisplayType = (type: string): string => {
+    const typeDisplayMap = {
+        Paper: 'Whitepaper',
+        Repository: 'Open Source',
+        Audit: 'Security Audit',
+        'Proof of Concept': 'Proof of Concept',
+    }
+    return typeDisplayMap[type as keyof typeof typeDisplayMap] || type
+}
+
 export function ArchiveItemCard({ item }: ArchiveItemCardProps) {
     return (
         <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-10 px-8 py-8 transition-colors">
@@ -23,7 +34,7 @@ export function ArchiveItemCard({ item }: ArchiveItemCardProps) {
                         <div className="flex shrink-0 items-center gap-4">
                             <div className="bg-primary-800 flex flex-col items-center justify-center p-2">
                                 <span className="text-caption text-secondary-200 text-center font-medium">
-                                    {item.type}
+                                    {getDisplayType(item.type)}
                                 </span>
                             </div>
                             <span className="text-body2 leading-none font-medium tracking-[-0.18px] text-[rgba(229,229,229,0.8)]">
