@@ -1,111 +1,35 @@
 # Poneglyph Labs
 
-Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems.
+**Researching and Shipping Verifiable Infrastructure**
 
-## Development Setup
+Poneglyph Labs is an independent research and engineering studio focused on trust-critical systems. We conduct applied research, build production infrastructure, and audit protocols operating under adversarial conditions.
 
-This project uses Next.js 16 with Turbopack, TypeScript, and Tailwind CSS.
+## Our Focus
 
-### Prerequisites
+Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems. We work on unresolved problems in these domains, with particular emphasis on systems that must operate correctly under adversarial conditions.
 
-- Node.js 18+
-- pnpm (recommended package manager)
+## What We Do
 
-### Getting Started
+### Security Audits
+Cryptographic protocol and smart contract reviews focused on correctness, adversarial models, and failure modes. We analyze systems through the lens of real-world attack vectors and economic incentives.
 
-1. Install dependencies:
+### Custom R&D
+Applied research and engineering for unresolved problems in cryptography, consensus, and decentralized systems. We bridge the gap between theoretical advances and production-ready implementations.
 
-```bash
-pnpm install
-```
+### Strategy & Advisory
+Technical architecture review and roadmap design for trust-critical decentralized systems under real-world security and constraints. We help teams navigate complex technical decisions in adversarial environments.
 
-2. Run the development server:
+## Research Areas
 
-```bash
-pnpm dev
-```
+Our work spans multiple interconnected domains:
 
-3. Open [http://localhost:3000](http://localhost:3000) to view the site.
+- **Cryptographic Protocols**: Zero-knowledge proofs, multi-party computation, and post-quantum cryptography
+- **Consensus Mechanisms**: Byzantine fault tolerance, finality gadgets, and economic security models
+- **Verifiable Systems**: Proof systems, verifiable computation, and trust-minimized infrastructure
+- **AI Safety**: Verifiable inference, privacy-preserving machine learning, and adversarial robustness
 
-### Available Scripts
+## Philosophy
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-- `pnpm lint:fix` - Fix ESLint issues
-- `pnpm format` - Format code with Prettier
-- `pnpm format:check` - Check code formatting
-- `pnpm type-check` - Run TypeScript type checking
+We believe in building systems that can be formally verified, economically secure, and practically deployable. Our approach combines rigorous theoretical analysis with hands-on engineering to create solutions that work in the real world.
 
-### Code Quality
-
-This project uses:
-
-- **ESLint** for code linting
-- **Prettier** for code formatting
-- **Husky** for git hooks
-- **lint-staged** for pre-commit checks
-
-Git hooks will automatically:
-
-- Format and lint code before commits
-- Validate commit message format (conventional commits)
-
-### Commit Message Format
-
-Use conventional commit format:
-
-```
-type(scope): description
-
-Examples:
-feat(auth): add login functionality
-fix(ui): resolve button styling issue
-docs(readme): update setup instructions
-```
-
-### Project Structure
-
-```
-├── app/                 # Next.js app directory
-├── components/          # React components
-│   ├── layout/         # Layout components
-│   ├── sections/       # Page sections
-│   ├── seo/           # SEO components
-│   └── ui/            # UI components
-├── assets/             # Static assets
-├── public/             # Public files
-└── tailwind.config.ts  # Tailwind configuration
-```
-
-### SEO & Metadata
-
-The site includes:
-
-- Comprehensive meta tags
-- Open Graph tags for social sharing
-- Twitter Card support
-- Structured data (JSON-LD)
-- Sitemap generation
-- Web app manifest
-
-### Design System
-
-Built with a custom Tailwind configuration featuring:
-
-- Poneglyph Labs color palette
-- Space Grotesk typography
-- Responsive design tokens
-- Dark theme optimized
-
-## Deployment
-
-The site is optimized for deployment on Vercel or any platform supporting Next.js.
-
-For production deployment:
-
-```bash
-pnpm build
-pnpm start
-```
+Every system we design assumes adversarial conditions from the ground up, ensuring robustness against both technical attacks and economic manipulation.
