@@ -26,7 +26,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
         <>
             {/* Desktop Layout */}
             <div className="hidden w-full flex-col items-start justify-center md:flex">
-                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
                     {/* Header */}
                     <div className="flex w-full flex-col items-start justify-start gap-10">
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-4 border-b-[0.50px] py-6">
@@ -41,7 +41,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                     </div>
 
                     {/* Search and Sort */}
-                    <div className="flex w-full flex-col items-start justify-start gap-6">
+                    <div className="mt-12 flex w-full flex-col items-start justify-start gap-6">
                         {/* Search Bar */}
                         <div className="border-tertiary-600 flex h-16 w-full items-center justify-start gap-2.5 border p-4">
                             <Icon

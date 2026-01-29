@@ -22,7 +22,7 @@ export function Button({
     type = 'button',
 }: ButtonProps) {
     const baseClasses =
-        'font-space-grotesk font-medium transition-colors flex items-center justify-center gap-2'
+        'font-space-grotesk font-medium transition-colors flex items-center gap-2'
 
     const variantClasses = {
         primary:

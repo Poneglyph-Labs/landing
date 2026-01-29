@@ -296,22 +296,21 @@ const iconComponents = {
     'arrow-up-right': (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
             fill="none"
         >
             <path
-                d="M7 17L17 7"
-                stroke="#FAFAFA"
-                strokeWidth="2"
+                d="M22 10L8 24"
+                stroke="#9E9E9E"
+                strokeWidth="1.5"
                 strokeLinecap="round"
-                strokeLinejoin="round"
             />
             <path
-                d="M7 7H17V17"
-                stroke="#FAFAFA"
-                strokeWidth="2"
+                d="M10.6666 8.25054C10.6666 8.25054 21.3972 7.34598 23.0256 8.97438C24.6541 10.6028 23.7493 21.3333 23.7493 21.3333"
+                stroke="#9E9E9E"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArchiveItemType } from '../../app/archive/data/archiveData'
+import { Icon } from './Icon'
 
 interface ResearchCardProps {
     type: ArchiveItemType
@@ -46,19 +47,11 @@ export function ResearchCard({
                             {getDisplayType(type)}
                         </span>
                     </div>
-                    <svg
-                        className="text-secondary-600 group-hover:text-secondary-200 h-8 w-8 transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                    </svg>
+                    <Icon
+                        name="arrow-up-right"
+                        size={24}
+                        className="text-secondary-200"
+                    />
                 </div>
 
                 {/* Content */}

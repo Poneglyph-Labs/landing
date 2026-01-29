@@ -19,7 +19,7 @@ const signals = [
 
 export function ActivitySignals() {
     return (
-        <section className="border-tertiary-400 bg-primary-900 relative mx-auto mt-20 h-16 overflow-hidden border-t border-b md:mt-20 md:h-20">
+        <section className="border-tertiary-400 bg-primary-900 relative mx-auto mt-12 h-16 overflow-hidden border-t border-b md:mt-20 md:h-20">
             {/* Scrolling container */}
             <div className="animate-scroll flex whitespace-nowrap">
                 {/* Duplicate the signals for seamless loop */}
