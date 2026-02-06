@@ -3,25 +3,27 @@ import Link from 'next/link'
 
 export const mdxComponents: MDXComponents = {
     h1: ({ children }) => (
-        <h1 className="text-h2 font-space-grotesk mb-6 font-medium text-white">
+        <h1 className="text-subheading font-space-grotesk text-secondary-400 mb-6 text-[20px] font-medium">
             {children}
         </h1>
     ),
     h2: ({ children }) => (
-        <h2 className="text-h3 font-space-grotesk mb-4 font-medium text-white">
+        <h2 className="text-h3 font-space-grotesk text-secondary-200 mb-4 font-medium">
             {children}
         </h2>
     ),
     h3: ({ children }) => (
-        <h3 className="text-subheading mb-4 font-medium text-white">
+        <h3 className="text-subheading text-secondary-200 mb-4 text-[20px] font-medium">
             {children}
         </h3>
     ),
     h4: ({ children }) => (
-        <h4 className="text-body1 mb-3 font-medium text-white">{children}</h4>
+        <h4 className="text-body1 text-secondary-200 mb-3 font-medium">
+            {children}
+        </h4>
     ),
     p: ({ children }) => (
-        <p className="text-body1 text-secondary-200 mb-6 leading-7">
+        <p className="md:text-body2 text-secondary-200 mb-6 text-[16px] leading-7 md:text-[18px]">
             {children}
         </p>
     ),
@@ -88,7 +90,7 @@ export const mdxComponents: MDXComponents = {
         <tr className="border-tertiary-400 border-b">{children}</tr>
     ),
     th: ({ children }) => (
-        <th className="text-body2 text-secondary-400 px-6 py-4 text-left font-medium">
+        <th className="text-body2 text-secondary-400 px-6 py-4 text-left text-[18px] font-medium">
             {children}
         </th>
     ),
@@ -97,7 +99,7 @@ export const mdxComponents: MDXComponents = {
     ),
     hr: () => <hr className="border-tertiary-400 my-8 border-t" />,
     strong: ({ children }) => (
-        <strong className="font-medium text-white">{children}</strong>
+        <strong className="text-secondary-200 font-medium">{children}</strong>
     ),
     em: ({ children }) => <em className="italic">{children}</em>,
 }

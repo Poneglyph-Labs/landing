@@ -17,7 +17,7 @@ export function FormField({
 }: FormFieldProps) {
     return (
         <div className={`space-y-4 ${className}`}>
-            <label className="text-body2 font-regular text-secondary-200 flex items-center gap-1">
+            <label className="md:text-body2 font-regular text-secondary-200 flex items-center gap-1 text-[16px] md:text-[18px]">
                 {label}
                 {required && (
                     <span className="font-medium text-red-500">*</span>

@@ -28,12 +28,12 @@ export function ResearchArchive({ items }: ResearchArchiveProps) {
 
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto max-w-6xl px-4 md:px-8">
+            <div className="mx-auto px-4 md:px-24">
                 <div className="space-y-20">
                     {/* Section Header */}
                     <div className="space-y-10">
                         <div className="border-tertiary-400 border-b pb-6">
-                            <h2 className="text-h3 font-space-grotesk text-secondary-200 font-medium">
+                            <h2 className="md:text-h3 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[32px]">
                                 RESEARCH ARCHIVE
                             </h2>
                         </div>
@@ -65,7 +65,18 @@ export function ResearchArchive({ items }: ResearchArchiveProps) {
                     {/* View More Button */}
                     <div className="flex justify-end">
                         <Link href="/archive">
-                            <Button variant="outline" size="lg">
+                            <Button
+                                className="hidden md:block"
+                                variant="outline"
+                                size="lg"
+                            >
+                                VIEW FULL ARCHIVE
+                            </Button>
+                            <Button
+                                className="block md:hidden"
+                                variant="outline"
+                                size="sm"
+                            >
                                 VIEW FULL ARCHIVE
                             </Button>
                         </Link>

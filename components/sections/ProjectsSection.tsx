@@ -12,11 +12,11 @@ export function ProjectsSection() {
 
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto max-w-6xl px-4 md:px-8">
+            <div className="mx-auto px-4 md:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
-                        <h2 className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                        <h2 className="md:text-h4 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[28px]">
                             OUR PROJECTS
                         </h2>
                     </div>
@@ -30,6 +30,15 @@ export function ProjectsSection() {
                                         name={project.title}
                                         description={project.description}
                                         links={[
+                                            ...(project.links.architecture
+                                                ? [
+                                                      {
+                                                          label: 'ARCHITECTURE',
+                                                          href: project.links
+                                                              .architecture,
+                                                      },
+                                                  ]
+                                                : []),
                                             ...(project.links.repository
                                                 ? [
                                                       {
@@ -39,6 +48,7 @@ export function ProjectsSection() {
                                                       },
                                                   ]
                                                 : []),
+
                                             ...(project.links.documentation
                                                 ? [
                                                       {
@@ -48,12 +58,57 @@ export function ProjectsSection() {
                                                       },
                                                   ]
                                                 : []),
+                                            ...(project.links.sdk
+                                                ? [
+                                                      {
+                                                          label: 'SDK',
+                                                          href: project.links
+                                                              .sdk,
+                                                      },
+                                                  ]
+                                                : []),
                                             ...(project.links.research
                                                 ? [
                                                       {
                                                           label: 'RESEARCH',
                                                           href: project.links
                                                               .research,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.demo
+                                                ? [
+                                                      {
+                                                          label: 'DEMO',
+                                                          href: project.links
+                                                              .demo,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.spec
+                                                ? [
+                                                      {
+                                                          label: 'SPECS',
+                                                          href: project.links
+                                                              .spec,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.git
+                                                ? [
+                                                      {
+                                                          label: 'GIT',
+                                                          href: project.links
+                                                              .git,
+                                                      },
+                                                  ]
+                                                : []),
+                                            ...(project.links.testnet
+                                                ? [
+                                                      {
+                                                          label: 'TESTNET',
+                                                          href: project.links
+                                                              .testnet,
                                                       },
                                                   ]
                                                 : []),
@@ -69,9 +124,17 @@ export function ProjectsSection() {
                     </div>
 
                     {/* View More Button */}
-                    <div className="flex justify-end pt-10">
+                    <div className="hidden justify-end pt-10 md:flex">
                         <Link href="/projects">
                             <Button variant="outline" size="lg">
+                                VIEW FULL PROJECTS
+                            </Button>
+                        </Link>
+                    </div>
+                    {/* View More Button Mobile*/}
+                    <div className="flex justify-end pt-10 md:hidden">
+                        <Link href="/projects">
+                            <Button variant="outline" size="sm">
                                 VIEW FULL PROJECTS
                             </Button>
                         </Link>

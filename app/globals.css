@@ -1,15 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+@theme {
+    --color-primary-200: #e6e6e6;
+    --color-primary-400: #a8a8a8;
+    --color-primary-500: #7a7a7a;
+    --color-primary-800: #141414;
+    --color-primary-900: #0a0a0a;
+
+    --color-secondary-200: #fafafa;
+    --color-secondary-400: #dadada;
+    --color-secondary-500: #bfbfbf;
+    --color-secondary-600: #9e9e9e;
+
+    --color-tertiary-200: #f5f5f5;
+    --color-tertiary-400: #e5e5e5;
+    --color-tertiary-500: #d1d1d1;
+    --color-tertiary-600: #b8b8b8;
+
+    --color-neutral-900: #171717;
+    --color-red-500: #ff0000;
+    --color-black: #000000;
+
+    --font-family-space-grotesk: 'Space Grotesk', sans-serif;
+
+    --font-size-h1: 64px;
+    --font-size-h2: 48px;
+    --font-size-h3: 32px;
+    --font-size-h4: 28px;
+    --font-size-subheading: 20px;
+    --font-size-body1: 16px;
+    --font-size-body2: 18px;
+    --font-size-caption: 14px;
+    --font-size-footer: 12px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+}
+
 :root {
     --background: #0a0a0a;
     --foreground: #fafafa;
-}
-
-@theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-space-grotesk: 'Space Grotesk', sans-serif;
 }
 
 body {

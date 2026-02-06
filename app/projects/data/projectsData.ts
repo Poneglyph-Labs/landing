@@ -5,11 +5,18 @@ export interface Project {
     status: string
     systemArchitecture: string
     technicalSummary: string[]
+    siteUrl?: string
     links: {
         repository?: string
         documentation?: string
         research?: string
         archive?: string
+        sdk?: string
+        demo?: string
+        architecture?: string
+        spec?: string
+        git?: string
+        testnet?: string
     }
 }
 
@@ -26,10 +33,11 @@ export const projects: Project[] = [
             'P2P gossip layer for ballot propagation independent of L1 consensus',
             'Recursive proof aggregation to minimize on-chain verification gas costs',
         ],
+        siteUrl: 'https://veravote.org',
         links: {
-            repository: '#',
-            documentation: '#',
-            research: '#',
+            // repository: 'https://github.com/veravote',
+            documentation: 'https://github.com/veravote/documentation',
+            sdk: '#',
         },
     },
     {
@@ -47,7 +55,9 @@ export const projects: Project[] = [
         ],
         links: {
             repository: '#',
-            documentation: '#',
+            // documentation: '#',
+            architecture: '#',
+            demo: '#',
         },
     },
     {
@@ -63,10 +73,11 @@ export const projects: Project[] = [
             'WASM-based sandboxed execution environment',
             'Economic finality gadget for asynchronous task completion',
         ],
+        siteUrl: '#', // Uncomment and add real URL when ready
         links: {
-            repository: '#',
-            documentation: '#',
-            research: '#',
+            spec: '#',
+            git: '#',
+            testnet: '#',
         },
     },
 ]

@@ -34,29 +34,44 @@ export function ProjectRow({
         >
             {/* Project Name */}
             <div className="flex items-center gap-4 lg:flex-[0.4]">
-                <span className="text-h4 text-secondary-600 font-medium">
+                <span className="md:text-h4 text-secondary-600 text-[20px] font-medium md:text-[28px]">
                     &gt;_
                 </span>
-                <h3 className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                <h3 className="md:text-h4 font-space-grotesk text-secondary-200 text-[20px] font-medium md:text-[28px]">
                     {name}
                 </h3>
             </div>
 
             {/* Description */}
             <div className="lg:flex-[0.6]">
-                <p className="text-subheading text-secondary-400 font-medium">
+                <p className="text-subheading text-secondary-400 text-[20px] font-medium">
                     {description}
                 </p>
             </div>
 
             {/* Links */}
-            <div className="flex flex-wrap gap-4 lg:flex-1 lg:justify-end">
+            <div className="hidden flex-wrap gap-4 md:flex lg:flex-1 lg:justify-end">
                 {links.map((link, index) => (
                     <Button
                         key={index}
                         variant="secondary"
-                        size="md"
-                        className="text-subheading font-regular hover:text-secondary-200"
+                        size="lg"
+                        className="font-regular hover:text-secondary-200"
+                        onClick={(e) => handleLinkClick(e!, link.href)}
+                    >
+                        {link.label}
+                    </Button>
+                ))}
+            </div>
+
+            {/* mobile link */}
+            <div className="flex flex-wrap md:hidden md:gap-4 lg:flex-1 lg:justify-end">
+                {links.map((link, index) => (
+                    <Button
+                        key={index}
+                        variant="secondary"
+                        size="sm"
+                        className="font-regular hover:text-secondary-200"
                         onClick={(e) => handleLinkClick(e!, link.href)}
                     >
                         {link.label}

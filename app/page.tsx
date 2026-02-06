@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <>
             <StructuredData />
-            <div className="bg-primary-900 text-secondary-200 min-h-screen">
+            <div className="bg-primary-900 min-h-screen">
                 <HeroSection />
                 {/* <ActivitySignals /> */}
                 <EngagementModels />

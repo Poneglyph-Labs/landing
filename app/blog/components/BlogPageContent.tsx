@@ -30,10 +30,10 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                     {/* Header */}
                     <div className="flex w-full flex-col items-start justify-start gap-10">
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-4 border-b-[0.50px] py-6">
-                            <h1 className="text-h3 font-space-grotesk text-secondary-200 font-medium tracking-tight">
+                            <h1 className="text-h4 font-space-grotesk text-secondary-200 text-[28px] font-medium tracking-tight">
                                 BLOG
                             </h1>
-                            <p className="text-subheading font-space-grotesk text-secondary-600 font-medium tracking-tight">
+                            <p className="text-body2 font-space-grotesk text-secondary-600 text-[18px] font-medium tracking-tight">
                                 Technical notes, research context, and lab
                                 updates from Poneglyph Labs.
                             </p>
@@ -67,10 +67,10 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                     }
                                     className="flex items-center gap-2 px-4 py-3 transition-colors"
                                 >
-                                    <span className="text-h4 font-space-grotesk text-secondary-600 font-medium">
+                                    <span className="text-body2 font-space-grotesk text-primary-400 text-[18px] font-medium">
                                         Sort:{' '}
                                     </span>
-                                    <span className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                                    <span className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">
                                         {sortBy}
                                     </span>
                                     <Icon
@@ -124,15 +124,15 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                     <div className="hover:bg-primary-800/10 flex flex-col items-start justify-start gap-6 py-10 transition-colors">
                                         {/* Post Header */}
                                         <div className="flex flex-col items-start justify-start gap-4">
-                                            <h2 className="text-h3 font-space-grotesk font-medium text-white">
+                                            <h2 className="text-h4 font-space-grotesk text-secondary-200 text-[28px] font-medium">
                                                 {post.title}
                                             </h2>
                                             <div className="flex items-center justify-center gap-6 p-2.5">
-                                                <span className="text-body1 font-space-grotesk text-secondary-600 leading-7 font-normal">
+                                                <span className="text-body1 font-space-grotesk text-secondary-400 leading-7 font-normal">
                                                     {post.date}
                                                 </span>
                                                 <div className="border-tertiary-600 h-6 border-r" />
-                                                <span className="text-body1 font-space-grotesk text-secondary-600 leading-7 font-normal">
+                                                <span className="text-body1 font-space-grotesk text-secondary-400 leading-7 font-normal">
                                                     {post.readTime}
                                                 </span>
                                                 <div className="border-tertiary-600 h-6 border-r" />
@@ -143,19 +143,19 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                         </div>
 
                                         {/* Post Excerpt */}
-                                        <p className="text-subheading font-space-grotesk w-full font-normal text-white">
+                                        <p className="text-body2 font-space-grotesk text-secondary-200 w-full text-[18px] font-normal">
                                             {post.excerpt}
                                         </p>
 
                                         {/* Read More */}
                                         <div className="flex w-full items-center justify-start gap-2 py-3 pr-4 pl-3">
-                                            <span className="text-body1 font-space-grotesk text-secondary-600 leading-7 font-normal">
+                                            <span className="text-body1 font-space-grotesk text-secondary-400 leading-7 font-normal">
                                                 Read
                                             </span>
                                             <Icon
                                                 name="arrow-right"
                                                 size={24}
-                                                className="text-secondary-600"
+                                                className="text-secondary-400"
                                             />
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                         {/* No Results */}
                         {sortedPosts.length === 0 && (
                             <div className="flex w-full flex-col items-center justify-center gap-4 py-20">
-                                <h3 className="text-h4 font-space-grotesk text-secondary-600 font-medium">
+                                <h3 className="text-h4 font-space-grotesk text-secondary-600 text-[28px] font-medium">
                                     No blog posts found
                                 </h3>
                                 <p className="text-body1 font-space-grotesk text-secondary-600 font-normal">
@@ -188,10 +188,10 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                 <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4">
                     {/* Mobile Header */}
                     <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-4">
-                        <h1 className="text-body2 font-space-grotesk text-secondary-200 font-medium">
+                        <h1 className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">
                             BLOG
                         </h1>
-                        <p className="text-caption font-space-grotesk text-secondary-600 self-stretch font-normal">
+                        <p className="text-caption font-space-grotesk self-stretch text-[14px] font-normal text-[#9E9E9E]">
                             Technical notes, research context, and lab updates
                             from Poneglyph Labs.
                         </p>
@@ -209,7 +209,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                             placeholder="Search blog"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="text-caption font-regular text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent outline-none"
+                            className="text-caption font-regular text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent text-[14px] outline-none"
                         />
                     </div>
 
@@ -221,10 +221,10 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                             }
                             className="flex items-center gap-2"
                         >
-                            <span className="text-caption font-space-grotesk text-secondary-600 font-medium">
+                            <span className="text-caption font-space-grotesk text-secondary-600 text-[14px] font-medium">
                                 Sort:{' '}
                             </span>
-                            <span className="text-caption font-space-grotesk text-secondary-200 font-medium">
+                            <span className="text-caption font-space-grotesk text-secondary-200 text-[14px] font-medium">
                                 {sortBy}
                             </span>
                             <Icon
@@ -244,7 +244,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                                     setSortBy(option)
                                                     setShowSortDropdown(false)
                                                 }}
-                                                className={`text-caption font-regular w-full text-left transition-colors ${
+                                                className={`text-caption font-regular w-full text-left text-[14px] transition-colors ${
                                                     option === sortBy
                                                         ? 'text-secondary-200'
                                                         : 'text-secondary-600'
@@ -273,36 +273,36 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                             >
                                 <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-6 p-6 transition-colors">
                                     <div className="flex w-full flex-col items-start gap-4">
-                                        <h2 className="text-subheading font-space-grotesk w-full font-medium text-white">
+                                        <h2 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                             {post.title}
                                         </h2>
                                         <div className="flex items-center gap-4">
-                                            <span className="text-caption text-secondary-600 font-medium">
+                                            <span className="text-caption text-secondary-600 text-[14px] font-medium">
                                                 {post.date}
                                             </span>
                                             <div className="border-tertiary-400 h-4 border-r" />
-                                            <span className="text-caption text-secondary-600 font-medium">
+                                            <span className="text-caption text-secondary-600 text-[14px] font-medium">
                                                 {post.readTime}
                                             </span>
                                             <div className="border-tertiary-400 h-4 border-r" />
-                                            <span className="text-caption text-secondary-200 font-medium">
+                                            <span className="text-caption text-secondary-200 text-[14px] font-medium">
                                                 {post.author}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <p className="text-body1 font-regular text-tertiary-400 w-full leading-7">
+                                    <p className="text-body1 font-regular text-secondary-200 w-full leading-7">
                                         {post.excerpt}
                                     </p>
 
                                     <div className="flex items-center gap-2">
-                                        <span className="text-caption font-regular text-secondary-600">
+                                        <span className="text-caption font-regular text-secondary-400 text-[14px]">
                                             Read
                                         </span>
                                         <Icon
                                             name="arrow-right"
                                             size={16}
-                                            className="text-secondary-600"
+                                            className="text-secondary-400"
                                         />
                                     </div>
                                 </div>

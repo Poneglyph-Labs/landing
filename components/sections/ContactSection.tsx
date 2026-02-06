@@ -111,38 +111,25 @@ export function ContactSection() {
             id="contact"
             className="bg-primary-900 border-tertiary-400 border-t py-20"
         >
-            <div className="mx-auto max-w-4xl px-4 md:px-8">
+            <div className="mx-auto px-4 md:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
-                        <h2 className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                        <h2 className="md:text-h4 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[28px]">
                             CONTACT
                         </h2>
                     </div>
 
                     {/* Contact Info */}
                     <div className="max-w-2xl space-y-6">
-                        <h3 className="text-subheading font-space-grotesk text-secondary-200 font-medium">
+                        <h3 className="font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[24px]">
                             INITIALIZE HANDSHAKE
                         </h3>
-                        <p className="text-body1 font-regular text-secondary-600 leading-relaxed">
+                        <p className="md:text-body1 text-caption font-regular text-secondary-600 text-[14px] leading-relaxed md:text-[16px]">
                             Secure communication channels are open for research
                             inquiries.
                         </p>
                     </div>
-
-                    {/* Status Message */}
-                    {submitStatus.type && (
-                        <div
-                            className={`rounded border p-4 ${
-                                submitStatus.type === 'success'
-                                    ? 'border-green-500 bg-green-500/10 text-green-400'
-                                    : 'border-red-500 bg-red-500/10 text-red-400'
-                            }`}
-                        >
-                            {submitStatus.message}
-                        </div>
-                    )}
 
                     {/* Contact Form */}
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -205,13 +192,35 @@ export function ContactSection() {
                             />
                         </FormField>
 
+                        {/* Status Message */}
+                        {submitStatus.type && (
+                            <div
+                                className={`rounded border p-4 ${
+                                    submitStatus.type === 'success'
+                                        ? 'border-green-500 bg-green-500/10 text-green-400'
+                                        : 'border-red-500 bg-red-500/10 text-red-400'
+                                }`}
+                            >
+                                {submitStatus.message}
+                            </div>
+                        )}
+
                         {/* Submit Button */}
                         <div className="pt-4">
                             <Button
                                 type="submit"
                                 variant="outline"
                                 size="lg"
-                                className="border-tertiary-600 text-secondary-600 hover:border-tertiary-400 hover:text-secondary-200 bg-transparent disabled:cursor-not-allowed disabled:opacity-50"
+                                className="border-tertiary-600 text-secondary-600 hover:border-tertiary-400 hover:text-secondary-200 hidden bg-transparent disabled:cursor-not-allowed disabled:opacity-50 md:block"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+                            </Button>
+                            <Button
+                                type="submit"
+                                variant="outline"
+                                size="sm"
+                                className="border-tertiary-600 text-secondary-600 hover:border-tertiary-400 hover:text-secondary-200 block w-full justify-center bg-transparent disabled:cursor-not-allowed disabled:opacity-50 md:hidden"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
