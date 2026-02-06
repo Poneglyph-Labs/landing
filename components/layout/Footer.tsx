@@ -5,16 +5,20 @@ import { Icon, IconName } from '../ui/Icon'
 
 const socialLinks: { name: string; href: string; icon: IconName }[] = [
     { name: 'Twitter', href: '#', icon: 'twitter' },
-    { name: 'GitHub', href: '#', icon: 'github' },
+    {
+        name: 'GitHub',
+        href: 'https://github.com/Poneglyph-Labs',
+        icon: 'github-circle',
+    },
     { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-    { name: 'Email', href: '#', icon: 'mail' },
+    { name: 'Email', href: 'mailto:hello@poneglyph-labs.xyz', icon: 'mail' },
 ]
 
 const researchLinks = [
-    'Whitepapers',
-    'Open Source',
-    'Security Audits',
-    'Proofs of Concepts',
+    { name: 'Whitepapers', href: '/archive?type=Paper' },
+    { name: 'Open Source', href: '/archive?type=Repository' },
+    { name: 'Security Audits', href: '/archive?type=Audit' },
+    { name: 'Proofs of Concepts', href: '/archive?type=Proof of Concept' },
 ]
 
 const connectLinks = [
@@ -22,7 +26,10 @@ const connectLinks = [
     { name: 'PGP Public Key', href: '#' },
 ]
 
-const footerLinks = ['Github', 'Research Archive', 'Legal']
+const footerLinks = [
+    { name: 'Github', href: 'https://github.com/Poneglyph-Labs' },
+    { name: 'Research Archive', href: '/archive' },
+]
 
 export function Footer() {
     return (
@@ -38,7 +45,7 @@ export function Footer() {
                                     <div className="h-20 w-[355px]">
                                         <Logo size="xl" />
                                     </div>
-                                    <p className="text-body2 font-regular w-full text-[rgba(229,229,229,0.8)]">
+                                    <p className="text-body2 font-regular w-full text-[18px] text-[rgba(229,229,229,0.8)]">
                                         Applied research and engineering at the
                                         intersection of cryptography, artificial
                                         intelligence, and decentralized systems.
@@ -73,7 +80,7 @@ export function Footer() {
                                 }
                                 className="border-tertiary-400 flex items-center justify-center gap-2 border px-4 py-3 transition-opacity hover:opacity-80"
                             >
-                                <span className="text-subheading text-secondary-200 font-medium">
+                                <span className="text-subheading text-secondary-200 text-[20px] font-medium">
                                     BACK TO THE TOP
                                 </span>
                             </button>
@@ -83,17 +90,17 @@ export function Footer() {
                         <div className="flex w-[538px] items-start gap-4">
                             {/* Research Links */}
                             <div className="flex flex-1 flex-col items-start gap-6">
-                                <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full font-medium">
+                                <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                     Research
                                 </h3>
                                 <div className="flex w-full flex-col items-start gap-4">
                                     {researchLinks.map((link) => (
                                         <a
-                                            key={link}
-                                            href="#"
+                                            key={link.name}
+                                            href={link.href}
                                             className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
                                         >
-                                            {link}
+                                            {link.name}
                                         </a>
                                     ))}
                                 </div>
@@ -101,7 +108,7 @@ export function Footer() {
 
                             {/* Connect Links */}
                             <div className="flex flex-1 flex-col items-start gap-6">
-                                <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full font-medium">
+                                <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                     Connect
                                 </h3>
                                 <div className="flex w-full flex-col items-start gap-4">
@@ -123,7 +130,7 @@ export function Footer() {
                     <div className="flex w-full items-center justify-between">
                         {/* Copyright */}
                         <div className="flex w-60 flex-col items-start gap-2">
-                            <h4 className="text-subheading font-space-grotesk w-full font-medium text-white">
+                            <h4 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                 Poneglyph Labs
                             </h4>
                             <div className="text-body1 font-regular flex w-full items-center gap-2 leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.6)]">
@@ -136,14 +143,14 @@ export function Footer() {
                         <div className="flex items-center justify-center gap-8 p-2.5">
                             {footerLinks.map((link, index) => (
                                 <div
-                                    key={link}
+                                    key={link.name}
                                     className="flex items-center gap-8"
                                 >
                                     <a
-                                        href="#"
+                                        href={link.href}
                                         className="text-body1 font-regular hover:text-secondary-200 text-center leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.6)] transition-colors"
                                     >
-                                        {link}
+                                        {link.name}
                                     </a>
                                     {index < footerLinks.length - 1 && (
                                         <div className="border-tertiary-400 h-0 w-7 origin-center rotate-90 border-t" />
@@ -200,9 +207,9 @@ export function Footer() {
                                             behavior: 'smooth',
                                         })
                                     }
-                                    className="border-tertiary-400 flex items-center justify-center gap-2 border px-2 py-3 transition-opacity hover:opacity-80"
+                                    className="border-tertiary-400 flex items-center justify-center gap-2 border px-3 py-3 transition-opacity hover:opacity-80 md:px-2 md:py-3"
                                 >
-                                    <span className="text-caption text-secondary-200 font-medium">
+                                    <span className="text-caption text-secondary-200 text-[14px] font-medium">
                                         BACK TO THE TOP
                                     </span>
                                 </button>
@@ -212,17 +219,17 @@ export function Footer() {
                             <div className="flex w-full items-start gap-4">
                                 {/* Research Links */}
                                 <div className="flex flex-1 flex-col items-start gap-6">
-                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full font-medium">
+                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                         Research
                                     </h3>
                                     <div className="flex w-full flex-col items-start gap-4">
                                         {researchLinks.map((link) => (
                                             <a
-                                                key={link}
-                                                href="#"
+                                                key={link.name}
+                                                href={link.href}
                                                 className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
                                             >
-                                                {link}
+                                                {link.name}
                                             </a>
                                         ))}
                                     </div>
@@ -230,7 +237,7 @@ export function Footer() {
 
                                 {/* Connect Links */}
                                 <div className="flex flex-1 flex-col items-start gap-6">
-                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full font-medium">
+                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                         Connect
                                     </h3>
                                     <div className="flex w-full flex-col items-start gap-4">
@@ -249,28 +256,28 @@ export function Footer() {
 
                             {/* Bottom Section */}
                             <div className="flex w-full flex-col items-start gap-6">
-                                <div className="flex w-60 flex-col items-start gap-2">
-                                    <h4 className="text-body2 font-space-grotesk w-full font-medium text-white">
+                                <div className="flex flex-col items-start gap-2 md:w-60">
+                                    <h4 className="text-body2 font-space-grotesk text-secondary-200 w-full text-[18px] font-medium">
                                         Poneglyph Labs
                                     </h4>
-                                    <div className="text-caption font-regular flex w-full items-center gap-2 text-[rgba(229,229,229,0.6)]">
+                                    <div className="text-caption font-regular flex w-full items-center gap-2 text-[14px] text-[rgba(229,229,229,0.6)]">
                                         <span>© 2026.</span>
                                         <span>All artifacts preserved.</span>
                                     </div>
                                 </div>
 
                                 {/* Footer Links */}
-                                <div className="flex items-center justify-center gap-8">
+                                <div className="flex items-center justify-center gap-[32px] md:gap-8">
                                     {footerLinks.map((link, index) => (
                                         <div
-                                            key={link}
-                                            className="flex items-center gap-8"
+                                            key={link.name}
+                                            className="flex items-center gap-[32px] md:gap-8"
                                         >
                                             <a
-                                                href="#"
-                                                className="text-caption font-regular hover:text-secondary-200 text-center text-[rgba(229,229,229,0.6)] transition-colors"
+                                                href={link.href}
+                                                className="text-caption font-regular hover:text-secondary-200 text-center text-[14px] text-[rgba(229,229,229,0.6)] transition-colors"
                                             >
-                                                {link}
+                                                {link.name}
                                             </a>
                                             {index < footerLinks.length - 1 && (
                                                 <div className="border-tertiary-400 h-0 w-[18px] origin-center rotate-90 border-t" />

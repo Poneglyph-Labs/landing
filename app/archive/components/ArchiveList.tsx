@@ -9,7 +9,7 @@ export function ArchiveList({ items }: ArchiveListProps) {
     if (items.length === 0) {
         return (
             <div className="border-tertiary-400 flex w-full flex-col items-center justify-center border py-20">
-                <p className="text-h4 text-secondary-600 font-medium">
+                <p className="text-h4 text-secondary-600 text-[28px] font-medium">
                     No research artifacts found
                 </p>
                 <p className="text-body1 font-regular text-secondary-600 mt-4">

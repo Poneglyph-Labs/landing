@@ -22,38 +22,38 @@ const dispatches = [
 export function RecentDispatches() {
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto max-w-6xl px-4 md:px-8">
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <div className="mx-auto px-4 md:px-24">
+                <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
                     {/* Section Title */}
                     <div className="lg:col-span-1">
-                        <h2 className="text-h4 font-space-grotesk text-secondary-200 py-4 font-medium">
+                        <h2 className="md:text-h4 text-subheading md:justify-left font-space-grotesk text-secondary-200 flex justify-center py-4 text-[20px] font-medium md:block md:text-[28px]">
                             RECENT DISPATCHES
                         </h2>
                     </div>
 
                     {/* Dispatches List */}
-                    <div className="space-y-0 lg:col-span-2">
+                    <div className="space-y-0 lg:col-span-3">
                         {dispatches.map((dispatch, index) => (
                             <div key={index}>
-                                <div className="flex flex-col items-start gap-6 py-6 md:flex-row md:gap-10">
+                                <div className="flex flex-col items-start gap-6 py-6 md:flex-row md:gap-6">
                                     {/* Time and Title */}
-                                    <div className="flex flex-1 flex-col items-start gap-4 md:flex-row md:gap-6">
-                                        <span className="text-body1 font-regular text-secondary-600 whitespace-nowrap">
+                                    <div className="flex flex-1 items-center gap-4 md:flex-row md:gap-2">
+                                        <span className="md:text-body1 text-footer font-regular text-secondary-600 text-[12px] whitespace-nowrap md:text-[16px]">
                                             {dispatch.time}
                                         </span>
-                                        <h3 className="text-h4 font-space-grotesk text-secondary-200 flex-1 font-medium">
+                                        <h3 className="md:text-h4 font-space-grotesk text-secondary-200 flex-1 text-[16px] font-medium md:text-[28px]">
                                             {dispatch.title}
                                         </h3>
                                     </div>
 
                                     {/* Venue and Type */}
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex w-full items-center justify-end gap-4 md:w-auto md:justify-start">
                                         <div className="border-secondary-600 border px-3 py-2">
-                                            <span className="text-subheading text-secondary-600 font-medium">
+                                            <span className="md:text-subheading text-secondary-600 text-[14px] font-medium md:text-[20px]">
                                                 {dispatch.venue}
                                             </span>
                                         </div>
-                                        <span className="text-subheading text-secondary-200 font-medium">
+                                        <span className="md:text-subheading text-secondary-200 text-[18px] font-medium md:text-[20px]">
                                             {dispatch.type}
                                         </span>
                                     </div>

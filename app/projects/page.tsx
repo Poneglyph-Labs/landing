@@ -12,7 +12,7 @@ function ProjectsLoading() {
     return (
         <div className="bg-primary-900 text-secondary-200 flex min-h-screen items-center justify-center">
             <div className="text-center">
-                <div className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                <div className="text-h4 font-space-grotesk text-secondary-200 text-[28px] font-medium">
                     Loading projects...
                 </div>
             </div>

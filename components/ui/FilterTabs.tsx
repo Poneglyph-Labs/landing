@@ -49,10 +49,10 @@ export function FilterTabs({
                     className="flex w-full items-center space-x-3 py-3 text-left"
                 >
                     <div>
-                        <span className="text-secondary-600 text-xl font-medium">
+                        <span className="text-primary-400 text-[16px] font-medium">
                             Domain:{' '}
                         </span>
-                        <span className="text-secondary-200 text-xl font-medium">
+                        <span className="text-secondary-200 text-[16px] font-medium">
                             {activeFilter}
                         </span>
                     </div>
@@ -96,7 +96,7 @@ export function FilterTabs({
                     <button
                         key={option}
                         onClick={() => handleFilterChange(option)}
-                        className={`text-subheading font-regular flex-1 px-4 py-3 text-center transition-colors ${
+                        className={`text-subheading font-regular flex-1 px-4 py-3 text-center text-[20px] transition-colors ${
                             activeFilter === option
                                 ? 'border-tertiary-400 text-secondary-200 bg-primary-900 border'
                                 : 'text-secondary-600 hover:text-secondary-200'

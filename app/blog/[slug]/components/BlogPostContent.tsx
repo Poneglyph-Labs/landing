@@ -14,7 +14,7 @@ interface BlogPostContentProps {
 export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-12 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-12 lg:px-24">
                 {/* Back to Blog */}
                 <Link
                     href="/blog"
@@ -35,19 +35,19 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                             />
                         </svg>
                     </div>
-                    <span className="text-h4 font-space-grotesk text-secondary-600 font-medium">
+                    <span className="md:text-subheading font-space-grotesk text-secondary-400 text-[18px] font-medium md:text-[20px]">
                         BACK TO BLOG
                     </span>
                 </Link>
 
                 {/* Article Content */}
-                <div className="flex flex-col items-start justify-start gap-20 self-stretch px-0 md:px-12">
+                <div className="flex flex-col items-start justify-start gap-12 self-stretch px-0 md:gap-20 md:px-12">
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-6 self-stretch">
-                        <h1 className="font-space-grotesk self-stretch text-3xl leading-tight font-normal text-white md:text-6xl">
+                        <h1 className="font-space-grotesk text-secondary-200 md:text-h1 self-stretch text-[20px] leading-tight font-normal md:text-[64px]">
                             {post.title}
                         </h1>
-                        <div className="block items-start justify-start gap-6 self-stretch md:flex md:gap-2.5">
+                        <div className="block items-start justify-start gap-6 self-stretch md:flex md:items-center md:gap-2.5">
                             <div className="flex flex-1 items-center justify-start gap-6">
                                 {/* Date */}
                                 <div className="flex items-center justify-start gap-4">
@@ -56,32 +56,32 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                         size={24}
                                         className="text-secondary-600"
                                     />
-                                    <span className="text-subheading font-space-grotesk text-secondary-600 font-normal">
+                                    <span className="md:text-body2 font-space-grotesk text-secondary-400 font-regular text-[14px] md:text-[18px]">
                                         {post.date}
                                     </span>
                                 </div>
-                                <div className="border-tertiary-600 h-6 border-r" />
+                                <div className="border-tertiary-400 h-6 border-r" />
 
                                 {/* Read Time */}
                                 <div className="flex items-center justify-start gap-6">
                                     <Icon
                                         name="calendar"
                                         size={24}
-                                        className="text-secondary-600"
+                                        className="text-secondary-400"
                                     />
-                                    <span className="text-subheading font-space-grotesk text-secondary-600 font-normal">
+                                    <span className="md:text-subheading font-space-grotesk text-secondary-400 text-[14px] font-normal md:text-[20px]">
                                         {post.readTime}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Author and Social */}
-                            <div className="mt-4 flex items-center justify-start gap-6">
+                            <div className="mt-4 flex items-center justify-start gap-6 md:mt-0">
                                 <div className="text-center">
-                                    <span className="text-subheading font-space-grotesk text-secondary-600 font-normal">
+                                    <span className="md:text-subheading font-space-grotesk text-secondary-400 text-[14px] font-normal md:text-[20px]">
                                         Written by{' '}
                                     </span>
-                                    <span className="text-subheading font-space-grotesk text-secondary-200 font-medium">
+                                    <span className="md:text-subheading font-space-grotesk text-secondary-200 text-[14px] font-medium md:text-[20px]">
                                         {post.author}
                                     </span>
                                 </div>
@@ -116,7 +116,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                             </div>
                         ) : (
                             <>
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     The recent proliferation of mobile-first ZK
                                     rollups relies heavily on the assumption
                                     that client-side proving is feasible on
@@ -126,7 +126,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                     render proving times negligible, our recent
                                     benchmarks paint a more nuanced picture.
                                 </div>
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     In controlled environments, the math holds
                                     up. However, thermal throttling on mobile
                                     devices introduces a non-deterministic
@@ -137,7 +137,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                     downclocks, causing proving times to spike
                                     by factors of 3x to 5x.
                                 </div>
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     We are currently exploring a hybrid approach
                                     for Nexus Grid that offloads the heavy
                                     lifting to a localized &apos;helper&apos;
@@ -157,14 +157,14 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                         className="h-[400px] w-full rounded object-cover md:h-[600px]"
                                         priority
                                     />
-                                    <div className="text-subheading font-space-grotesk self-stretch font-normal text-white">
+                                    <div className="text-subheading font-space-grotesk text-secondary-200 self-stretch text-[20px] font-normal">
                                         Fig 1. Performance degradation of Apple
                                         A17 Pro during 120s of sustained MSM
                                         operations
                                     </div>
                                 </div>
 
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     As illustrated above, performance degrades
                                     rapidly after the 30-second mark. This
                                     &apos;thermal wall&apos; effectively creates
@@ -176,7 +176,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                     broken, regardless of the underlying
                                     cryptographic soundness.
                                 </div>
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     Beyond raw speed, the battery impact is
                                     non-trivial. Our telemetry indicates that a
                                     single complex proof generation cycle
@@ -184,7 +184,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                     standard iPhone 15. For a high-frequency
                                     trading use case, this is unacceptable.
                                 </div>
-                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch leading-7 font-normal">
+                                <div className="text-secondary-200 text-subheading font-space-grotesk self-stretch text-[20px] leading-7 font-normal">
                                     This divergence serves as a reminder that
                                     cryptography does not exist in a vacuum. The
                                     physical reality of the hardware is just as
@@ -199,8 +199,8 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                     <div className="border-tertiary-400 h-px self-stretch border-t" />
 
                     {/* Share Section */}
-                    <div className="flex items-center justify-start gap-10 self-stretch">
-                        <h3 className="text-h3 font-space-grotesk text-secondary-600 font-medium">
+                    <div className="flex items-center justify-start gap-6 self-stretch md:gap-10">
+                        <h3 className="md:text-h4 font-space-grotesk text-secondary-400 text-[16px] font-medium md:text-[28px]">
                             SHARE POST
                         </h3>
                         <Icon
@@ -230,11 +230,11 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                                 size={32}
                                 className="text-secondary-600"
                             />
-                            <h3 className="text-h3 font-space-grotesk text-secondary-200 font-medium">
+                            <h3 className="md:text-h4 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[28px]">
                                 Poneglyph Blog
                             </h3>
                         </div>
-                        <p className="text-body1 font-space-grotesk text-secondary-600 self-stretch leading-7 font-normal">
+                        <p className="md:text-body1 font-space-grotesk text-secondary-600 self-stretch text-[14px] leading-7 font-normal md:text-[16px]">
                             Subscribe for more updates like this. No marketing
                             spam, only technical dispatches and research
                             artifacts.
@@ -245,10 +245,10 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                             <input
                                 type="email"
                                 placeholder="your.email@example.com"
-                                className="text-body1 font-space-grotesk text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent outline-none"
+                                className="md:text-body1 font-space-grotesk text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent text-[14px] outline-none md:text-[16px]"
                             />
                             <button className="border-tertiary-600 hover:bg-primary-800/20 flex items-center justify-center gap-2 self-stretch border bg-[#191919] px-8 py-3 transition-colors">
-                                <span className="text-h4 font-space-grotesk text-secondary-200 font-medium">
+                                <span className="md:text-h3 text-14px font-space-grotesk text-secondary-200 font-medium md:text-[18px]">
                                     JOIN
                                 </span>
                             </button>

@@ -102,7 +102,7 @@ export function ArchiveFilters({
 
             {/* Filter Buttons */}
             <div
-                className={`flex items-start ${isMobile ? 'w-full flex-col' : 'gap-10 md:gap-20'}`}
+                className={`flex items-start ${isMobile ? 'w-full flex-col' : 'gap-10 md:gap-20'} pl-6`}
             >
                 {/* Domain Filter */}
                 <div className={`relative ${isMobile ? 'w-full' : ''}`}>
@@ -112,10 +112,11 @@ export function ArchiveFilters({
                             setShowTypeDropdown(false)
                             setShowSortDropdown(false)
                         }}
-                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
+                        className={`flex cursor-pointer items-center gap-2 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading text-secondary-200 font-medium">
-                            Domains: {selectedDomain}
+                        <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
+                            <span className="text-primary-400">Domains:</span>{' '}
+                            {selectedDomain}
                         </span>
                         <Icon
                             name="arrow-down"
@@ -126,7 +127,7 @@ export function ArchiveFilters({
 
                     {showDomainDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
                         >
                             {domains.map((domain, index) => (
                                 <div key={domain}>
@@ -136,7 +137,7 @@ export function ArchiveFilters({
                                                 onDomainChange(domain)
                                                 setShowDomainDropdown(false)
                                             }}
-                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                            className={`text-body1 font-regular cursor-pointer text-left transition-colors ${
                                                 domain === selectedDomain
                                                     ? 'text-secondary-200'
                                                     : 'text-secondary-600'
@@ -162,10 +163,11 @@ export function ArchiveFilters({
                             setShowDomainDropdown(false)
                             setShowSortDropdown(false)
                         }}
-                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
+                        className={`flex cursor-pointer items-center gap-2 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading text-secondary-200 font-medium">
-                            Type: {getDisplayType(selectedType)}
+                        <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
+                            <span className="text-primary-400"> Type:</span>
+                            {getDisplayType(selectedType)}
                         </span>
                         <Icon
                             name="arrow-down"
@@ -176,7 +178,7 @@ export function ArchiveFilters({
 
                     {showTypeDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
                         >
                             {typeDisplayOptions.map((displayType, index) => (
                                 <div key={displayType}>
@@ -188,7 +190,7 @@ export function ArchiveFilters({
                                                 )
                                                 setShowTypeDropdown(false)
                                             }}
-                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                            className={`text-body1 font-regular cursor-pointer text-left transition-colors ${
                                                 getActualType(displayType) ===
                                                 selectedType
                                                     ? 'text-secondary-200'
@@ -215,10 +217,11 @@ export function ArchiveFilters({
                             setShowDomainDropdown(false)
                             setShowTypeDropdown(false)
                         }}
-                        className={`flex items-center gap-2 px-4 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
+                        className={`flex cursor-pointer items-center gap-2 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
                     >
-                        <span className="text-subheading text-secondary-200 font-medium">
-                            Sort: {sortBy}
+                        <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
+                            <span className="text-primary-400">Sort:</span>{' '}
+                            {sortBy}
                         </span>
                         <Icon
                             name="arrow-down"
@@ -229,7 +232,7 @@ export function ArchiveFilters({
 
                     {showSortDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#191919] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
                         >
                             {sortOptions.map((option, index) => (
                                 <div key={option}>
@@ -239,7 +242,7 @@ export function ArchiveFilters({
                                                 onSortChange(option)
                                                 setShowSortDropdown(false)
                                             }}
-                                            className={`text-body1 font-regular w-full text-left transition-colors ${
+                                            className={`text-body1 font-regular cursor-pointer text-left transition-colors ${
                                                 option === sortBy
                                                     ? 'text-secondary-200'
                                                     : 'text-secondary-600'

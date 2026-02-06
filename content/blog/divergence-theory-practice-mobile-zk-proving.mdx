@@ -8,8 +8,6 @@ readTime: "6 min read"
 category: "technical"
 ---
 
-# On the Divergence of Theory and Practice in Mobile ZK-Proving
-
 The recent proliferation of mobile-first ZK rollups relies heavily on the assumption that client-side proving is feasible on consumer hardware. While theoretical models suggest that modern recursive composition (specifically Plonky2 and Nova) should render proving times negligible, our recent benchmarks paint a more nuanced picture.
 
 In controlled environments, the math holds up. However, thermal throttling on mobile devices introduces a non-deterministic variable that most academic papers abstract away. When a device is under sustained load—common during the sync phase of a light client—the CPU governor aggressively downclocks, causing proving times to spike by factors of 3x to 5x.

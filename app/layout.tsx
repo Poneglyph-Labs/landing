@@ -15,7 +15,7 @@ const siteConfig = {
     description:
         'Applied research and engineering at the intersection of cryptography, artificial intelligence, and decentralized systems.',
     url: 'https://poneglyph-labs.xyz',
-    ogImage: 'https://poneglyph-labs.xyz/logo.png',
+    ogImage: 'https://poneglyph-labs.xyz/og-image.png',
     creator: '@poneglyph-labs',
     keywords: [
         'cryptography',

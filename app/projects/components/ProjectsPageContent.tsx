@@ -54,10 +54,10 @@ export function ProjectsPageContent() {
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-10 self-stretch">
                         <div className="border-tertiary-400 flex flex-col items-start justify-center gap-4 self-stretch border-b-[0.50px] py-6">
-                            <h1 className="text-h4 font-space-grotesk text-secondary-200 font-medium tracking-[0.28px]">
+                            <h1 className="text-h4 font-space-grotesk text-secondary-200 text-[28px] font-medium tracking-[0.28px]">
                                 OUR PROJECTS
                             </h1>
-                            <p className="text-body2 text-secondary-600 font-medium tracking-[0.18px]">
+                            <p className="text-body2 text-secondary-600 text-[18px] font-medium tracking-[0.18px]">
                                 End-to-end systems assembled from cryptographic,
                                 decentralized, and verification research
                                 conducted at Poneglyph Labs.
@@ -73,13 +73,7 @@ export function ProjectsPageContent() {
                                 id={`project-${project.id}`}
                                 className="w-full"
                             >
-                                <ProjectCard
-                                    project={project}
-                                    showGoToSite={
-                                        project.id === 'veravote' ||
-                                        project.id === 'nexus-grid'
-                                    }
-                                />
+                                <ProjectCard project={project} />
                                 {projectIndex < projects.length - 1 && (
                                     <div className="border-tertiary-600 mt-12 h-0 self-stretch border-t-[0.50px]" />
                                 )}
@@ -94,10 +88,10 @@ export function ProjectsPageContent() {
                 <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4">
                     {/* Mobile Header */}
                     <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-4">
-                        <h1 className="text-body2 font-space-grotesk text-secondary-200 font-medium">
+                        <h1 className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">
                             PROJECTS
                         </h1>
-                        <p className="text-caption font-space-grotesk text-secondary-600 self-stretch font-normal">
+                        <p className="text-caption font-space-grotesk self-stretch text-[14px] font-normal text-[#9E9E9E]">
                             End-to-end systems assembled from cryptographic,
                             decentralized, and verification research conducted
                             at Poneglyph Labs.
@@ -115,10 +109,10 @@ export function ProjectsPageContent() {
                                 <div className="flex flex-col items-start justify-start gap-6 self-stretch">
                                     {/* Project Header */}
                                     <div className="flex flex-col items-start justify-start gap-4 self-stretch">
-                                        <h2 className="text-subheading font-space-grotesk font-medium text-white">
+                                        <h2 className="md:text-subheading font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[20px]">
                                             {project.title}
                                         </h2>
-                                        <p className="text-caption font-space-grotesk self-stretch font-normal text-white">
+                                        <p className="text-caption font-space-grotesk text-secondary-200 self-stretch text-[14px] font-normal">
                                             {project.description}
                                         </p>
 
@@ -126,9 +120,9 @@ export function ProjectsPageContent() {
                                         <div className="flex items-center justify-center gap-4 self-stretch">
                                             <div className="border-tertiary-400 h-8 border-r" />
                                             <div className="flex flex-1 justify-start">
-                                                <span className="text-caption font-space-grotesk text-secondary-600 font-normal">
+                                                <span className="text-caption font-space-grotesk text-secondary-600 text-[14px] font-normal">
                                                     Status:
-                                                    <span className="text-caption font-space-grotesk text-secondary-200 font-medium">
+                                                    <span className="text-caption font-space-grotesk text-secondary-200 text-[14px] font-medium">
                                                         {' '}
                                                         {project.status}
                                                     </span>
@@ -139,11 +133,11 @@ export function ProjectsPageContent() {
 
                                     {/* System Architecture */}
                                     <div className="flex flex-col items-start justify-start gap-4 self-stretch overflow-hidden">
-                                        <div className="text-caption font-space-grotesk text-secondary-600 self-stretch font-normal">
+                                        <div className="text-caption font-space-grotesk self-stretch text-[14px] font-normal text-[#9E9E9E]">
                                             SYSTEM ARCHITECTURE
                                         </div>
                                         <div
-                                            className={`text-caption font-space-grotesk text-secondary-200 self-stretch font-normal ${
+                                            className={`text-caption font-space-grotesk text-secondary-200 self-stretch text-[14px] font-normal ${
                                                 isExpanded(project.id)
                                                     ? ''
                                                     : 'line-clamp-5'
@@ -159,7 +153,7 @@ export function ProjectsPageContent() {
                                             }
                                             className="bg-primary-900 border-tertiary-400 flex items-center justify-start gap-2 self-stretch py-3 md:border-b"
                                         >
-                                            <span className="text-caption font-space-grotesk text-secondary-200 font-medium underline">
+                                            <span className="text-caption font-space-grotesk text-secondary-200 text-[14px] font-medium underline">
                                                 {isExpanded(project.id)
                                                     ? 'See less'
                                                     : 'See more'}
@@ -177,8 +171,18 @@ export function ProjectsPageContent() {
                                                     }
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
                                                         VIEW REPOSITORY
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.sdk && (
+                                                <a
+                                                    href={project.links.sdk}
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW DEPLOYMENT
                                                     </span>
                                                 </a>
                                             )}
@@ -190,7 +194,7 @@ export function ProjectsPageContent() {
                                                     }
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
                                                         VIEW DOCUMENTATION
                                                     </span>
                                                 </a>
@@ -202,18 +206,75 @@ export function ProjectsPageContent() {
                                                     }
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
                                                         VIEW RESEARCH
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.demo && (
+                                                <a
+                                                    href={project.links.demo}
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW DEMO
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.spec && (
+                                                <a
+                                                    href={project.links.spec}
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW SPECS
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.git && (
+                                                <a
+                                                    href={project.links.git}
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW GIT
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.architecture && (
+                                                <a
+                                                    href={
+                                                        project.links
+                                                            .architecture
+                                                    }
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW ARCHITECTURE
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {project.links.testnet && (
+                                                <a
+                                                    href={project.links.testnet}
+                                                    className="flex items-center justify-start gap-2 self-stretch py-2"
+                                                >
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                        VIEW TESTNET
                                                     </span>
                                                 </a>
                                             )}
                                         </div>
 
-                                        {/* Go to Site Button - Only for specific projects */}
-                                        {(project.id === 'veravote' ||
-                                            project.id === 'nexus-grid') && (
-                                            <button className="border-tertiary-400 flex items-center justify-center gap-2 border px-2 py-3">
-                                                <span className="text-caption font-space-grotesk text-secondary-200 font-medium">
+                                        {/* Go to Site Button - Only for projects with siteUrl */}
+                                        {project.siteUrl && (
+                                            <a
+                                                href={project.siteUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="border-tertiary-400 flex items-center justify-center gap-2 border px-2 py-3 transition-opacity hover:opacity-80"
+                                            >
+                                                <span className="text-caption font-space-grotesk text-secondary-200 text-[14px] font-medium">
                                                     GO TO SITE
                                                 </span>
                                                 <Icon
@@ -221,7 +282,7 @@ export function ProjectsPageContent() {
                                                     size={16}
                                                     className="text-secondary-200"
                                                 />
-                                            </button>
+                                            </a>
                                         )}
                                     </div>
                                 </div>
@@ -229,7 +290,7 @@ export function ProjectsPageContent() {
                                 {/* Technical Summary */}
                                 <div className="flex flex-col items-start justify-start gap-4 self-stretch">
                                     <div className="flex items-center justify-start gap-2">
-                                        <span className="text-caption font-space-grotesk text-secondary-600 font-medium">
+                                        <span className="text-caption font-space-grotesk text-secondary-600 text-[14px] font-medium">
                                             TECHNICAL SUMMARY
                                         </span>
                                         <Icon
@@ -246,7 +307,7 @@ export function ProjectsPageContent() {
                                                 (point, pointIndex) => (
                                                     <div
                                                         key={pointIndex}
-                                                        className="text-caption font-space-grotesk text-secondary-600 flex items-start gap-2 self-stretch leading-7 font-medium"
+                                                        className="text-caption font-space-grotesk text-secondary-600 flex items-start gap-2 self-stretch text-[14px] leading-7 font-medium"
                                                     >
                                                         <span className="text-secondary-600 flex-shrink-0">
                                                             •

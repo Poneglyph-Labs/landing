@@ -39,7 +39,7 @@ export function ArchiveDetailContent({
                             />
                         </svg>
                     </div>
-                    <span className="text-subheading text-secondary-400 font-medium">
+                    <span className="md:text-subheading text-secondary-400 text-[14px] font-medium md:text-[20px]">
                         BACK TO ARCHIVE
                     </span>
                 </Link>
@@ -47,23 +47,23 @@ export function ArchiveDetailContent({
                 <div className="flex w-full flex-col items-start gap-6 px-0 md:gap-20 md:px-12">
                     {/* Title Section */}
                     <div className="flex w-full flex-col items-start gap-6">
-                        <h1 className="font-regular font-space-grotesk text-xl leading-tight tracking-tight text-white md:text-6xl">
+                        <h1 className="text-h1 font-regular font-space-grotesk text-secondary-200 text-xl leading-tight tracking-tight md:text-[64px]">
                             {item.title}
                         </h1>
                         <div className="flex items-center justify-center gap-4 md:gap-10">
                             <div
-                                className={`flex flex-col items-center justify-center p-2 ${getTypeColor()}`}
+                                className={`flex flex-col items-center justify-center px-2 ${getTypeColor()}`}
                             >
-                                <span className="text-caption text-center font-medium">
+                                <span className="md:text-h4 font-regular text-secondary-200 text-center text-[14px] md:text-[28px]">
                                     {item.type}
                                 </span>
                             </div>
-                            <div className="bg-tertiary-400 h-12 w-px border" />
-                            <span className="text-h4 font-regular text-secondary-200 text-center">
+                            <div className="bg-tertiary-400 h-6 w-px border md:h-12" />
+                            <span className="md:text-h4 font-regular text-secondary-200 text-center text-[14px] md:text-[28px]">
                                 {item.domain}
                             </span>
-                            <div className="bg-tertiary-400 h-12 w-px border" />
-                            <span className="text-h4 font-regular text-secondary-400 text-center">
+                            <div className="bg-tertiary-400 h-6 w-px border md:h-12" />
+                            <span className="md:text-h4 font-regular text-secondary-400 text-center text-[14px] md:text-[28px]">
                                 {item.date}
                             </span>
                         </div>
@@ -75,10 +75,10 @@ export function ArchiveDetailContent({
                     {item.abstract && (
                         <>
                             <div className="flex w-full flex-col items-start gap-6">
-                                <h2 className="text-subheading text-secondary-600 font-medium">
+                                <h2 className="md:text-subheading text-secondary-600 text-[18px] font-medium md:text-[20px]">
                                     ABSTRACT
                                 </h2>
-                                <p className="text-subheading leading-8 font-medium text-white">
+                                <p className="md:text-subheading text-secondary-200 text-[16px] leading-8 font-medium md:text-[20px]">
                                     {item.abstract}
                                 </p>
                             </div>
@@ -93,27 +93,27 @@ export function ArchiveDetailContent({
                             <table className="w-full table-fixed">
                                 <tbody>
                                     <tr className="border-tertiary-400 border-b last:border-b-0">
-                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                        <td className="md:text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r py-6 pr-6 text-[14px] md:text-[18px]">
                                             TECHNICAL FOCUS
                                         </td>
-                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                        <td className="md:text-subheading text-secondary-200 w-1/2 py-6 pl-6 text-[14px] font-medium md:text-[20px]">
                                             {item.technicalFocus?.join(', ') ||
                                                 'Not specified'}
                                         </td>
                                     </tr>
                                     <tr className="border-tertiary-400 border-b last:border-b-0">
-                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                        <td className="md:text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r py-6 pr-6 text-[14px] md:text-[18px]">
                                             RESEARCH CATEGORY
                                         </td>
-                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                        <td className="md:text-subheading text-secondary-200 w-1/2 py-6 pl-6 text-[14px] font-medium md:text-[20px]">
                                             {item.domain}
                                         </td>
                                     </tr>
                                     <tr className="border-tertiary-400 border-b last:border-b-0">
-                                        <td className="text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r px-6 py-6">
+                                        <td className="md:text-body2 font-regular text-secondary-400 border-tertiary-400 bg-primary-800/20 w-1/2 border-r py-6 pr-6 text-[14px] md:text-[18px]">
                                             PRIMARY OUTPUT
                                         </td>
-                                        <td className="text-subheading text-secondary-200 w-1/2 px-6 py-6 font-medium">
+                                        <td className="md:text-subheading text-secondary-200 w-1/2 py-6 pl-6 text-[14px] font-medium md:text-[20px]">
                                             {item.primaryOutput || item.type}
                                         </td>
                                     </tr>
@@ -121,13 +121,24 @@ export function ArchiveDetailContent({
                             </table>
                         </div>
 
-                        <div className="flex items-start gap-6">
+                        <div className="flex w-full items-center justify-between md:w-auto md:items-start md:gap-6">
                             {item.links.pdf && (
                                 <Link
                                     href={item.links.pdf}
                                     download={item.title}
                                 >
-                                    <Button variant="outline" size="lg">
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="hidden md:block"
+                                    >
+                                        DOWNLOAD PDF
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="w-[calc(50vw-24px)] justify-center md:hidden"
+                                    >
                                         DOWNLOAD PDF
                                     </Button>
                                 </Link>
@@ -135,7 +146,18 @@ export function ArchiveDetailContent({
 
                             {item.links.code && (
                                 <Link href={item.links.code}>
-                                    <Button variant="outline" size="lg">
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="hidden md:block"
+                                    >
+                                        VIEW REPOSITORY
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="w-[calc(50vw-24px)] justify-center md:hidden"
+                                    >
                                         VIEW REPOSITORY
                                     </Button>
                                 </Link>
@@ -149,7 +171,7 @@ export function ArchiveDetailContent({
                     {mdxItem?.content && (
                         <>
                             <div className="flex w-full flex-col items-start gap-6">
-                                <h2 className="text-subheading text-secondary-600 font-medium">
+                                <h2 className="text-subheading text-secondary-600 text-[20px] font-medium">
                                     CONTENT
                                 </h2>
                                 <div className="w-full">
@@ -164,7 +186,7 @@ export function ArchiveDetailContent({
                     {item.relatedResearch &&
                         item.relatedResearch.length > 0 && (
                             <div className="flex w-full flex-col items-start gap-8">
-                                <h2 className="text-subheading text-secondary-600 font-medium">
+                                <h2 className="md:text-subheading text-secondary-600 text-[18px] font-medium md:text-[20px]">
                                     RELATED RESEARCH
                                 </h2>
                                 <div className="flex w-full flex-col items-start gap-6">
@@ -176,16 +198,16 @@ export function ArchiveDetailContent({
                                             >
                                                 <Link
                                                     href={`/archive/${related.slug}`}
-                                                    className="text-subheading text-secondary-400 hover:text-secondary-200 font-medium transition-colors"
+                                                    className="md:text-subheading text-secondary-400 hover:text-secondary-200 text-[16px] font-medium transition-colors md:text-[20px]"
                                                 >
                                                     {related.title}
                                                 </Link>
                                                 <div className="flex items-center justify-center gap-4">
-                                                    <span className="text-caption font-regular text-secondary-600 text-center">
+                                                    <span className="text-caption font-regular text-secondary-600 text-center text-[14px]">
                                                         {related.type}
                                                     </span>
                                                     <div className="bg-tertiary-400 h-4 w-px" />
-                                                    <span className="text-caption font-regular text-secondary-600 text-center">
+                                                    <span className="text-caption font-regular text-secondary-600 text-center text-[14px]">
                                                         {related.date}
                                                     </span>
                                                 </div>

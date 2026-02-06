@@ -28,17 +28,17 @@ const engagementModels: {
 export function EngagementModels() {
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto max-w-6xl px-4 md:px-8">
+            <div className="mx-auto px-4 md:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
-                        <h2 className="text-h3 font-space-grotesk text-secondary-200 font-medium">
+                        <h2 className="md:text-h3 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[32px]">
                             ENGAGEMENT MODELS
                         </h2>
                     </div>
 
                     {/* Description */}
-                    <p className="text-subheading font-regular text-secondary-200 max-w-4xl leading-relaxed">
+                    <p className="md:text-subheading text-body1 font-regular text-secondary-200 text-[16px] leading-relaxed md:text-[20px]">
                         Poneglyph Labs is an independent research and
                         engineering studio focused on trust-critical systems. We
                         conduct applied research, build production
@@ -59,7 +59,7 @@ export function EngagementModels() {
                                         size={32}
                                         className="text-secondary-200"
                                     />
-                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 font-bold">
+                                    <h3 className="text-subheading font-space-grotesk text-secondary-200 text-[20px] font-bold">
                                         {model.title}
                                     </h3>
                                 </div>

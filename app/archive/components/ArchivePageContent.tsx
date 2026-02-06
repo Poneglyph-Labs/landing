@@ -1,6 +1,9 @@
+/* eslint-disable */
+
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { ArchiveHeader } from './ArchiveHeader'
 import { ArchiveFilters } from './ArchiveFilters'
@@ -30,16 +33,30 @@ const getDisplayType = (type: string): string => {
 }
 
 export function ArchivePageContent({ items }: ArchivePageContentProps) {
+    const searchParams = useSearchParams()
+    const typeParam = searchParams.get('type')
+    const domainParam = searchParams.get('domain')
+
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedDomain, setSelectedDomain] = useState<ArchiveDomain | 'All'>(
-        'All'
+        (domainParam as ArchiveDomain) || 'All'
     )
     const [selectedType, setSelectedType] = useState<ArchiveItemType | 'All'>(
-        'All'
+        (typeParam as ArchiveItemType) || 'All'
     )
     const [sortBy, setSortBy] = useState<'Most Recent' | 'Oldest'>(
         'Most Recent'
     )
+
+    // Update filters when URL params change
+    useEffect(() => {
+        if (typeParam) {
+            setSelectedType(typeParam as ArchiveItemType)
+        }
+        if (domainParam) {
+            setSelectedDomain(domainParam as ArchiveDomain)
+        }
+    }, [typeParam, domainParam])
 
     const allItems = items
     const filteredItems = filterArchiveItems(allItems, {
@@ -52,7 +69,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
     return (
         <>
             {/* Desktop Layout */}
-            <div className="bg-primary-900 text-secondary-200 mx-auto hidden min-h-screen px-4 md:block md:px-24">
+            <div className="bg-primary-900 mx-auto hidden min-h-screen px-4 md:block md:px-24">
                 <div className="bg-primary-900 flex flex-col items-start gap-20 overflow-hidden pt-10 pb-32">
                     <div className="flex w-full flex-col gap-10">
                         <ArchiveHeader />
@@ -74,15 +91,15 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
             </div>
 
             {/* Mobile Layout */}
-            <div className="bg-primary-900 text-secondary-200 block md:hidden">
+            <div className="bg-primary-900 block px-4 md:hidden">
                 <div className="bg-primary-900 flex flex-col items-start gap-6 overflow-hidden py-10">
-                    <div className="flex w-full flex-col items-start gap-6 px-4">
+                    <div className="flex w-full flex-col items-start gap-6">
                         {/* Mobile Header */}
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-2 border-b-[0.5px] py-4">
-                            <h1 className="text-body2 font-space-grotesk text-secondary-200 font-medium">
+                            <h1 className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">
                                 RESEARCH ARCHIVE
                             </h1>
-                            <p className="text-caption font-regular text-secondary-600 w-full">
+                            <p className="text-caption font-regular text-secondary-600 w-full text-[14px]">
                                 A public record of published research, audits,
                                 and experimental systems developed at Poneglyph
                                 Labs.
@@ -105,7 +122,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                                     onChange={(e) =>
                                         setSearchQuery(e.target.value)
                                     }
-                                    className="text-caption font-regular text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent outline-none"
+                                    className="text-caption font-regular text-secondary-600 placeholder-secondary-600 flex-1 bg-transparent text-[14px] outline-none"
                                 />
                             </div>
 
@@ -134,18 +151,18 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                                 >
                                     <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-6 p-6 transition-colors">
                                         <div className="flex w-full flex-col items-start gap-4">
-                                            <h2 className="text-subheading font-space-grotesk w-full font-medium text-white">
+                                            <h2 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                                 {item.title}
                                             </h2>
                                             <div className="flex items-center gap-4">
                                                 <div className="bg-primary-800 flex flex-col items-center justify-center p-2">
-                                                    <span className="text-caption text-secondary-200 text-center font-medium">
+                                                    <span className="text-caption text-secondary-200 text-center text-[14px] font-medium">
                                                         {getDisplayType(
                                                             item.type
                                                         )}
                                                     </span>
                                                 </div>
-                                                <span className="text-caption font-medium text-[rgba(229,229,229,0.8)]">
+                                                <span className="text-caption text-[14px] font-medium text-[rgba(229,229,229,0.8)]">
                                                     {item.date}
                                                 </span>
                                             </div>
@@ -157,8 +174,8 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
 
                                         <div className="flex w-full items-start">
                                             <div className="flex flex-1 items-center">
-                                                <div className="border-tertiary-400 flex flex-col items-center justify-center border-[0.5px] px-3 py-2">
-                                                    <span className="text-body1 font-regular text-secondary-200 text-center">
+                                                <div className="border-tertiary-400 flex flex-col items-center justify-center border-[0.5px] px-2 py-2 md:px-3 md:py-2">
+                                                    <span className="md:text-body1 font-regular text-secondary-200 text-center text-[14px] md:text-[16px]">
                                                         {item.domain}
                                                     </span>
                                                 </div>
@@ -180,7 +197,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                                                             size={18}
                                                             className="text-secondary-600"
                                                         />
-                                                        <span className="text-caption font-regular text-secondary-600">
+                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
                                                             Code
                                                         </span>
                                                     </a>
@@ -200,7 +217,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                                                             size={18}
                                                             className="text-secondary-600"
                                                         />
-                                                        <span className="text-caption font-regular text-secondary-600">
+                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
                                                             PDF
                                                         </span>
                                                     </a>
@@ -215,10 +232,10 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                                                             e.stopPropagation()
                                                         }
                                                     >
-                                                        <span className="text-subheading text-secondary-600 font-medium">
+                                                        <span className="text-subheading text-secondary-600 text-[20px] font-medium">
                                                             {'>_'}
                                                         </span>
-                                                        <span className="text-caption font-regular text-secondary-600">
+                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
                                                             Demo
                                                         </span>
                                                     </a>

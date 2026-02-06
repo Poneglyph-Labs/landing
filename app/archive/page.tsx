@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import { ArchivePageContent } from './components/ArchivePageContent'
 import { getArchiveItems } from '../../lib/archive-server'
 
@@ -11,5 +12,9 @@ export const metadata: Metadata = {
 export default async function ArchivePage() {
     const archiveItems = getArchiveItems()
 
-    return <ArchivePageContent items={archiveItems} />
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ArchivePageContent items={archiveItems} />
+        </Suspense>
+    )
 }

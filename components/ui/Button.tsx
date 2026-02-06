@@ -33,9 +33,9 @@ export function Button({
     }
 
     const sizeClasses = {
-        sm: 'px-4 py-2 text-caption',
-        md: 'px-6 py-3 text-subheading',
-        lg: 'px-8 py-4 text-subheading',
+        sm: 'px-3 py-3 text-caption text-[14px] medium',
+        md: 'px-3 py-2 text-[16px]',
+        lg: 'px-4 py-3 text-body2 text-[18px] medium',
     }
 
     const disabledClasses = disabled

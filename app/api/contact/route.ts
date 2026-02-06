@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
                         <div style="padding: 24px 32px; background-color: #0A0A0A;">
                             <div style="border-top: 1px solid #E5E5E5; padding-top: 16px;">
                                 <p style="margin: 0; font-size: 12px; font-weight: 400; color: #9E9E9E; letter-spacing: 0px; line-height: 100%;">
-                                    Submitted via contact form • ${new Date().toLocaleString()}
+                                    Submitted via Poneglyph contact form • ${new Date().toLocaleString()}
                                 </p>
                             </div>
                         </div>

@@ -39,7 +39,7 @@ export function Navigation() {
     ]
 
     return (
-        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-12 lg:px-24">
+        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-24">
             {/* Logo */}
             <Link href="/" className="shrink-0">
                 <div className="h-9 w-40 md:h-16 md:w-[284px]">
@@ -62,8 +62,8 @@ export function Navigation() {
                         href={item.href}
                         className={`font-space-grotesk text-2xl font-medium transition-colors ${
                             item.active
-                                ? 'text-white'
-                                : 'text-[#7B7A7A] hover:text-white'
+                                ? 'text-secondary-200'
+                                : 'hover:text-secondary-200 text-[#7B7A7A]'
                         }`}
                     >
                         {item.label}
@@ -75,9 +75,17 @@ export function Navigation() {
             <div className="hidden shrink-0 md:block">
                 <Link
                     href="/#contact"
+                    onClick={(e) => {
+                        if (pathname === '/') {
+                            e.preventDefault()
+                            document.getElementById('contact')?.scrollIntoView({
+                                behavior: 'smooth',
+                            })
+                        }
+                    }}
                     className="border-tertiary-400 flex items-center justify-center gap-2 border px-4 py-3 transition-opacity hover:opacity-80"
                 >
-                    <span className="text-subheading text-secondary-200 font-medium">
+                    <span className="text-body2 text-secondary-200 text-[18px] font-medium">
                         CONTACT US
                     </span>
                 </Link>
@@ -157,8 +165,20 @@ export function Navigation() {
                     {/* Contact Button */}
                     <Link
                         href="/#contact"
+                        onClick={(e) => {
+                            setIsMobileMenuOpen(false)
+                            if (pathname === '/') {
+                                e.preventDefault()
+                                setTimeout(() => {
+                                    document
+                                        .getElementById('contact')
+                                        ?.scrollIntoView({
+                                            behavior: 'smooth',
+                                        })
+                                }, 100)
+                            }
+                        }}
                         className="border-secondary-200 flex items-center justify-center gap-2 self-stretch border px-2 py-3"
-                        onClick={() => setIsMobileMenuOpen(false)}
                     >
                         <div className="text-secondary-200 font-space-grotesk justify-start text-sm font-medium">
                             CONTACT US
