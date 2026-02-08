@@ -106,24 +106,28 @@ export function ArchiveFilters({
             >
                 {/* Domain Filter */}
                 <div className={`relative ${isMobile ? 'w-full' : ''}`}>
-                    <button
-                        onClick={() => {
-                            setShowDomainDropdown(!showDomainDropdown)
-                            setShowTypeDropdown(false)
-                            setShowSortDropdown(false)
-                        }}
-                        className={`flex cursor-pointer items-center gap-2 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
-                    >
-                        <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
-                            <span className="text-primary-400">Domains:</span>{' '}
-                            {selectedDomain}
-                        </span>
-                        <Icon
-                            name="arrow-down"
-                            size={24}
-                            className="text-secondary-200"
-                        />
-                    </button>
+                    <div className="flex justify-center">
+                        <button
+                            onClick={() => {
+                                setShowDomainDropdown(!showDomainDropdown)
+                                setShowTypeDropdown(false)
+                                setShowSortDropdown(false)
+                            }}
+                            className="flex cursor-pointer items-center justify-center gap-2 py-3 transition-colors"
+                        >
+                            <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
+                                <span className="text-primary-400">
+                                    Domains:
+                                </span>{' '}
+                                {selectedDomain}
+                            </span>
+                            <Icon
+                                name="arrow-down"
+                                size={24}
+                                className="text-secondary-200"
+                            />
+                        </button>
+                    </div>
 
                     {showDomainDropdown && (
                         <div

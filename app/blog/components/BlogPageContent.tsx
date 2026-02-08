@@ -152,11 +152,13 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                             <span className="text-body1 font-space-grotesk text-secondary-400 leading-7 font-normal">
                                                 Read
                                             </span>
-                                            <Icon
-                                                name="arrow-right"
-                                                size={24}
-                                                className="text-secondary-400"
-                                            />
+                                            <span className="text-secondary-400">
+                                                <Icon
+                                                    name="arrow-right"
+                                                    size={24}
+                                                    className="text-secondary-400"
+                                                />
+                                            </span>
                                         </div>
                                     </div>
                                 </Link>
@@ -184,10 +186,10 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
             </div>
 
             {/* Mobile Layout */}
-            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden py-10 md:hidden">
+            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden md:hidden md:pb-10">
                 <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4">
                     {/* Mobile Header */}
-                    <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-4">
+                    <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-3 pb-4">
                         <h1 className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">
                             BLOG
                         </h1>
@@ -235,7 +237,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                         </button>
 
                         {showSortDropdown && (
-                            <div className="border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 w-full min-w-48 border-[0.5px] bg-[#191919]">
+                            <div className="border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 w-[calc(100vw-32px)] min-w-48 border-[0.5px] bg-[#191919]">
                                 {sortOptions.map((option, index) => (
                                     <div key={option}>
                                         <div className="flex flex-col items-start justify-center px-4 py-3">
@@ -300,7 +302,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
                                             Read
                                         </span>
                                         <Icon
-                                            name="arrow-right"
+                                            name="mobilearrow-right"
                                             size={16}
                                             className="text-secondary-400"
                                         />

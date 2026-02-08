@@ -121,11 +121,11 @@ export function ContactSection() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="max-w-2xl space-y-6">
-                        <h3 className="font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[24px]">
+                    <div className="max-w-2xl md:space-y-6">
+                        <h3 className="font-space-grotesk text-secondary-200 mb-2 text-[18px] font-medium md:text-[24px]">
                             INITIALIZE HANDSHAKE
                         </h3>
-                        <p className="md:text-body1 text-caption font-regular text-secondary-600 text-[14px] leading-relaxed md:text-[16px]">
+                        <p className="md:text-body1 text-caption font-regular text-secondary-600 mb-6 text-[14px] leading-relaxed md:text-[16px]">
                             Secure communication channels are open for research
                             inquiries.
                         </p>

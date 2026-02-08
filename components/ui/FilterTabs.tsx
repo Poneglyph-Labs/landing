@@ -46,7 +46,7 @@ export function FilterTabs({
             <div className={`md:hidden ${className}`}>
                 <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex w-full items-center space-x-3 py-3 text-left"
+                    className="flex cursor-pointer items-center space-x-3 py-3 text-left md:w-full"
                 >
                     <div>
                         <span className="text-primary-400 text-[16px] font-medium">
@@ -76,14 +76,19 @@ export function FilterTabs({
                         {filterOptions.map((option) => (
                             <button
                                 key={option}
-                                onClick={() => handleFilterChange(option)}
-                                className={`border-tertiary-400 w-full border-b px-4 py-3 text-left text-lg transition-colors last:border-b-0 ${
-                                    activeFilter === option
-                                        ? 'bg-primary-800 text-secondary-200'
-                                        : 'text-secondary-600 hover:text-secondary-200 hover:bg-primary-800'
-                                }`}
+                                // onClick={() => handleFilterChange(option)}
+                                className={`border-tertiary-400 w-full border-b px-4 py-3 text-left text-lg transition-colors last:border-b-0`}
                             >
-                                {option}
+                                <span
+                                    className={`cursor-pointer ${
+                                        activeFilter === option
+                                            ? 'bg-primary-800 text-secondary-200'
+                                            : 'text-secondary-600 hover:text-secondary-200 hover:bg-primary-800'
+                                    }`}
+                                    onClick={() => handleFilterChange(option)}
+                                >
+                                    {option}
+                                </span>
                             </button>
                         ))}
                     </div>

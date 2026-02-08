@@ -51,7 +51,7 @@ export function EngagementModels() {
                         {engagementModels.map((model, index) => (
                             <div
                                 key={index}
-                                className="border-tertiary-500 hover:border-secondary-200 group space-y-6 border p-8 transition-colors"
+                                className="border-tertiary-500 hover:border-secondary-200 group space-y-6 border p-4 transition-colors md:p-8"
                             >
                                 <div className="space-y-4">
                                     <Icon

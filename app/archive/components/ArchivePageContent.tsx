@@ -92,7 +92,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
 
             {/* Mobile Layout */}
             <div className="bg-primary-900 block px-4 md:hidden">
-                <div className="bg-primary-900 flex flex-col items-start gap-6 overflow-hidden py-10">
+                <div className="bg-primary-900 flex flex-col items-start gap-6 overflow-hidden pb-10 md:py-10">
                     <div className="flex w-full flex-col items-start gap-6">
                         {/* Mobile Header */}
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-2 border-b-[0.5px] py-4">
@@ -145,105 +145,103 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
                     <div className="border-tertiary-400 flex w-full flex-col items-start border-[0.5px]">
                         {sortedItems.map((item, index) => (
                             <div key={item.id} className="w-full">
-                                <Link
-                                    href={`/archive/${item.slug}`}
-                                    className="block w-full"
-                                >
-                                    <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-6 p-6 transition-colors">
-                                        <div className="flex w-full flex-col items-start gap-4">
+                                <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-6 p-6 transition-colors">
+                                    <div className="flex w-full flex-col items-start gap-4">
+                                        <Link
+                                            href={`/archive/${item.slug}`}
+                                            className="block w-full"
+                                        >
                                             <h2 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                                 {item.title}
                                             </h2>
-                                            <div className="flex items-center gap-4">
-                                                <div className="bg-primary-800 flex flex-col items-center justify-center p-2">
-                                                    <span className="text-caption text-secondary-200 text-center text-[14px] font-medium">
-                                                        {getDisplayType(
-                                                            item.type
-                                                        )}
-                                                    </span>
-                                                </div>
-                                                <span className="text-caption text-[14px] font-medium text-[rgba(229,229,229,0.8)]">
-                                                    {item.date}
+                                        </Link>
+                                        <div className="flex items-center gap-4">
+                                            <div className="bg-primary-800 flex flex-col items-center justify-center p-2">
+                                                <span className="text-caption text-secondary-200 text-center text-[14px] font-medium">
+                                                    {getDisplayType(item.type)}
+                                                </span>
+                                            </div>
+                                            <span className="text-caption text-[14px] font-medium text-[rgba(229,229,229,0.8)]">
+                                                {item.date}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-body1 font-regular text-tertiary-400 w-full leading-7 tracking-[-0.16px]">
+                                        {item.description}
+                                    </p>
+
+                                    <div className="flex w-full items-start">
+                                        <div className="flex flex-1 items-center">
+                                            <div className="border-tertiary-400 flex cursor-pointer flex-col items-center justify-center border-[0.5px] px-2 py-2 md:px-3 md:py-2">
+                                                <span className="md:text-body1 font-regular text-secondary-200 text-center text-[14px] md:text-[16px]">
+                                                    {item.domain}
                                                 </span>
                                             </div>
                                         </div>
 
-                                        <p className="text-body1 font-regular text-tertiary-400 w-full leading-7 tracking-[-0.16px]">
-                                            {item.description}
-                                        </p>
-
-                                        <div className="flex w-full items-start">
-                                            <div className="flex flex-1 items-center">
-                                                <div className="border-tertiary-400 flex flex-col items-center justify-center border-[0.5px] px-2 py-2 md:px-3 md:py-2">
-                                                    <span className="md:text-body1 font-regular text-secondary-200 text-center text-[14px] md:text-[16px]">
-                                                        {item.domain}
+                                        <div className="flex flex-col items-start justify-center gap-4">
+                                            {item.links.code && (
+                                                <a
+                                                    href={item.links.code}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-2"
+                                                    onClick={(e) =>
+                                                        e.stopPropagation()
+                                                    }
+                                                >
+                                                    <Icon
+                                                        name="github"
+                                                        size={18}
+                                                        className="text-secondary-600"
+                                                    />
+                                                    <span className="text-caption font-regular text-secondary-600 text-[14px]">
+                                                        Code
                                                     </span>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex flex-col items-start justify-center gap-4">
-                                                {item.links.code && (
-                                                    <a
-                                                        href={item.links.code}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="flex items-center gap-2"
-                                                        onClick={(e) =>
-                                                            e.stopPropagation()
-                                                        }
-                                                    >
-                                                        <Icon
-                                                            name="github"
-                                                            size={18}
-                                                            className="text-secondary-600"
-                                                        />
-                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
-                                                            Code
-                                                        </span>
-                                                    </a>
-                                                )}
-                                                {item.links.pdf && (
-                                                    <a
-                                                        href={item.links.pdf}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="flex items-center gap-2"
-                                                        onClick={(e) =>
-                                                            e.stopPropagation()
-                                                        }
-                                                    >
-                                                        <Icon
-                                                            name="pdf"
-                                                            size={18}
-                                                            className="text-secondary-600"
-                                                        />
-                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
-                                                            PDF
-                                                        </span>
-                                                    </a>
-                                                )}
-                                                {item.links.demo && (
-                                                    <a
-                                                        href={item.links.demo}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="flex items-center gap-2"
-                                                        onClick={(e) =>
-                                                            e.stopPropagation()
-                                                        }
-                                                    >
-                                                        <span className="text-subheading text-secondary-600 text-[20px] font-medium">
-                                                            {'>_'}
-                                                        </span>
-                                                        <span className="text-caption font-regular text-secondary-600 text-[14px]">
-                                                            Demo
-                                                        </span>
-                                                    </a>
-                                                )}
-                                            </div>
+                                                </a>
+                                            )}
+                                            {item.links.pdf && (
+                                                <a
+                                                    href={item.links.pdf}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-2"
+                                                    onClick={(e) =>
+                                                        e.stopPropagation()
+                                                    }
+                                                >
+                                                    <Icon
+                                                        name="pdf"
+                                                        size={18}
+                                                        className="text-secondary-600"
+                                                    />
+                                                    <span className="text-caption font-regular text-secondary-600 text-[14px]">
+                                                        PDF
+                                                    </span>
+                                                </a>
+                                            )}
+                                            {item.links.demo && (
+                                                <a
+                                                    href={item.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-2"
+                                                    onClick={(e) =>
+                                                        e.stopPropagation()
+                                                    }
+                                                >
+                                                    <span className="text-subheading text-secondary-600 text-[20px] font-medium">
+                                                        {'>_'}
+                                                    </span>
+                                                    <span className="text-caption font-regular text-secondary-600 text-[14px]">
+                                                        Demo
+                                                    </span>
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                                 {index < sortedItems.length - 1 && (
                                     <div className="border-tertiary-400 h-0 w-full border-t-[0.5px]" />
                                 )}

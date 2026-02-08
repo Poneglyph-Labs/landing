@@ -44,7 +44,7 @@ export function ProjectRow({
 
             {/* Description */}
             <div className="lg:flex-[0.6]">
-                <p className="text-subheading text-secondary-400 text-[20px] font-medium">
+                <p className="text-subheading text-secondary-400 text-[18px] font-medium md:text-[20px]">
                     {description}
                 </p>
             </div>

@@ -43,19 +43,20 @@ export function ResearchArchive({ items }: ResearchArchiveProps) {
                     </div>
 
                     {/* Research Grid */}
-                    <div className="border-tertiary-400 overflow-hidden border">
-                        <div className="divide-tertiary-400 grid grid-cols-1 divide-y md:grid-cols-2 md:divide-y-0 lg:grid-cols-3 lg:divide-y-0">
+                    <div className="border-tertiary-400 overflow-hidden border-none md:border-none">
+                        <div className="divide-tertiary-400 grid grid-cols-1 divide-y-0 md:grid-cols-2 md:divide-y-0 lg:grid-cols-3 lg:divide-y-0">
                             {filteredItems.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className={`border-tertiary-400 ${index % 2 === 0 ? 'md:border-r' : ''} ${index % 3 === 0 || index % 3 === 1 ? 'lg:border-r' : ''} ${Math.floor(index / 2) < Math.floor((filteredItems.length - 1) / 2) ? 'md:border-b' : ''} ${Math.floor(index / 3) < Math.floor((filteredItems.length - 1) / 3) ? 'lg:border-b' : ''} `}
+                                    className={`border-tertiary-400`}
                                 >
                                     <ResearchCard
                                         type={item.type}
                                         title={item.title}
                                         date={item.date}
                                         slug={item.slug}
-                                        className="border-0"
+                                        // className="border-0 md:border md:h-[270px]"
+                                        className={`border-tertiary-400 /* ===================== Mobile (1 column) ===================== */ min-h-[219px] border md:min-h-[309px] ${index !== 0 ? 'border-t-0' : ''} /* ===================== md: 2 columns ===================== */ md:border ${index % 2 !== 0 ? 'md:border-l-0' : 'md:border-l'} ${index >= 2 ? 'md:border-t-0' : 'md:border-t'} /* ===================== lg: 3 columns (OVERRIDES md) ===================== */ lg:border ${index % 3 !== 0 ? 'lg:border-l-0' : 'lg:border-l'} ${index >= 3 ? 'lg:border-t-0' : 'lg:border-t'} `}
                                     />
                                 </div>
                             ))}

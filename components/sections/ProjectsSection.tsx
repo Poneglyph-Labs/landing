@@ -124,7 +124,7 @@ export function ProjectsSection() {
                     </div>
 
                     {/* View More Button */}
-                    <div className="hidden justify-end pt-10 md:flex">
+                    <div className="hidden justify-end md:flex">
                         <Link href="/projects">
                             <Button variant="outline" size="lg">
                                 VIEW FULL PROJECTS
@@ -132,7 +132,7 @@ export function ProjectsSection() {
                         </Link>
                     </div>
                     {/* View More Button Mobile*/}
-                    <div className="flex justify-end pt-10 md:hidden">
+                    <div className="flex justify-end md:hidden">
                         <Link href="/projects">
                             <Button variant="outline" size="sm">
                                 VIEW FULL PROJECTS

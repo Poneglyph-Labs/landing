@@ -13,6 +13,7 @@ export function ProjectsPageContent() {
     const projectParam = searchParams.get('project')
 
     const [expandedProjects, setExpandedProjects] = useState<string[]>([])
+    const [expandedTechnical, setExpandedTechnical] = useState<string[]>([])
 
     // Auto-expand project from URL parameter
     useEffect(() => {
@@ -43,8 +44,19 @@ export function ProjectsPageContent() {
         )
     }
 
+    const toggleTechnical = (projectId: string) => {
+        setExpandedTechnical((prev) =>
+            prev.includes(projectId)
+                ? prev.filter((id) => id !== projectId)
+                : [...prev, projectId]
+        )
+    }
+
     const isExpanded = (projectId: string) =>
         expandedProjects.includes(projectId)
+
+    const isTechnicalExpanded = (projectId: string) =>
+        expandedTechnical.includes(projectId)
 
     return (
         <>
@@ -84,7 +96,7 @@ export function ProjectsPageContent() {
             </div>
 
             {/* Mobile Layout */}
-            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden py-10 md:hidden">
+            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden pb-10 md:hidden md:py-10">
                 <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4">
                     {/* Mobile Header */}
                     <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-4">
@@ -153,7 +165,7 @@ export function ProjectsPageContent() {
                                             }
                                             className="bg-primary-900 border-tertiary-400 flex items-center justify-start gap-2 self-stretch py-3 md:border-b"
                                         >
-                                            <span className="text-caption font-space-grotesk text-secondary-200 text-[14px] font-medium underline">
+                                            <span className="text-caption font-space-grotesk text-secondary-200 cursor-pointer text-[14px] font-medium underline">
                                                 {isExpanded(project.id)
                                                     ? 'See less'
                                                     : 'See more'}
@@ -169,6 +181,8 @@ export function ProjectsPageContent() {
                                                     href={
                                                         project.links.repository
                                                     }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -179,6 +193,8 @@ export function ProjectsPageContent() {
                                             {project.links.sdk && (
                                                 <a
                                                     href={project.links.sdk}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -192,6 +208,8 @@ export function ProjectsPageContent() {
                                                         project.links
                                                             .documentation
                                                     }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -204,6 +222,8 @@ export function ProjectsPageContent() {
                                                     href={
                                                         project.links.research
                                                     }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -214,6 +234,8 @@ export function ProjectsPageContent() {
                                             {project.links.demo && (
                                                 <a
                                                     href={project.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -224,6 +246,8 @@ export function ProjectsPageContent() {
                                             {project.links.spec && (
                                                 <a
                                                     href={project.links.spec}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -234,6 +258,8 @@ export function ProjectsPageContent() {
                                             {project.links.git && (
                                                 <a
                                                     href={project.links.git}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -247,6 +273,8 @@ export function ProjectsPageContent() {
                                                         project.links
                                                             .architecture
                                                     }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -257,6 +285,8 @@ export function ProjectsPageContent() {
                                             {project.links.testnet && (
                                                 <a
                                                     href={project.links.testnet}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
                                                     <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
@@ -289,27 +319,36 @@ export function ProjectsPageContent() {
 
                                 {/* Technical Summary */}
                                 <div className="flex flex-col items-start justify-start gap-4 self-stretch">
-                                    <div className="flex items-center justify-start gap-2">
+                                    <button
+                                        onClick={() =>
+                                            toggleTechnical(project.id)
+                                        }
+                                        className="flex items-center justify-start gap-2"
+                                    >
                                         <span className="text-caption font-space-grotesk text-secondary-600 text-[14px] font-medium">
                                             TECHNICAL SUMMARY
                                         </span>
                                         <Icon
-                                            name="arrow-down"
+                                            name={
+                                                isTechnicalExpanded(project.id)
+                                                    ? 'arrow-up'
+                                                    : 'arrow-down'
+                                            }
                                             size={16}
                                             className="text-secondary-600"
                                         />
-                                    </div>
+                                    </button>
 
-                                    {/* Technical Points - Only show for Nexus Grid as per design */}
-                                    {project.id === 'nexus-grid' && (
+                                    {/* Technical Points */}
+                                    {isTechnicalExpanded(project.id) && (
                                         <div className="flex flex-col items-start justify-start gap-2 self-stretch">
                                             {project.technicalSummary.map(
                                                 (point, pointIndex) => (
                                                     <div
                                                         key={pointIndex}
-                                                        className="text-caption font-space-grotesk text-secondary-600 flex items-start gap-2 self-stretch text-[14px] leading-7 font-medium"
+                                                        className="text-caption font-space-grotesk text-secondary-400 flex items-start gap-2 self-stretch text-[14px] leading-7 font-medium"
                                                     >
-                                                        <span className="text-secondary-600 flex-shrink-0">
+                                                        <span className="text-secondary-400 flex-shrink-0">
                                                             •
                                                         </span>
                                                         <span className="flex-1">

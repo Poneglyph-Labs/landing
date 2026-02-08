@@ -31,7 +31,7 @@ export function TechnicalPillars() {
             <div className="mx-auto px-4 md:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
-                    <div className="border-tertiary-400 border-b pb-6">
+                    <div className="border-tertiary-400 border-b pb-4 md:pb-6">
                         <h2 className="md:text-h3 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[32px]">
                             TECHNICAL PILLARS
                         </h2>

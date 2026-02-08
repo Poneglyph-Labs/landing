@@ -93,7 +93,7 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
-                className="p-2 md:hidden"
+                className="cursor-pointer p-2 md:hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
             >
@@ -126,7 +126,7 @@ export function Navigation() {
                             </div>
                         </Link>
                         <X
-                            className="h-8 w-8"
+                            className="h-8 w-8 cursor-pointer"
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
                     </div>

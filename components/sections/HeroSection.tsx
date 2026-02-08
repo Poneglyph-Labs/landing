@@ -4,14 +4,18 @@ import { Icon } from '../ui/Icon'
 import { LogoNoText } from '../ui/LogoNoText'
 import { ActivitySignals } from './ActivitySignals'
 const quickLinks = [
-    { label: 'Github', href: 'https://github.com/Poneglyph-Labs' },
-    { label: 'Research', href: '/archive' },
-    { label: 'Projects', href: '/projects' },
+    {
+        label: 'Github',
+        href: 'https://github.com/Poneglyph-Labs',
+        type: 'external',
+    },
+    { label: 'Research', href: '/archive', type: 'internal' },
+    { label: 'Projects', href: '/projects', type: 'internal' },
 ]
 
 export function HeroSection() {
     return (
-        <section className="bg-primary-900 py-16 md:px-24 md:py-20">
+        <section className="bg-primary-900 py-4 md:px-24 md:py-20">
             <div className="mx-auto px-4 md:px-0">
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                     {/* Content */}
@@ -40,12 +44,23 @@ export function HeroSection() {
                                     key={link.label}
                                     className="flex items-center gap-8"
                                 >
-                                    <Link
-                                        href={link.href}
-                                        className="text-secondary-500 hover:text-secondary-200 text-[14px] font-medium transition-colors md:text-[18px]"
-                                    >
-                                        {link.label}
-                                    </Link>
+                                    {link.type === 'external' ? (
+                                        <Link
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-secondary-500 hover:text-secondary-200 text-[14px] font-medium transition-colors md:text-[18px]"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href={link.href}
+                                            className="text-secondary-500 hover:text-secondary-200 text-[14px] font-medium transition-colors md:text-[18px]"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    )}
                                     {index < quickLinks.length - 1 && (
                                         <div className="border-secondary-500 h-6 border-r" />
                                     )}
