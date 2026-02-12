@@ -27,6 +27,7 @@ export type IconName =
     | 'search'
     | 'calendar'
     | 'clock'
+    | 'location'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
     name: IconName
@@ -612,6 +613,30 @@ const iconComponents = {
             />
             <path
                 d="M12 8V12L14 14"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    location: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2Z"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z"
                 stroke="#DADADA"
                 strokeWidth="1.5"
                 strokeLinecap="round"

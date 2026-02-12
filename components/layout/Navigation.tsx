@@ -36,6 +36,11 @@ export function Navigation() {
             href: '/projects',
             active: pathname.startsWith('/projects'),
         },
+        {
+            label: 'Events',
+            href: '/events',
+            active: pathname.startsWith('/events'),
+        },
     ]
 
     return (
