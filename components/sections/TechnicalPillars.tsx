@@ -38,7 +38,7 @@ export function TechnicalPillars() {
                     </div>
 
                     {/* Pillars Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
                         {pillars.map((pillar, index) => (
                             <div key={index} className="space-y-6">
                                 {/* Pillar Title */}

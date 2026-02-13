@@ -185,7 +185,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW REPOSITORY
                                                     </span>
                                                 </a>
@@ -197,7 +197,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW DEPLOYMENT
                                                     </span>
                                                 </a>
@@ -212,7 +212,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW DOCUMENTATION
                                                     </span>
                                                 </a>
@@ -226,7 +226,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW RESEARCH
                                                     </span>
                                                 </a>
@@ -238,7 +238,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW DEMO
                                                     </span>
                                                 </a>
@@ -250,7 +250,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW SPECS
                                                     </span>
                                                 </a>
@@ -262,7 +262,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW GIT
                                                     </span>
                                                 </a>
@@ -277,7 +277,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW ARCHITECTURE
                                                     </span>
                                                 </a>
@@ -289,7 +289,7 @@ export function ProjectsPageContent() {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center justify-start gap-2 self-stretch py-2"
                                                 >
-                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[20px] font-medium underline">
+                                                    <span className="text-caption font-space-grotesk text-secondary-400 text-[14px] font-medium underline md:text-[20px]">
                                                         VIEW TESTNET
                                                     </span>
                                                 </a>

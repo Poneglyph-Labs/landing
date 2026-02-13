@@ -131,7 +131,7 @@ export function ArchiveFilters({
 
                     {showDomainDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {domains.map((domain, index) => (
                                 <div key={domain}>
@@ -182,7 +182,7 @@ export function ArchiveFilters({
 
                     {showTypeDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {typeDisplayOptions.map((displayType, index) => (
                                 <div key={displayType}>
@@ -236,7 +236,7 @@ export function ArchiveFilters({
 
                     {showSortDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {sortOptions.map((option, index) => (
                                 <div key={option}>

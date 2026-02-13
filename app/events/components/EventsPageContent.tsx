@@ -42,7 +42,7 @@ export function EventsPageContent({ initialEvents }: EventsPageContentProps) {
                 {/* Header */}
                 <div className="border-tertiary-400 mb-6 flex flex-col items-start justify-start gap-2 self-stretch border-b pt-4 pb-4 md:mb-4 md:gap-4 md:pt-6">
                     <h1 className="font-space-grotesk text-secondary-200 self-stretch text-[18px] leading-tight font-medium md:text-[28px]">
-                        Recent Dispatches
+                        Recent Events
                     </h1>
                     <p className="font-space-grotesk text-secondary-600 self-stretch text-[14px] leading-relaxed font-normal md:text-[18px]">
                         Public talks, workshops, and technical engagements.
@@ -268,7 +268,7 @@ export function EventsPageContent({ initialEvents }: EventsPageContentProps) {
                     </button>
                     {ongoingOpen && (
                         <div className="flex min-h-[172px] items-center justify-center py-12 md:min-h-[400px]">
-                            <p className="font-space-grotesk text-tertiary-400 text-center text-[14px] md:text-[28px]">
+                            <p className="font-space-grotesk text-tertiary-400 text-center text-[16px] md:text-[28px]">
                                 No event is currently ongoing
                             </p>
                         </div>
@@ -292,7 +292,7 @@ export function EventsPageContent({ initialEvents }: EventsPageContentProps) {
                     </button>
                     {pastOpen && (
                         <div className="flex min-h-[172px] items-center justify-center py-12 md:min-h-[400px]">
-                            <p className="font-space-grotesk text-tertiary-400 text-center text-[14px] md:text-[28px]">
+                            <p className="font-space-grotesk text-tertiary-400 text-center text-[16px] md:text-[28px]">
                                 No past events are currently listed.
                             </p>
                         </div>

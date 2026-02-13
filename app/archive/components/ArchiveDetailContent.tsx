@@ -85,7 +85,7 @@ export function ArchiveDetailContent({
                         </>
                     )}
 
-                    <div className="border-tertiary-400 h-px w-full border-b" />
+                    {/* <div className="border-tertiary-400 h-px w-full border-b" /> */}
 
                     {/* Details Section */}
                     <div className="flex w-full flex-col items-start gap-10">

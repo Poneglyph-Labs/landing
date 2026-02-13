@@ -15,7 +15,7 @@ export function RecentDispatches() {
                     {/* Section Title - Full Width */}
                     <div className="border-tertiary-400 w-full border-b pb-4">
                         <h2 className="md:text-h4 text-subheading font-space-grotesk text-secondary-200 text-[20px] font-medium md:text-[28px]">
-                            RECENT DISPATCHES
+                            RECENT EVENTS
                         </h2>
                     </div>
 

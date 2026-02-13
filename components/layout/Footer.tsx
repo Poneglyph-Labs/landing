@@ -126,7 +126,7 @@ export function Footer() {
                                         <a
                                             key={link.name}
                                             href={link.href}
-                                            className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                            className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                         >
                                             {link.name}
                                         </a>
@@ -144,7 +144,7 @@ export function Footer() {
                                         <a
                                             key={link.name}
                                             href={link.href}
-                                            className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                            className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                         >
                                             {link.name}
                                         </a>
@@ -268,7 +268,7 @@ export function Footer() {
                                             <a
                                                 key={link.name}
                                                 href={link.href}
-                                                className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                                className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                             >
                                                 {link.name}
                                             </a>
@@ -286,7 +286,7 @@ export function Footer() {
                                             <a
                                                 key={link.name}
                                                 href={link.href}
-                                                className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                                className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                             >
                                                 {link.name}
                                             </a>
