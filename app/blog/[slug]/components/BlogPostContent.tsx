@@ -14,7 +14,7 @@ interface BlogPostContentProps {
 export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-9 overflow-hidden px-4 pb-20 md:gap-20 md:px-12 md:pt-3 lg:px-24">
+            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-9 overflow-hidden px-4 pb-20 md:gap-20 md:px-8 md:pt-3 lg:px-24">
                 {/* Back to Blog */}
                 <Link
                     href="/blog"
@@ -41,7 +41,7 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                 </Link>
 
                 {/* Article Content */}
-                <div className="flex flex-col items-start justify-start gap-12 self-stretch px-0 md:gap-[80px] md:px-12">
+                <div className="flex flex-col items-start justify-start gap-12 self-stretch px-0 md:gap-[80px] lg:px-12">
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-6 self-stretch">
                         <h1 className="font-space-grotesk text-secondary-200 md:text-h1 self-stretch text-[20px] leading-tight font-normal md:text-[64px]">

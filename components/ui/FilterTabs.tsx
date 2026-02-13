@@ -96,12 +96,14 @@ export function FilterTabs({
             </div>
 
             {/* Desktop Tabs */}
-            <div className={`hidden flex-wrap gap-0 md:flex ${className}`}>
+            <div
+                className={`hidden flex-wrap gap-0 md:flex md:gap-y-6 ${className}`}
+            >
                 {filterOptions.map((option) => (
                     <button
                         key={option}
                         onClick={() => handleFilterChange(option)}
-                        className={`text-subheading font-regular flex-1 px-4 py-3 text-center text-[20px] transition-colors ${
+                        className={`text-subheading font-regular min-w-[240px] flex-1 px-4 py-3 text-center text-[20px] transition-colors ${
                             activeFilter === option
                                 ? 'border-tertiary-400 text-secondary-200 bg-primary-900 border'
                                 : 'text-secondary-600 hover:text-secondary-200'

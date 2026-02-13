@@ -10,11 +10,11 @@ export function RecentDispatches() {
 
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto px-4 md:px-24">
+            <div className="mx-auto px-4 md:px-8 lg:px-24">
                 <div className="flex w-full flex-col gap-8">
                     {/* Section Title - Full Width */}
                     <div className="border-tertiary-400 w-full border-b pb-4">
-                        <h2 className="md:text-h4 text-subheading font-space-grotesk text-secondary-200 text-[20px] font-medium md:text-[28px]">
+                        <h2 className="md:text-h4 text-subheading font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[32px]">
                             RECENT EVENTS
                         </h2>
                     </div>

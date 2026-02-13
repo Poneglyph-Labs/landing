@@ -15,7 +15,7 @@ const quickLinks = [
 
 export function HeroSection() {
     return (
-        <section className="bg-primary-900 pt-4 pb-10 md:px-24 md:py-20">
+        <section className="bg-primary-900 pt-4 pb-10 md:px-8 md:py-16 lg:px-24 lg:py-20">
             <div className="mx-auto px-4 md:px-0">
                 <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                     {/* Content */}

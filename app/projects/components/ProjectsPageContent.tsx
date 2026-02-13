@@ -61,8 +61,8 @@ export function ProjectsPageContent() {
     return (
         <>
             {/* Desktop Layout */}
-            <div className="hidden flex-col items-start justify-center md:flex">
-                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+            <div className="hidden flex-col items-start justify-center lg:flex">
+                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start gap-20 overflow-hidden px-4 pt-10 pb-20 md:px-8 lg:px-24">
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-10 self-stretch">
                         <div className="border-tertiary-400 flex flex-col items-start justify-center gap-4 self-stretch border-b-[0.50px] py-6">
@@ -96,8 +96,8 @@ export function ProjectsPageContent() {
             </div>
 
             {/* Mobile Layout */}
-            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden pb-10 md:hidden md:py-10">
-                <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4">
+            <div className="bg-primary-900 flex flex-col items-start justify-start gap-6 overflow-hidden pb-10 md:py-10 lg:hidden">
+                <div className="flex flex-col items-start justify-start gap-10 self-stretch px-4 md:px-8">
                     {/* Mobile Header */}
                     <div className="border-tertiary-400 flex flex-col items-start justify-center gap-2 self-stretch border-b-[0.50px] py-4">
                         <h1 className="text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium">

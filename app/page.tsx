@@ -4,6 +4,7 @@ import { ResearchArchive } from '../components/sections/ResearchArchive'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
 import { TechnicalPillars } from '../components/sections/TechnicalPillars'
 import { RecentDispatches } from '../components/sections/RecentDispatches'
+import { ExternalValidation } from '../components/sections/ExternalValidation'
 import { ContactSection } from '../components/sections/ContactSection'
 import { StructuredData } from '../components/seo/StructuredData'
 import { getArchiveItems } from '../lib/archive-server'
@@ -23,6 +24,7 @@ export default function Home() {
                 <ProjectsSection />
                 <TechnicalPillars />
                 <RecentDispatches />
+                <ExternalValidation />
                 <ContactSection />
             </div>
         </>

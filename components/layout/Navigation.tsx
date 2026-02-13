@@ -44,7 +44,7 @@ export function Navigation() {
     ]
 
     return (
-        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-24">
+        <nav className="bg-primary-900 relative flex w-full items-center justify-between px-4 py-6 md:px-8 md:pt-10 md:pb-6 lg:px-24">
             {/* Logo */}
             <Link href="/" className="shrink-0">
                 <div className="h-9 w-40 md:h-16 md:w-[284px]">
@@ -59,13 +59,13 @@ export function Navigation() {
                 </div>
             </Link>
 
-            {/* Desktop Navigation - Centered */}
-            <div className="absolute left-1/2 hidden -translate-x-1/2 transform items-center gap-6 md:flex">
+            {/* Desktop Navigation - Flexbox with proper spacing */}
+            <div className="hidden flex-1 items-center justify-center gap-6 px-8 lg:flex">
                 {navigationItems.map((item) => (
                     <Link
                         key={item.label}
                         href={item.href}
-                        className={`font-space-grotesk text-2xl font-medium transition-colors ${
+                        className={`font-space-grotesk text-2xl font-medium whitespace-nowrap transition-colors ${
                             item.active
                                 ? 'text-secondary-200'
                                 : 'hover:text-secondary-200 text-[#7B7A7A]'
@@ -77,7 +77,7 @@ export function Navigation() {
             </div>
 
             {/* Right side button - Desktop */}
-            <div className="hidden shrink-0 md:block">
+            <div className="hidden shrink-0 lg:block">
                 <Link
                     href="/#contact"
                     onClick={(e) => {
@@ -98,7 +98,7 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
-                className="cursor-pointer p-2 md:hidden"
+                className="cursor-pointer p-2 lg:hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
             >
@@ -119,7 +119,7 @@ export function Navigation() {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="absolute top-0 left-0 z-50 flex h-screen w-full flex-col items-start justify-start gap-6 bg-black px-4 py-6 md:hidden">
+                <div className="absolute top-0 left-0 z-50 flex h-screen w-full flex-col items-start justify-start gap-6 bg-black px-4 py-6 md:px-8 lg:hidden">
                     {/* Header with Logo and Close */}
                     <div className="flex items-center justify-between self-stretch">
                         <Link href="/" className="shrink-0">

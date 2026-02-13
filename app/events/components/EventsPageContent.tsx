@@ -38,7 +38,7 @@ export function EventsPageContent({ initialEvents }: EventsPageContentProps) {
 
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="mx-auto flex w-full flex-col items-start justify-start px-4 pb-20 md:gap-6 md:px-24 md:pt-10">
+            <div className="mx-auto flex w-full flex-col items-start justify-start px-4 pb-20 md:gap-6 md:px-8 md:pt-10 lg:px-24">
                 {/* Header */}
                 <div className="border-tertiary-400 mb-6 flex flex-col items-start justify-start gap-2 self-stretch border-b pt-4 pb-4 md:mb-4 md:gap-4 md:pt-6">
                     <h1 className="font-space-grotesk text-secondary-200 self-stretch text-[18px] leading-tight font-medium md:text-[28px]">

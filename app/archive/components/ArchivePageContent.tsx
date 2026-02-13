@@ -69,7 +69,7 @@ export function ArchivePageContent({ items }: ArchivePageContentProps) {
     return (
         <>
             {/* Desktop Layout */}
-            <div className="bg-primary-900 mx-auto hidden min-h-screen px-4 md:block md:px-24">
+            <div className="bg-primary-900 mx-auto hidden min-h-screen px-4 md:block md:px-8 lg:px-24">
                 <div className="bg-primary-900 flex flex-col items-start gap-20 overflow-hidden pt-10 pb-32">
                     <div className="flex w-full flex-col gap-10">
                         <ArchiveHeader />

@@ -26,7 +26,7 @@ export function BlogPageContent({ posts }: BlogPageContentProps) {
         <>
             {/* Desktop Layout */}
             <div className="hidden w-full flex-col items-start justify-center md:flex">
-                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start overflow-hidden px-4 pt-10 pb-20 md:px-12 lg:px-24">
+                <div className="bg-primary-900 mx-auto flex w-full flex-col items-start justify-start overflow-hidden px-4 pt-10 pb-20 md:px-8 lg:px-24">
                     {/* Header */}
                     <div className="flex w-full flex-col items-start justify-start gap-10">
                         <div className="border-tertiary-400 flex w-full flex-col items-start justify-center gap-4 border-b-[0.50px] py-6">

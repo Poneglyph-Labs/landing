@@ -30,10 +30,10 @@ export function ProjectRow({
 
     return (
         <div
-            className={`flex flex-col items-start gap-6 py-10 lg:flex-row lg:gap-16 ${className}`}
+            className={`flex flex-col items-start gap-6 py-10 md:flex-row lg:gap-16 ${className}`}
         >
             {/* Project Name */}
-            <div className="flex items-center gap-4 lg:flex-[0.4]">
+            <div className="flex items-center gap-4 md:flex-[0.5] lg:flex-[0.4]">
                 <span className="md:text-h4 text-secondary-600 text-[20px] font-medium md:text-[28px]">
                     &gt;_
                 </span>
@@ -43,14 +43,14 @@ export function ProjectRow({
             </div>
 
             {/* Description */}
-            <div className="lg:flex-[0.6]">
+            <div className="md:flex-[0.6] lg:flex-[0.6]">
                 <p className="text-subheading text-secondary-400 text-[18px] font-medium md:text-[20px]">
                     {description}
                 </p>
             </div>
 
             {/* Links */}
-            <div className="hidden flex-wrap gap-4 md:flex lg:flex-1 lg:justify-end">
+            <div className="hidden flex-wrap gap-4 md:flex md:flex-[0.9] md:justify-end lg:flex-1">
                 {links.map((link, index) => (
                     <Button
                         key={index}

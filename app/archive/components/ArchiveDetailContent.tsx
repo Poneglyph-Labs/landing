@@ -19,7 +19,7 @@ export function ArchiveDetailContent({
 
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="bg-primary-900 flex flex-col items-center gap-8 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-24">
+            <div className="bg-primary-900 flex flex-col items-center gap-8 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-8 lg:px-24">
                 <Link
                     href="/archive"
                     className="hover:bg-primary-800/20 flex w-full items-center gap-2 py-3 pr-4 pl-3 transition-colors"
@@ -44,7 +44,7 @@ export function ArchiveDetailContent({
                     </span>
                 </Link>
 
-                <div className="flex w-full flex-col items-start gap-6 px-0 md:gap-20 md:px-12">
+                <div className="flex w-full flex-col items-start gap-6 px-0 md:gap-20 lg:px-12">
                     {/* Title Section */}
                     <div className="flex w-full flex-col items-start gap-6">
                         <h1 className="text-h1 font-regular font-space-grotesk text-secondary-200 text-xl leading-tight tracking-tight md:text-[64px]">

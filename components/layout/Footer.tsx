@@ -61,7 +61,7 @@ export function Footer() {
     return (
         <footer className="border-tertiary-400 border-t-[0.5px] bg-[#191919]">
             {/* Desktop Layout */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <div className="flex flex-col items-start gap-[120px] overflow-hidden px-24 py-20">
                     <div className="flex w-full items-start justify-between">
                         {/* Left Column - Logo and CTA */}
@@ -202,8 +202,8 @@ export function Footer() {
             </div>
 
             {/* Mobile Layout */}
-            <div className="block md:hidden">
-                <div className="flex flex-col items-start px-4 py-10">
+            <div className="block lg:hidden">
+                <div className="flex flex-col items-start px-4 py-10 md:px-8">
                     <div className="flex w-full flex-col items-end">
                         <div className="flex w-full flex-col items-start gap-10">
                             <div className="flex w-full flex-col items-start gap-10">
@@ -259,7 +259,7 @@ export function Footer() {
                             {/* Links Section */}
                             <div className="flex w-full items-start gap-4">
                                 {/* Research Links */}
-                                <div className="flex flex-1 flex-col items-start gap-6">
+                                <div className="flex max-w-[261px] flex-1 flex-col items-start gap-6">
                                     <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                         Research
                                     </h3>
