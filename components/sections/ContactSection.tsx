@@ -111,7 +111,7 @@ export function ContactSection() {
             id="contact"
             className="bg-primary-900 border-tertiary-400 border-t py-20"
         >
-            <div className="mx-auto px-4 md:px-24">
+            <div className="mx-auto px-4 md:px-8 lg:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
@@ -121,11 +121,11 @@ export function ContactSection() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="max-w-2xl space-y-6">
-                        <h3 className="font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[24px]">
+                    <div className="max-w-2xl md:space-y-6">
+                        <h3 className="font-space-grotesk text-secondary-200 mb-2 text-[18px] font-medium md:text-[24px]">
                             INITIALIZE HANDSHAKE
                         </h3>
-                        <p className="md:text-body1 text-caption font-regular text-secondary-600 text-[14px] leading-relaxed md:text-[16px]">
+                        <p className="md:text-body1 text-caption font-regular text-secondary-600 mb-6 text-[14px] leading-relaxed md:text-[16px]">
                             Secure communication channels are open for research
                             inquiries.
                         </p>

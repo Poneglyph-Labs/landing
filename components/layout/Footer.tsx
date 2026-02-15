@@ -2,16 +2,38 @@
 
 import { Logo } from '../ui/Logo'
 import { Icon, IconName } from '../ui/Icon'
+import Link from 'next/link'
 
-const socialLinks: { name: string; href: string; icon: IconName }[] = [
-    { name: 'Twitter', href: '#', icon: 'twitter' },
+const socialLinks: {
+    name: string
+    href: string
+    icon: IconName
+    mobileicon: IconName
+}[] = [
+    {
+        name: 'Twitter',
+        href: '#',
+        icon: 'twitter',
+        mobileicon: 'mobiletwitter',
+    },
     {
         name: 'GitHub',
         href: 'https://github.com/Poneglyph-Labs',
         icon: 'github-circle',
+        mobileicon: 'mobilegithub-circle',
     },
-    { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-    { name: 'Email', href: 'mailto:hello@poneglyph-labs.xyz', icon: 'mail' },
+    {
+        name: 'LinkedIn',
+        href: '#',
+        icon: 'linkedin',
+        mobileicon: 'mobilelinkedin',
+    },
+    {
+        name: 'Email',
+        href: 'mailto:hello@poneglyph-labs.xyz',
+        icon: 'mail',
+        mobileicon: 'mobilemail',
+    },
 ]
 
 const researchLinks = [
@@ -27,15 +49,19 @@ const connectLinks = [
 ]
 
 const footerLinks = [
-    { name: 'Github', href: 'https://github.com/Poneglyph-Labs' },
-    { name: 'Research Archive', href: '/archive' },
+    {
+        name: 'Github',
+        href: 'https://github.com/Poneglyph-Labs',
+        type: 'external',
+    },
+    { name: 'Research Archive', href: '/archive', type: 'internal' },
 ]
 
 export function Footer() {
     return (
         <footer className="border-tertiary-400 border-t-[0.5px] bg-[#191919]">
             {/* Desktop Layout */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 <div className="flex flex-col items-start gap-[120px] overflow-hidden px-24 py-20">
                     <div className="flex w-full items-start justify-between">
                         {/* Left Column - Logo and CTA */}
@@ -55,9 +81,11 @@ export function Footer() {
                                 {/* Social Links */}
                                 <div className="flex items-center gap-4">
                                     {socialLinks.map((link) => (
-                                        <a
+                                        <Link
                                             key={link.name}
                                             href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="flex items-center p-1 transition-opacity hover:opacity-80"
                                             aria-label={link.name}
                                         >
@@ -66,7 +94,7 @@ export function Footer() {
                                                 size={32}
                                                 className="text-tertiary-400"
                                             />
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>
@@ -78,7 +106,7 @@ export function Footer() {
                                         behavior: 'smooth',
                                     })
                                 }
-                                className="border-tertiary-400 flex items-center justify-center gap-2 border px-4 py-3 transition-opacity hover:opacity-80"
+                                className="border-tertiary-400 flex cursor-pointer items-center justify-center gap-2 border px-4 py-3 transition-opacity hover:opacity-80"
                             >
                                 <span className="text-subheading text-secondary-200 text-[20px] font-medium">
                                     BACK TO THE TOP
@@ -98,7 +126,7 @@ export function Footer() {
                                         <a
                                             key={link.name}
                                             href={link.href}
-                                            className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                            className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                         >
                                             {link.name}
                                         </a>
@@ -116,7 +144,7 @@ export function Footer() {
                                         <a
                                             key={link.name}
                                             href={link.href}
-                                            className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                            className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                         >
                                             {link.name}
                                         </a>
@@ -146,12 +174,23 @@ export function Footer() {
                                     key={link.name}
                                     className="flex items-center gap-8"
                                 >
-                                    <a
-                                        href={link.href}
-                                        className="text-body1 font-regular hover:text-secondary-200 text-center leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.6)] transition-colors"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.type === 'external' ? (
+                                        <Link
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-body1 font-regular hover:text-secondary-200 text-center leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.6)] transition-colors"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href={link.href}
+                                            className="text-body1 font-regular hover:text-secondary-200 text-center leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.6)] transition-colors"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
                                     {index < footerLinks.length - 1 && (
                                         <div className="border-tertiary-400 h-0 w-7 origin-center rotate-90 border-t" />
                                     )}
@@ -163,15 +202,15 @@ export function Footer() {
             </div>
 
             {/* Mobile Layout */}
-            <div className="block md:hidden">
-                <div className="flex flex-col items-start px-4 py-10">
+            <div className="block lg:hidden">
+                <div className="flex flex-col items-start px-4 py-10 md:px-8">
                     <div className="flex w-full flex-col items-end">
                         <div className="flex w-full flex-col items-start gap-10">
                             <div className="flex w-full flex-col items-start gap-10">
                                 <div className="flex w-full flex-col items-start gap-6">
                                     <div className="flex w-full flex-col items-start gap-4">
                                         <div className="h-9 w-40">
-                                            <Logo size="md" />
+                                            <Logo size="lg" />
                                         </div>
                                         <p className="text-body1 font-regular w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)]">
                                             Applied research and engineering at
@@ -184,18 +223,20 @@ export function Footer() {
                                     {/* Social Links */}
                                     <div className="flex items-center gap-4">
                                         {socialLinks.map((link) => (
-                                            <a
+                                            <Link
                                                 key={link.name}
                                                 href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="flex items-center p-1 transition-opacity hover:opacity-80"
                                                 aria-label={link.name}
                                             >
                                                 <Icon
-                                                    name={link.icon}
+                                                    name={link.mobileicon}
                                                     size={24}
-                                                    className="text-tertiary-400"
+                                                    className="text-tertiary-400 h-6 w-6"
                                                 />
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -207,7 +248,7 @@ export function Footer() {
                                             behavior: 'smooth',
                                         })
                                     }
-                                    className="border-tertiary-400 flex items-center justify-center gap-2 border px-3 py-3 transition-opacity hover:opacity-80 md:px-2 md:py-3"
+                                    className="border-tertiary-400 flex cursor-pointer items-center justify-center gap-2 border px-3 py-3 transition-opacity hover:opacity-80 md:px-2 md:py-3"
                                 >
                                     <span className="text-caption text-secondary-200 text-[14px] font-medium">
                                         BACK TO THE TOP
@@ -218,7 +259,7 @@ export function Footer() {
                             {/* Links Section */}
                             <div className="flex w-full items-start gap-4">
                                 {/* Research Links */}
-                                <div className="flex flex-1 flex-col items-start gap-6">
+                                <div className="flex max-w-[261px] flex-1 flex-col items-start gap-6">
                                     <h3 className="text-subheading font-space-grotesk text-secondary-200 w-full text-[20px] font-medium">
                                         Research
                                     </h3>
@@ -227,7 +268,7 @@ export function Footer() {
                                             <a
                                                 key={link.name}
                                                 href={link.href}
-                                                className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                                className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                             >
                                                 {link.name}
                                             </a>
@@ -245,7 +286,7 @@ export function Footer() {
                                             <a
                                                 key={link.name}
                                                 href={link.href}
-                                                className="text-body1 font-regular hover:text-secondary-200 w-full leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors"
+                                                className="text-body1 font-regular hover:text-secondary-200 w-full text-[14px] leading-7 tracking-[-0.16px] text-[rgba(229,229,229,0.8)] transition-colors md:text-[16px]"
                                             >
                                                 {link.name}
                                             </a>
@@ -273,12 +314,24 @@ export function Footer() {
                                             key={link.name}
                                             className="flex items-center gap-[32px] md:gap-8"
                                         >
-                                            <a
-                                                href={link.href}
-                                                className="text-caption font-regular hover:text-secondary-200 text-center text-[14px] text-[rgba(229,229,229,0.6)] transition-colors"
-                                            >
-                                                {link.name}
-                                            </a>
+                                            {link.type === 'external' ? (
+                                                <Link
+                                                    href={link.href}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-caption font-regular hover:text-secondary-200 text-center text-[14px] text-[rgba(229,229,229,0.6)] transition-colors"
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    className="text-caption font-regular hover:text-secondary-200 text-center text-[14px] text-[rgba(229,229,229,0.6)] transition-colors"
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            )}
+
                                             {index < footerLinks.length - 1 && (
                                                 <div className="border-tertiary-400 h-0 w-[18px] origin-center rotate-90 border-t" />
                                             )}

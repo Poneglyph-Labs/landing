@@ -38,14 +38,14 @@ export function ResearchCard({
     className = '',
 }: ResearchCardProps) {
     return (
-        <Link href={`/archive/${slug}`} className="block">
+        <Link href={`/archive/${slug}`} className="block h-full">
             <div
-                className={`bg-primary-900 border-tertiary-400 hover:border-secondary-200 group cursor-pointer space-y-10 p-8 transition-colors ${className}`}
+                className={`bg-primary-900 border-tertiary-400 hover:border-secondary-200 group flex h-full cursor-pointer flex-col p-4 transition-colors md:p-8 ${className}`}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between">
-                    <div className="border-tertiary-400 border px-3 py-2">
-                        <span className="text-caption font-regular text-secondary-200">
+                <div className="flex justify-between">
+                    <div className="border-tertiary-400 mb-[38px] border px-3 py-2">
+                        <span className="text-caption font-regular text-secondary-200 text-[14px] md:text-[16px]">
                             {getDisplayType(type)}
                         </span>
                     </div>
@@ -57,11 +57,12 @@ export function ResearchCard({
                 </div>
 
                 {/* Content */}
-                <div className="space-y-10">
-                    <h3 className="text-h4 font-space-grotesk text-secondary-200 leading-tight font-medium">
+                <div className="flex flex-1 flex-col">
+                    <h3 className="text-h4 font-space-grotesk text-secondary-200 text-[20px] leading-tight font-medium md:text-[28px]">
                         {title}
                     </h3>
-                    <p className="text-body2 font-regular text-secondary-600">
+
+                    <p className="text-body2 font-regular text-secondary-600 mt-auto">
                         {date}
                     </p>
                 </div>

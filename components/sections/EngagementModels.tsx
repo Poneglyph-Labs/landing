@@ -28,7 +28,7 @@ const engagementModels: {
 export function EngagementModels() {
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto px-4 md:px-24">
+            <div className="mx-auto px-4 md:px-8 lg:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
@@ -47,11 +47,11 @@ export function EngagementModels() {
                     </p>
 
                     {/* Models Grid */}
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                         {engagementModels.map((model, index) => (
                             <div
                                 key={index}
-                                className="border-tertiary-500 hover:border-secondary-200 group space-y-6 border p-8 transition-colors"
+                                className="border-tertiary-500 hover:border-secondary-200 group space-y-6 border p-4 transition-colors md:p-8"
                             >
                                 <div className="space-y-4">
                                     <Icon

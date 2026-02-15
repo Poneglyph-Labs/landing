@@ -19,7 +19,7 @@ const getDisplayType = (type: string): string => {
 
 export function ArchiveItemCard({ item }: ArchiveItemCardProps) {
     return (
-        <div className="hover:bg-primary-800/20 flex w-full flex-col items-start gap-10 px-8 py-8 transition-colors">
+        <div className="hover:bg-primary-800/20 flex w-full flex-col items-start px-8 py-8 transition-colors">
             {/* Main clickable area */}
             <div className="flex w-full flex-1 flex-col items-start gap-[40px]">
                 {/* Header with title, type tag, and date */}

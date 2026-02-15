@@ -14,17 +14,17 @@ interface BlogPostContentProps {
 export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
     return (
         <div className="bg-primary-900 text-secondary-200 min-h-screen">
-            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-12 overflow-hidden px-4 pt-10 pb-20 md:gap-20 md:px-12 lg:px-24">
+            <div className="bg-primary-900 mx-auto flex w-full flex-col items-center justify-start gap-9 overflow-hidden px-4 pb-20 md:gap-20 md:px-8 md:pt-3 lg:px-24">
                 {/* Back to Blog */}
                 <Link
                     href="/blog"
                     className="hover:bg-primary-800/20 flex items-center justify-start gap-2 self-stretch py-3 pr-4 pl-3 transition-colors"
                 >
-                    <div className="flex h-6 w-6 items-center justify-center">
+                    <div className="flex h-[18px] w-[18px] items-center justify-center md:h-6 md:w-6">
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
-                            className="h-6 w-6"
+                            className="h-[18px] w-[18px] md:h-6 md:w-6"
                         >
                             <path
                                 d="M19 12H5M5 12L12 19M5 12L12 5"
@@ -35,13 +35,13 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                             />
                         </svg>
                     </div>
-                    <span className="md:text-subheading font-space-grotesk text-secondary-400 text-[18px] font-medium md:text-[20px]">
+                    <span className="md:text-subheading font-space-grotesk text-secondary-400 text-[14px] font-medium md:text-[20px]">
                         BACK TO BLOG
                     </span>
                 </Link>
 
                 {/* Article Content */}
-                <div className="flex flex-col items-start justify-start gap-12 self-stretch px-0 md:gap-20 md:px-12">
+                <div className="flex flex-col items-start justify-start gap-12 self-stretch px-0 md:gap-[80px] lg:px-12">
                     {/* Header */}
                     <div className="flex flex-col items-start justify-start gap-6 self-stretch">
                         <h1 className="font-space-grotesk text-secondary-200 md:text-h1 self-stretch text-[20px] leading-tight font-normal md:text-[64px]">
@@ -203,21 +203,42 @@ export function BlogPostContent({ post, mdxPost }: BlogPostContentProps) {
                         <h3 className="md:text-h4 font-space-grotesk text-secondary-400 text-[16px] font-medium md:text-[28px]">
                             SHARE POST
                         </h3>
-                        <Icon
-                            name="twitter"
-                            size={32}
-                            className="text-secondary-200"
-                        />
-                        <Icon
-                            name="instagram"
-                            size={32}
-                            className="text-secondary-200"
-                        />
-                        <Icon
-                            name="github"
-                            size={32}
-                            className="text-secondary-200"
-                        />
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-opacity hover:opacity-70"
+                        >
+                            <Icon
+                                name="mobiletwitter"
+                                size={24}
+                                className="text-secondary-200"
+                            />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-opacity hover:opacity-70"
+                        >
+                            <Icon
+                                name="mobileinstagram"
+                                size={24}
+                                className="text-secondary-200"
+                            />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-opacity hover:opacity-70"
+                        >
+                            <Icon
+                                name="github"
+                                size={24}
+                                className="text-secondary-200"
+                            />
+                        </a>
                     </div>
                 </div>
 

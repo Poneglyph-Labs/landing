@@ -190,7 +190,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     onClick={() =>
                         setShowTechnicalSummary(!showTechnicalSummary)
                     }
-                    className="flex items-center gap-2 transition-opacity hover:opacity-80"
+                    className="flex cursor-pointer items-center gap-2 transition-opacity hover:opacity-80"
                 >
                     <span className="text-subheading text-secondary-600 text-[20px] font-medium">
                         TECHNICAL SUMMARY

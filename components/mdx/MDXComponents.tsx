@@ -101,5 +101,5 @@ export const mdxComponents: MDXComponents = {
     strong: ({ children }) => (
         <strong className="text-secondary-200 font-medium">{children}</strong>
     ),
-    em: ({ children }) => <em className="italic">{children}</em>,
+    em: ({ children }) => <em className="text-[12px] italic">{children}</em>,
 }

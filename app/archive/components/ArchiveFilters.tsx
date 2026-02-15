@@ -106,28 +106,32 @@ export function ArchiveFilters({
             >
                 {/* Domain Filter */}
                 <div className={`relative ${isMobile ? 'w-full' : ''}`}>
-                    <button
-                        onClick={() => {
-                            setShowDomainDropdown(!showDomainDropdown)
-                            setShowTypeDropdown(false)
-                            setShowSortDropdown(false)
-                        }}
-                        className={`flex cursor-pointer items-center gap-2 py-3 transition-colors ${isMobile ? 'w-full justify-center' : 'justify-center'}`}
-                    >
-                        <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
-                            <span className="text-primary-400">Domains:</span>{' '}
-                            {selectedDomain}
-                        </span>
-                        <Icon
-                            name="arrow-down"
-                            size={24}
-                            className="text-secondary-200"
-                        />
-                    </button>
+                    <div className="flex justify-center">
+                        <button
+                            onClick={() => {
+                                setShowDomainDropdown(!showDomainDropdown)
+                                setShowTypeDropdown(false)
+                                setShowSortDropdown(false)
+                            }}
+                            className="flex cursor-pointer items-center justify-center gap-2 py-3 transition-colors"
+                        >
+                            <span className="md:text-subheading text-secondary-200 text-[14px] font-medium md:text-[20px]">
+                                <span className="text-primary-400">
+                                    Domains:
+                                </span>{' '}
+                                {selectedDomain}
+                            </span>
+                            <Icon
+                                name="arrow-down"
+                                size={24}
+                                className="text-secondary-200"
+                            />
+                        </button>
+                    </div>
 
                     {showDomainDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {domains.map((domain, index) => (
                                 <div key={domain}>
@@ -178,7 +182,7 @@ export function ArchiveFilters({
 
                     {showTypeDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {typeDisplayOptions.map((displayType, index) => (
                                 <div key={displayType}>
@@ -232,7 +236,7 @@ export function ArchiveFilters({
 
                     {showSortDropdown && (
                         <div
-                            className={`border-tertiary-600 absolute top-full left-0 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'w-full' : 'w-64'}`}
+                            className={`border-tertiary-600 z-[9999] mt-1 border-[0.5px] bg-[#141414] ${isMobile ? 'fixed top-auto right-4 left-4' : 'absolute top-full left-0 w-64'}`}
                         >
                             {sortOptions.map((option, index) => (
                                 <div key={option}>

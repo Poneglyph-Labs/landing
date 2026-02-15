@@ -46,7 +46,7 @@ export function FilterTabs({
             <div className={`md:hidden ${className}`}>
                 <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex w-full items-center space-x-3 py-3 text-left"
+                    className="flex cursor-pointer items-center space-x-3 py-3 text-left md:w-full"
                 >
                     <div>
                         <span className="text-primary-400 text-[16px] font-medium">
@@ -76,14 +76,19 @@ export function FilterTabs({
                         {filterOptions.map((option) => (
                             <button
                                 key={option}
-                                onClick={() => handleFilterChange(option)}
-                                className={`border-tertiary-400 w-full border-b px-4 py-3 text-left text-lg transition-colors last:border-b-0 ${
-                                    activeFilter === option
-                                        ? 'bg-primary-800 text-secondary-200'
-                                        : 'text-secondary-600 hover:text-secondary-200 hover:bg-primary-800'
-                                }`}
+                                // onClick={() => handleFilterChange(option)}
+                                className={`border-tertiary-400 w-full border-b px-4 py-3 text-left text-lg transition-colors last:border-b-0`}
                             >
-                                {option}
+                                <span
+                                    className={`cursor-pointer ${
+                                        activeFilter === option
+                                            ? 'bg-primary-800 text-secondary-200'
+                                            : 'text-secondary-600 hover:text-secondary-200 hover:bg-primary-800'
+                                    }`}
+                                    onClick={() => handleFilterChange(option)}
+                                >
+                                    {option}
+                                </span>
                             </button>
                         ))}
                     </div>
@@ -91,12 +96,14 @@ export function FilterTabs({
             </div>
 
             {/* Desktop Tabs */}
-            <div className={`hidden flex-wrap gap-0 md:flex ${className}`}>
+            <div
+                className={`hidden flex-wrap gap-0 md:flex md:gap-y-6 ${className}`}
+            >
                 {filterOptions.map((option) => (
                     <button
                         key={option}
                         onClick={() => handleFilterChange(option)}
-                        className={`text-subheading font-regular flex-1 px-4 py-3 text-center text-[20px] transition-colors ${
+                        className={`text-subheading font-regular min-w-[240px] flex-1 px-4 py-3 text-center text-[20px] transition-colors ${
                             activeFilter === option
                                 ? 'border-tertiary-400 text-secondary-200 bg-primary-900 border'
                                 : 'text-secondary-600 hover:text-secondary-200'

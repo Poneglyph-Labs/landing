@@ -4,22 +4,30 @@ export type IconName =
     | 'chip'
     | 'code'
     | 'github'
+    | 'mobilegithub'
     | 'github-circle'
+    | 'mobilegithub-circle'
     | 'linkedin'
+    | 'mobilelinkedin'
     | 'mail'
+    | 'mobilemail'
     | 'shield'
     | 'strategy'
     | 'twitter'
+    | 'mobiletwitter'
     | 'instagram'
+    | 'mobileinstagram'
     | 'pdf'
     | 'demo'
     | 'arrow-down'
     | 'arrow-up'
     | 'arrow-right'
+    | 'mobilearrow-right'
     | 'arrow-up-right'
     | 'search'
     | 'calendar'
     | 'clock'
+    | 'location'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
     name: IconName
@@ -100,6 +108,31 @@ const iconComponents = {
             />
         </svg>
     ),
+    mobilegithub: (props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            {...props}
+        >
+            <path
+                d="M7.5 15.4256C4.92857 16.2936 2.78572 15.4256 1.5 12.75"
+                stroke="#FAFAFA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M7.5 16.5V14.0684C7.5 13.6197 7.63793 13.2297 7.8603 12.8774C8.01285 12.6357 7.90838 12.2928 7.63283 12.217C5.35046 11.5896 3.75 10.5808 3.75 7.23454C3.75 6.36458 4.03504 5.54667 4.53608 4.8348C4.66078 4.65763 4.72312 4.56906 4.73811 4.48882C4.7531 4.4086 4.72704 4.30389 4.67492 4.09449C4.46279 3.24219 4.47653 2.33714 4.79491 1.52117C4.79491 1.52117 5.45282 1.30681 6.95024 2.24227C7.29212 2.45585 7.46306 2.56264 7.61362 2.58653C7.76415 2.61042 7.96545 2.56038 8.36797 2.46031C8.91848 2.32346 9.4857 2.25 10.125 2.25C10.7643 2.25 11.3315 2.32346 11.882 2.46031C12.2846 2.56038 12.4858 2.61042 12.6364 2.58653C12.787 2.56264 12.9579 2.45585 13.2997 2.24227C14.7972 1.30681 15.4551 1.52117 15.4551 1.52117C15.7735 2.33714 15.7872 3.24219 15.5751 4.09449C15.523 4.30389 15.4969 4.4086 15.5119 4.48882C15.5269 4.56905 15.5892 4.65764 15.7139 4.8348C16.2149 5.54667 16.5 6.36458 16.5 7.23454C16.5 10.5808 14.8996 11.5896 12.6172 12.217C12.3416 12.2928 12.2371 12.6357 12.3897 12.8774C12.6121 13.2297 12.75 13.6197 12.75 14.0684V16.5"
+                stroke="#FAFAFA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
     'github-circle': (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -117,6 +150,24 @@ const iconComponents = {
             />
         </svg>
     ),
+    'mobilegithub-circle': (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="none"
+        >
+            <path
+                d="M8.68987 22.8174C9.21577 23.5872 10.8119 25.2302 12.989 25.6442M13.1525 29.3332C11.7812 29.1073 2.66675 26.1408 2.66675 16.1233C2.66675 6.75089 10.6693 2.6665 16.0011 2.6665C21.3329 2.6665 29.3334 6.75089 29.3334 16.1233C29.3334 26.1408 20.219 29.1073 18.8477 29.3332C18.8477 29.3332 18.569 24.7766 18.7317 23.9957C18.8942 23.2149 18.3403 21.9582 18.3403 21.9582C19.635 21.4738 21.6058 20.7794 22.2669 18.9164C22.7798 17.4708 23.1025 15.3716 21.6678 13.3984C21.6678 13.3984 22.0425 10.2106 21.3329 10.0871C20.6234 9.96366 18.5331 11.3491 18.5331 11.3491C17.9243 11.1765 16.5658 10.8462 16.0025 10.9057C15.439 10.8462 14.0758 11.1765 13.467 11.3491C13.467 11.3491 11.3767 9.96366 10.6672 10.0871C9.95772 10.2106 10.3323 13.3984 10.3323 13.3984C8.89763 15.3716 9.22029 17.4708 9.73328 18.9164C10.3944 20.7794 12.3652 21.4738 13.6598 21.9582C13.6598 21.9582 13.106 23.2149 13.2685 23.9957C13.4311 24.7766 13.1525 29.3332 13.1525 29.3332Z"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+
     linkedin: (props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -143,11 +194,59 @@ const iconComponents = {
             />
         </svg>
     ),
+    mobilelinkedin: (props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            fill="none"
+        >
+            <path
+                d="M5.99984 12.6665H5.33317C4.07609 12.6665 3.44756 12.6665 3.05702 13.057C2.6665 13.4476 2.6665 14.0761 2.6665 15.3332V26.6665C2.6665 27.9236 2.6665 28.5521 3.05702 28.9426C3.44756 29.3332 4.07609 29.3332 5.33317 29.3332H5.99984C7.25692 29.3332 7.88545 29.3332 8.27598 28.9426C8.6665 28.5521 8.6665 27.9236 8.6665 26.6665V15.3332C8.6665 14.0761 8.6665 13.4476 8.27598 13.057C7.88545 12.6665 7.25692 12.6665 5.99984 12.6665Z"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+            />
+            <path
+                d="M8.6665 5.6665C8.6665 7.32336 7.32336 8.6665 5.6665 8.6665C4.00965 8.6665 2.6665 7.32336 2.6665 5.6665C2.6665 4.00965 4.00965 2.6665 5.6665 2.6665C7.32336 2.6665 8.6665 4.00965 8.6665 5.6665Z"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+            />
+            <path
+                d="M16.4345 12.6665H15.3332C14.0761 12.6665 13.4476 12.6665 13.057 13.057C12.6665 13.4476 12.6665 14.0761 12.6665 15.3332V26.6665C12.6665 27.9236 12.6665 28.5521 13.057 28.9426C13.4476 29.3332 14.0761 29.3332 15.3332 29.3332H15.9998C17.2569 29.3332 17.8854 29.3332 18.276 28.9426C18.6665 28.5521 18.6665 27.9236 18.6665 26.6665L18.6666 22C18.6666 19.7909 19.3706 18 21.4504 18C22.4901 18 23.3332 18.8954 23.3332 20V26C23.3332 27.257 23.3332 27.8856 23.7237 28.2761C24.1141 28.6666 24.7428 28.6666 25.9998 28.6666H26.6648C27.9216 28.6666 28.55 28.6666 28.9405 28.2762C29.331 27.8858 29.3312 27.2574 29.3314 26.0006L29.3333 18.6668C29.3333 15.3532 26.1817 12.6668 23.0622 12.6668C21.2864 12.6668 19.7021 13.5373 18.6666 14.8985C18.6665 14.0584 18.6665 13.6384 18.4841 13.3265C18.3685 13.129 18.204 12.9645 18.0065 12.849C17.6946 12.6665 17.2746 12.6665 16.4345 12.6665Z"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
     mail: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+        >
+            <path
+                d="M2.6665 8L11.8839 13.2226C15.282 15.148 16.7177 15.148 20.1158 13.2226L29.3332 8"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M2.68753 17.9673C2.77469 22.0548 2.81828 24.0984 4.32645 25.6124C5.83461 27.1262 7.93361 27.1789 12.1316 27.2844C14.7189 27.3494 17.2808 27.3494 19.8681 27.2844C24.0661 27.1789 26.165 27.1262 27.6733 25.6124C29.1814 24.0984 29.225 22.0548 29.3121 17.9673C29.3402 16.653 29.3402 15.3466 29.3121 14.0324C29.225 9.94498 29.1814 7.90129 27.6733 6.38739C26.165 4.87348 24.0661 4.82075 19.8681 4.71527C17.2808 4.65025 14.7189 4.65025 12.1316 4.71525C7.93361 4.82072 5.83461 4.87345 4.32644 6.38737C2.81826 7.90128 2.77469 9.94497 2.68752 14.0324C2.65949 15.3466 2.6595 16.653 2.68753 17.9673Z"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    mobilemail: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             viewBox="0 0 32 32"
             fill="none"
         >
@@ -218,6 +317,23 @@ const iconComponents = {
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+        >
+            <path
+                d="M4 28L14.0645 17.9355M14.0645 17.9355L4 4H10.6667L17.9355 14.0645M14.0645 17.9355L21.3333 28H28L17.9355 14.0645M28 4L17.9355 14.0645"
+                stroke="#E5E5E5"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    mobiletwitter: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             viewBox="0 0 32 32"
             fill="none"
         >
@@ -330,6 +446,24 @@ const iconComponents = {
             />
         </svg>
     ),
+    'mobilearrow-right': (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M5 12H19M19 12L12 5M19 12L12 19"
+                stroke="#FAFAFA"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+
     'arrow-up-right': (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -405,6 +539,34 @@ const iconComponents = {
             />
         </svg>
     ),
+    mobileinstagram: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M1.5 12C1.5 6.77208 1.5 4.15812 3.07906 2.57906C4.65812 1 7.27208 1 12.5 1C17.7279 1 20.3419 1 21.9209 2.57906C23.5 4.15812 23.5 6.77208 23.5 12C23.5 17.2279 23.5 19.8419 21.9209 21.4209C20.3419 23 17.7279 23 12.5 23C7.27208 23 4.65812 23 3.07906 21.4209C1.5 19.8419 1.5 17.2279 1.5 12Z"
+                stroke="#FAFAFA"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M17.5 12C17.5 15.0376 15.0376 17.5 12 17.5C8.96243 17.5 6.5 15.0376 6.5 12C6.5 8.96243 8.96243 6.5 12 6.5C15.0376 6.5 17.5 8.96243 17.5 12Z"
+                stroke="#FAFAFA"
+                strokeWidth="1.8"
+            />
+            <path
+                d="M18.5 5.5H18.49"
+                stroke="#FAFAFA"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
     clock: (_props: SVGProps<SVGSVGElement>) => (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -451,6 +613,30 @@ const iconComponents = {
             />
             <path
                 d="M12 8V12L14 14"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    location: (_props: SVGProps<SVGSVGElement>) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2Z"
+                stroke="#DADADA"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z"
                 stroke="#DADADA"
                 strokeWidth="1.5"
                 strokeLinecap="round"

@@ -28,17 +28,17 @@ const pillars = [
 export function TechnicalPillars() {
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto px-4 md:px-24">
+            <div className="mx-auto px-4 md:px-8 lg:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
-                    <div className="border-tertiary-400 border-b pb-6">
+                    <div className="border-tertiary-400 border-b pb-4 md:pb-6">
                         <h2 className="md:text-h3 text-body2 font-space-grotesk text-secondary-200 text-[18px] font-medium md:text-[32px]">
                             TECHNICAL PILLARS
                         </h2>
                     </div>
 
                     {/* Pillars Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:gap-6 lg:grid-cols-3">
                         {pillars.map((pillar, index) => (
                             <div key={index} className="space-y-6">
                                 {/* Pillar Title */}

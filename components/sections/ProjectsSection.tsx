@@ -12,7 +12,7 @@ export function ProjectsSection() {
 
     return (
         <section className="bg-primary-900 border-tertiary-400 border-t py-20">
-            <div className="mx-auto px-4 md:px-24">
+            <div className="mx-auto px-4 md:px-8 lg:px-24">
                 <div className="space-y-10">
                     {/* Section Header */}
                     <div className="border-tertiary-400 border-b pb-6">
@@ -124,7 +124,7 @@ export function ProjectsSection() {
                     </div>
 
                     {/* View More Button */}
-                    <div className="hidden justify-end pt-10 md:flex">
+                    <div className="hidden justify-end md:flex">
                         <Link href="/projects">
                             <Button variant="outline" size="lg">
                                 VIEW FULL PROJECTS
@@ -132,7 +132,7 @@ export function ProjectsSection() {
                         </Link>
                     </div>
                     {/* View More Button Mobile*/}
-                    <div className="flex justify-end pt-10 md:hidden">
+                    <div className="flex justify-end md:hidden">
                         <Link href="/projects">
                             <Button variant="outline" size="sm">
                                 VIEW FULL PROJECTS
