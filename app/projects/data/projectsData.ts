@@ -40,46 +40,6 @@ export const projects: Project[] = [
             sdk: '#',
         },
     },
-    {
-        id: 'aegis-7',
-        title: 'Aegis-7',
-        description:
-            'Cryptographic verification and integrity tooling for trust-critical decentralized systems.',
-        status: 'Testnet — strictly internal beta',
-        systemArchitecture:
-            'Aegis-7 is a formal verification framework and symbolic execution engine specifically tuned for EVM bytecode analysis. Unlike static analysis tools that rely on pattern matching, Aegis-7 constructs a control flow graph of the target contract and attempts to mathematically disprove safety invariants across all possible input states. The engine utilizes a custom constraint solver optimized for the 256-bit word size of the Ethereum Virtual Machine, allowing it to detect complex reentrancy and logic errors that escape standard fuzzing campaigns. The system is currently deployed as a CI/CD integration middleware, automatically rejecting commits that violate defined formal specifications.',
-        technicalSummary: [
-            'Symbolic execution engine written in Rust',
-            'Custom SMT solver heuristics for EVM opcodes',
-            'Automated invariant generation based on ERC standards',
-        ],
-        links: {
-            repository: '#',
-            // documentation: '#',
-            architecture: '#',
-            demo: '#',
-        },
-    },
-    {
-        id: 'nexus-grid',
-        title: 'Nexus Grid',
-        description:
-            'Infrastructure for cross-domain coordination and data exchange across decentralized networks.',
-        status: 'Experimental — limited partner access',
-        systemArchitecture:
-            "Nexus Grid is a decentralized compute coordination layer designed to handle non-deterministic workloads that cannot be processed by standard consensus environments. It employs a 'proof of useful work' model where compute nodes (workers) cryptographically commit to execution traces. The architecture focuses on verifiable off-chain computation, utilizing a game-theoretic challenge-response mechanism to slash malicious nodes. This system serves as the backbone for our AI inference experiments, allowing lightweight clients to request heavy model executions and receive a succinct proof of correctness alongside the result, eliminating the need for trust in the compute provider...",
-        technicalSummary: [
-            'Optimistic verification game for compute tasks',
-            'WASM-based sandboxed execution environment',
-            'Economic finality gadget for asynchronous task completion',
-        ],
-        siteUrl: '#', // Uncomment and add real URL when ready
-        links: {
-            spec: '#',
-            git: '#',
-            testnet: '#',
-        },
-    },
 ]
 
 export function getProjects(): Project[] {
