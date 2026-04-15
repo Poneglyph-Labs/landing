@@ -12,7 +12,7 @@ const socialLinks: {
 }[] = [
     {
         name: 'Twitter',
-        href: '#',
+        href: 'htpps://twitter.com/poneglyph_labs',
         icon: 'twitter',
         mobileicon: 'mobiletwitter',
     },
@@ -24,7 +24,7 @@ const socialLinks: {
     },
     {
         name: 'LinkedIn',
-        href: '#',
+        href: 'https://www.linkedin.com/company/poneglyph-labs',
         icon: 'linkedin',
         mobileicon: 'mobilelinkedin',
     },
