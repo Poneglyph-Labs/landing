@@ -45,7 +45,7 @@ export const projects: Project[] = [
         title: 'Calyx Protocol',
         description:
             'Private intent-based automation with encrypted triggers and MEV-resistant execution',
-        status: 'Demo — triple-layer privacy architecture',
+        status: 'Demo — triple-lock privacy architecture',
         systemArchitecture:
             'Calyx Protocol is a privacy-first intent execution system designed to enable fully encrypted and trust-minimized automation in adversarial blockchain environments. The architecture employs a Triple-Lock model combining Fully Homomorphic Encryption (FHE), Zero-Knowledge Proofs (ZK), and Trusted Execution Environments (TEE). User-defined conditions, such as price triggers, are encrypted client-side and evaluated blindly by solver nodes without revealing sensitive parameters. Upon trigger satisfaction, the solver generates a zk-SNARK proof to attest to the correctness of execution conditions without exposing underlying data. This proof is verified by an external verifier, after which a secure enclave decrypts the execution payload and submits the transaction via a private RPC channel. By bypassing the public mempool and isolating decryption within hardware-protected environments, the system eliminates front-running vectors and ensures end-to-end confidentiality of user intent and execution.',
         technicalSummary: [
@@ -53,32 +53,34 @@ export const projects: Project[] = [
             'Groth16 zk-SNARK proofs with Circom/SnarkJS verified via zkVerify',
             'TEE-based secure execution with private RPC submission via Flashbots Protect',
         ],
-        siteUrl: '#',
+        siteUrl: 'https://github.com/Calyx-Protocol/demo',
         links: {
             documentation: 'https://github.com/Calyx-Protocol/demo',
-            sdk: '#',
+            sdk: 'https://github.com/Calyx-Protocol/demo',
         },
     },
 
     {
         id: 'wraith-protocol',
         title: 'Wraith Protocol',
-        description:
-            'Multichain stealth address platform for private payments with AI-powered execution',
-        status: 'Live — SDK-based private payments on EVM and Stellar',
-        systemArchitecture:
-            'Wraith is a multichain privacy infrastructure that enables unlinkable payments through stealth address derivation and AI-driven execution. The system abstracts chain-specific cryptography and wallet management into a unified SDK, where an intelligent agent operates within a Trusted Execution Environment (TEE) to securely derive keys, manage identities, and route transactions across heterogeneous blockchain networks. Each payment generates a unique one-time stealth address using chain-specific primitives (secp256k1 for EVM and ed25519 for Stellar), eliminating on-chain linkability between sender and receiver. The agent processes natural language commands to orchestrate payment flows, scan for incoming transfers, and perform privacy analysis, while maintaining strict isolation of sensitive key material inside enclave hardware. By combining multichain connectors, enclave-based key derivation, and AI-assisted transaction routing, Wraith provides a seamless and privacy-preserving payment layer without requiring developers to manage infrastructure or cryptographic complexity.',
+        description: 'Multichain stealth address protocol for private payments with AI agent infrastructure',
+        status: 'Live on Horizen and Stellar testnets. SDK published on npm.',
+        systemArchitecture: 'Wraith Protocol enables unlinkable payments across multiple blockchains through stealth address cryptography and a managed AI agent platform. The protocol uses chain-specific elliptic curve math (secp256k1 for EVM chains, ed25519 for Stellar) to generate one-time stealth addresses for every payment. On-chain, each transaction appears as a transfer to a random fresh wallet with no link between sender and recipient. The SDK provides developers with stealth address generation, announcement scanning with view tag filtering, transaction builders that return chain-agnostic calldata, human-readable .wraith name registration, and built-in announcement fetching from indexed data sources. Beyond the core protocol, a managed AI agent platform runs inside Phala TEE hardware (Intel TDX) where agent keys are derived deterministically in the enclave and never stored on disk. Agents handle stealth payments, scanning, withdrawals, invoicing, scheduled transfers, and privacy analysis through natural language. The architecture uses pluggable chain connectors so adding a new EVM chain requires only configuration and contract deployment, while new chain families require a single connector implementation. The agent core, AI engine, storage, and all 17 tools remain chain-agnostic.',
         technicalSummary: [
-            'Stealth address generation using secp256k1 (EVM) and ed25519 (Stellar) primitives',
-            'TEE-based key derivation and agent execution using Intel TDX enclaves',
-            'AI-powered SDK interface for multichain transaction routing and privacy analysis',
+          'Stealth address generation using secp256k1 (EVM) and ed25519 (Stellar) with view tag filtering for efficient scanning',
+          'TEE-based deterministic key derivation using Intel TDX enclaves via Phala DStack, keys never stored on disk',
+          'Pluggable chain connector architecture where EVM chains are config-only and new chain families are a single interface implementation',
+          'AI agent platform with 17 tools for payments, scanning, withdrawals, invoicing, scheduling, and privacy scoring',
+          'Transaction builders that return chain-agnostic calldata, compatible with any EVM library (viem, ethers, wagmi)',
         ],
-        siteUrl: 'https://demo.usewraith.xyz/',
+        siteUrl: 'https://usewraith.xyz/',
         links: {
             documentation: 'https://docs.usewraith.xyz/',
-            sdk: 'https://docs.usewraith.xyz/sdk/overview',
+            sdk: 'https://www.npmjs.com/package/@wraith-protocol/sdk',
+            demo: 'https://demo.usewraith.xyz/',
+            repository: 'https://github.com/wraith-protocol',
         },
-    },
+    }
 ]
 
 export function getProjects(): Project[] {
